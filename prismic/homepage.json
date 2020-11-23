@@ -1,0 +1,245 @@
+{
+  "Main" : {
+    "title" : {
+      "type" : "StructuredText",
+      "config" : {
+        "single" : "heading1",
+        "label" : "Title"
+      }
+    },
+    "hero_title" : {
+      "type" : "StructuredText",
+      "config" : {
+        "single" : "heading1",
+        "label" : "Hero Title"
+      }
+    },
+    "hero_copy" : {
+      "type" : "StructuredText",
+      "config" : {
+        "multi" : "paragraph, preformatted, strong, em, hyperlink, embed, list-item, o-list-item, o-list-item",
+        "allowTargetBlank" : true,
+        "label" : "Hero Copy",
+        "labels" : [ "highlight" ]
+      }
+    },
+    "hero_image" : {
+      "type" : "Image",
+      "config" : {
+        "constraint" : {
+          "width" : 3200
+        },
+        "thumbnails" : [ ],
+        "label" : "Hero Image"
+      }
+    },
+    "hero_video" : {
+      "type" : "Link",
+      "config" : {
+        "select" : "media",
+        "label" : "Hero Video"
+      }
+    },
+    "play_video_text" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "Play Full Length Video Text"
+      }
+    },
+    "full_length_video_link" : {
+      "type" : "Link",
+      "config" : {
+        "label" : "Full Length Video Link"
+      }
+    },
+    "scroll_text" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "Scroll Text"
+      }
+    },
+    "body" : {
+      "type" : "Slices",
+      "fieldset" : "Slice zone",
+      "config" : {
+        "choices" : {
+          "content_slice" : {
+            "type" : "Slice",
+            "fieldset" : "Content Slice",
+            "description" : "Conten Slice",
+            "icon" : "format_color_text",
+            "display" : "list",
+            "non-repeat" : {
+              "mobile_background_image" : {
+                "type" : "Image",
+                "config" : {
+                  "constraint" : {
+                    "width" : 3200
+                  },
+                  "thumbnails" : [ ],
+                  "label" : "Mobile Background Image"
+                }
+              },
+              "title1" : {
+                "type" : "StructuredText",
+                "config" : {
+                  "single" : "heading2",
+                  "label" : "Title"
+                }
+              },
+              "copy" : {
+                "type" : "StructuredText",
+                "config" : {
+                  "multi" : "paragraph, preformatted, heading3, heading4, heading5, strong, em, hyperlink, list-item, o-list-item, o-list-item",
+                  "allowTargetBlank" : true,
+                  "label" : "Copy",
+                  "labels" : [ "highlight" ]
+                }
+              },
+              "call_to_action_text" : {
+                "type" : "Text",
+                "config" : {
+                  "label" : "Call To Action Text",
+                  "placeholder" : "Will default to \"Read more\""
+                }
+              },
+              "call_to_action_link" : {
+                "type" : "Link",
+                "config" : {
+                  "allowTargetBlank" : true,
+                  "label" : "Call To Action Link"
+                }
+              },
+              "anchor_name" : {
+                "type" : "Text",
+                "config" : {
+                  "label" : "Anchor Name"
+                }
+              }
+            },
+            "repeat" : { }
+          },
+          "news_slice" : {
+            "type" : "Slice",
+            "fieldset" : "News Slice",
+            "description" : "News Slice",
+            "icon" : "add_to_photos",
+            "display" : "list",
+            "non-repeat" : {
+              "mobile_background_image" : {
+                "type" : "Image",
+                "config" : {
+                  "constraint" : {
+                    "width" : 3200
+                  },
+                  "thumbnails" : [ ],
+                  "label" : "Mobile Background Image"
+                }
+              },
+              "title1" : {
+                "type" : "StructuredText",
+                "config" : {
+                  "single" : "heading2",
+                  "label" : "Title"
+                }
+              },
+              "copy" : {
+                "type" : "StructuredText",
+                "config" : {
+                  "multi" : "paragraph, preformatted, heading3, heading4, heading5, heading6, strong, em, hyperlink, list-item, o-list-item, o-list-item",
+                  "allowTargetBlank" : true,
+                  "label" : "Copy",
+                  "labels" : [ "highlight" ]
+                }
+              },
+              "call_to_action_link" : {
+                "type" : "Link",
+                "config" : {
+                  "allowTargetBlank" : true,
+                  "label" : "Call To Action Link"
+                }
+              },
+              "call_to_action_text" : {
+                "type" : "Text",
+                "config" : {
+                  "label" : "Call To Action Text",
+                  "placeholder" : "Will default to \"Read more\""
+                }
+              },
+              "anchor_name" : {
+                "type" : "Text",
+                "config" : {
+                  "label" : "Anchor Name"
+                }
+              }
+            },
+            "repeat" : { }
+          }
+        }
+      }
+    }
+  },
+  "Carousel" : {
+    "images" : {
+      "type" : "Group",
+      "config" : {
+        "fields" : {
+          "image" : {
+            "type" : "Image",
+            "config" : {
+              "constraint" : {
+                "width" : 3200
+              },
+              "thumbnails" : [ ],
+              "label" : "Image"
+            }
+          }
+        },
+        "label" : "Images"
+      }
+    }
+  },
+  "SEO" : {
+    "meta_title" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "Meta Title"
+      }
+    },
+    "meta_keywords" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "Meta Keywords"
+      }
+    },
+    "meta_description" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "Meta Description"
+      }
+    },
+    "open_graph_title" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "Open Graph Title"
+      }
+    },
+    "open_graph_description" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "Open Graph Description"
+      }
+    },
+    "open_graph_image" : {
+      "type" : "Image",
+      "config" : {
+        "constraint" : {
+          "width" : 1200,
+          "height" : 630
+        },
+        "thumbnails" : [ ],
+        "label" : "Open Graph Image"
+      }
+    }
+  }
+}

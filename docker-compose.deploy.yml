@@ -1,0 +1,14 @@
+version: '3.5'
+
+services:
+  deploy:
+    build:
+      context: ./.docker/deploy
+      dockerfile: Dockerfile
+    volumes:
+      - .:/usr/src/app
+    networks:
+      - infinite-water-deploy
+
+networks:
+  infinite-water-deploy:

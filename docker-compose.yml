@@ -1,0 +1,28 @@
+version: '3'
+services:
+  nginx:
+    build: ./.docker/nginx
+    ports:
+      - "3001:80"
+    depends_on:
+      - thumbor
+      - redis
+  thumbor:
+    image: apsl/thumbor
+    ports:
+      - "8000:8000"
+    environment:
+      - SECURITY_KEY=you_will_never_guess_this
+      - ALLOW_UNSAFE_URL=False
+#      - STORAGE=thumbor.storages.file_storage
+      - STORAGE=tc_redis.storages.redis_storage
+      - RESULT_STORAGE=thumbor.result_storages.file_storage
+      - REDIS_STORAGE_SERVER_HOST=redis
+      - REDIS_STORAGE_SERVER_PORT=6379
+      - REDIS_STORAGE_SERVER_DB=0
+    depends_on:
+      - redis
+  redis:
+    image: redis
+    ports:
+      - "6379:6379"

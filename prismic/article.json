@@ -1,0 +1,300 @@
+{
+  "Main" : {
+    "title" : {
+      "type" : "StructuredText",
+      "config" : {
+        "single" : "heading1",
+        "label" : "Title"
+      }
+    },
+    "uid" : {
+      "type" : "UID",
+      "config" : {
+        "label" : "Slug"
+      }
+    },
+    "article_type" : {
+      "type" : "Select",
+      "config" : {
+        "options" : [ "News Article", "Case Study" ],
+        "default_value" : "News Article",
+        "label" : "Article Type"
+      }
+    },
+    "theme" : {
+      "type" : "Select",
+      "config" : {
+        "options" : [ "light", "dark" ],
+        "default_value" : "light",
+        "label" : "Theme"
+      }
+    },
+    "summary" : {
+      "type" : "StructuredText",
+      "config" : {
+        "single" : "paragraph, strong, em",
+        "label" : "Summary",
+        "placeholder" : "Single line description of the article"
+      }
+    },
+    "hero_image" : {
+      "type" : "Image",
+      "config" : {
+        "constraint" : {
+          "width" : 3200,
+          "height" : null
+        },
+        "thumbnails" : [ ],
+        "label" : "Hero Image"
+      }
+    },
+    "body" : {
+      "type" : "Slices",
+      "fieldset" : "Slice zone",
+      "config" : {
+        "choices" : {
+          "rich_text_slice" : {
+            "type" : "Slice",
+            "fieldset" : "Rich Text Slice",
+            "description" : "Rich Text Slice",
+            "icon" : "format_color_text",
+            "display" : "list",
+            "non-repeat" : {
+              "text" : {
+                "type" : "StructuredText",
+                "config" : {
+                  "multi" : "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, list-item, o-list-item, o-list-item",
+                  "allowTargetBlank" : true,
+                  "label" : "Text",
+                  "labels" : [ "highlight" ]
+                }
+              },
+              "columns" : {
+                "type" : "Select",
+                "config" : {
+                  "options" : [ "1", "2", "Full Width" ],
+                  "default_value" : "1",
+                  "label" : "Columns"
+                }
+              },
+              "link_text" : {
+                "type" : "Text",
+                "config" : {
+                  "label" : "Link Text",
+                  "placeholder" : "This will appear at the end of the slice"
+                }
+              },
+              "link_url" : {
+                "type" : "Link",
+                "config" : {
+                  "allowTargetBlank" : true,
+                  "label" : "Link Url"
+                }
+              }
+            },
+            "repeat" : {
+              "image" : {
+                "type" : "Image",
+                "config" : {
+                  "constraint" : {
+                    "width" : 1440,
+                    "height" : 1440
+                  },
+                  "thumbnails" : [ ],
+                  "label" : "Image - 1440x1440"
+                }
+              }
+            }
+          },
+          "text_with_image_slice" : {
+            "type" : "Slice",
+            "fieldset" : "Text With Full Height Images",
+            "description" : "Text With Images Slice",
+            "icon" : "format_indent_increase",
+            "display" : "list",
+            "non-repeat" : {
+              "text" : {
+                "type" : "StructuredText",
+                "config" : {
+                  "multi" : "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, list-item, o-list-item, o-list-item",
+                  "allowTargetBlank" : true,
+                  "label" : "Text",
+                  "labels" : {
+                    "" : [ {
+                      "name" : "highlight"
+                    }, {
+                      "name" : "align-right"
+                    }, {
+                      "name" : "align-center"
+                    } ]
+                  }
+                }
+              },
+              "link_text" : {
+                "type" : "Text",
+                "config" : {
+                  "label" : "Link Text"
+                }
+              },
+              "link_url" : {
+                "type" : "Link",
+                "config" : {
+                  "allowTargetBlank" : true,
+                  "label" : "Link Url"
+                }
+              }
+            },
+            "repeat" : {
+              "image" : {
+                "type" : "Image",
+                "config" : {
+                  "constraint" : {
+                    "width" : 3200
+                  },
+                  "thumbnails" : [ ],
+                  "label" : "Image"
+                }
+              }
+            }
+          },
+          "full_width_image_slice" : {
+            "type" : "Slice",
+            "fieldset" : "Full Width Image Slice",
+            "description" : "Full Width Image Slice",
+            "icon" : "image",
+            "display" : "list",
+            "non-repeat" : {
+              "image" : {
+                "type" : "Image",
+                "config" : {
+                  "constraint" : {
+                    "width" : 3200
+                  },
+                  "thumbnails" : [ ],
+                  "label" : "Image"
+                }
+              }
+            },
+            "repeat" : { }
+          },
+          "cta_slice" : {
+            "type" : "Slice",
+            "fieldset" : "CTA Slice",
+            "description" : "Full Width CTA Slice",
+            "icon" : "insert_link",
+            "display" : "list",
+            "non-repeat" : {
+              "link_text" : {
+                "type" : "Text",
+                "config" : {
+                  "label" : "Link Text"
+                }
+              },
+              "link_url" : {
+                "type" : "Link",
+                "config" : {
+                  "allowTargetBlank" : true,
+                  "label" : "Link Url"
+                }
+              }
+            },
+            "repeat" : { }
+          },
+          "hero_slice" : {
+            "type" : "Slice",
+            "fieldset" : "Hero Slice",
+            "description" : "Page Hero",
+            "icon" : "broken_image",
+            "display" : "list",
+            "non-repeat" : {
+              "hero_title" : {
+                "type" : "StructuredText",
+                "config" : {
+                  "single" : "heading1",
+                  "label" : "Hero Title"
+                }
+              },
+              "hero_text" : {
+                "type" : "StructuredText",
+                "config" : {
+                  "multi" : "paragraph, preformatted, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, o-list-item",
+                  "label" : "Hero Text",
+                  "labels" : [ "quote" ]
+                }
+              },
+              "hero_image" : {
+                "type" : "Image",
+                "config" : {
+                  "constraint" : {
+                    "width" : 3200,
+                    "height" : 1777
+                  },
+                  "thumbnails" : [ ],
+                  "label" : "Hero Image"
+                }
+              }
+            },
+            "repeat" : {
+              "tab_title" : {
+                "type" : "Text",
+                "config" : {
+                  "label" : "Tab Title"
+                }
+              },
+              "tab_link" : {
+                "type" : "Link",
+                "config" : {
+                  "allowTargetBlank" : true,
+                  "label" : "Tab Link"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "SEO" : {
+    "meta_title" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "Meta Title"
+      }
+    },
+    "meta_keywords" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "Meta Keywords"
+      }
+    },
+    "meta_description" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "Meta Description"
+      }
+    },
+    "open_graph_title" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "Open Graph Title"
+      }
+    },
+    "open_graph_description" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "Open Graph Description"
+      }
+    },
+    "open_graph_image" : {
+      "type" : "Image",
+      "config" : {
+        "constraint" : {
+          "width" : 1200,
+          "height" : 630
+        },
+        "thumbnails" : [ ],
+        "label" : "Open Graph Image"
+      }
+    }
+  }
+}
