@@ -104,8 +104,8 @@
     "whatwg-fetch": "2.0.3"
   },
   "scripts": {
-    "start-dev": "node scripts/start.js",
-    "start": "cross-env NODE_ENV=production node scripts/start.js",
+    "start": "node scripts/start.js",
+    "start-prod": "cross-env NODE_ENV=production node scripts/start.js",
     "build": "cross-env standard \"src/**/*.js\" && node scripts/build.js",
     "test": "cross-env standard \"src/**/*.js\" --fix && node scripts/test.js --env=jsdom",
     "docker": "docker-compose -f docker-compose.yml up",
