@@ -109,6 +109,34 @@ class Menu extends Component {
                         {
                           x.menu_title === 'Contact' && <Link className={classes.dropbtn} to={x.menu_link.url}><span><Symbol icon={phone} className={classes.chevronDoubleRight} />{x.menu_title}</span></Link>
                         }
+                        {/* chinese */}
+                        {
+                          x.menu_title === '主页' && <Link className={classes.dropbtn} to={x.menu_link.url}><span><Symbol icon={house} className={classes.chevronDoubleRight} />{x.menu_title}</span></Link>
+                        }
+                        {
+                          x.menu_title === '公司简介' && <Link className={classes.dropbtn} to={x.menu_link.url}><span><Symbol icon={star} className={classes.chevronDoubleRight} />{x.menu_title}</span></Link>
+                        }
+                        {
+                          x.menu_title === '我们的技术' && <Link className={classes.dropbtn} to={x.menu_link.url}><span><Symbol icon={handUp} className={classes.chevronDoubleRight} />{x.menu_title}</span></Link>
+                        }
+                        {
+                          x.menu_title === '我们的团队' && <Link className={classes.dropbtn} to={x.menu_link.url}><span><Symbol icon={people} className={classes.chevronDoubleRight} />{x.menu_title}</span></Link>
+                        }
+                        {
+                          x.menu_title === '案例研究' && <Link className={classes.dropbtn} to={x.menu_link.url}><span><Symbol icon={award} className={classes.chevronDoubleRight} />{x.menu_title}</span></Link>
+                        }
+                        {
+                          x.menu_title === '公司新闻' && <Link className={classes.dropbtn} to={x.menu_link.url}><span><Symbol icon={news} className={classes.chevronDoubleRight} />{x.menu_title}</span></Link>
+                        }
+                        {
+                          x.menu_title === '联系我们' && <Link className={classes.dropbtn} to={x.menu_link.url}><span><Symbol icon={phone} className={classes.chevronDoubleRight} />{x.menu_title}</span></Link>
+                        }
+                        {
+                          x.menu_title === '应用' && <Link className={classes.dropbtn} to={x.menu_link.url}><span><Symbol icon={tablet} className={classes.chevronDoubleRight} />{x.menu_title}</span></Link>
+                        }
+                        {
+                          x.menu_title === '应用领域' && <Link className={classes.dropbtn} to={x.menu_link.url}><span><Symbol icon={barChat} className={classes.chevronDoubleRight} />{x.menu_title}</span></Link>
+                        }
                         {/* <Link className={classes.dropbtn}  to={x.menu_link.url}><span><Symbol icon={this.getIconFunc('house')} className={classes.chevronDoubleRight} />{ x.menu_title }</span></Link> */}
                       </div>
                     }
