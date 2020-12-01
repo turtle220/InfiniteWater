@@ -18,6 +18,9 @@ export default {
         const global = getGlobalContent(getState())
         const path = getCurrentPathWithoutLocality(getState())
         if (!global) {
+//	 const ggg = await fetchGlobal(locality)
+//	dispatch(globalContentLoaded(ggg))
+//	console.log(ggg)
           dispatch(globalContentLoaded(await fetchGlobal(locality)))
         }
 

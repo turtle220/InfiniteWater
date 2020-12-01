@@ -1,10 +1,13 @@
 'use strict'
 
 // Do this as the first thing so that any code reading it knows the right env.
-const DEV = (process.env.NODE_ENV || 'development') === 'development'
+const DEV = false; //(process.env.NODE_ENV || 'development') === 'development'
 if (DEV) {
   process.env.BABEL_ENV = 'development'
   process.env.NODE_ENV = 'development'
+} else {
+  process.env.BABEL_ENV = 'production'
+  process.env.NODE_ENV = 'production'
 }
 
 // Makes the script crash on unhandled rejections instead of silently
@@ -26,7 +29,7 @@ const choosePort = DEV ? require('react-dev-utils/WebpackDevServerUtils').choose
 const createServer = DEV ? require('./server.dev') : require('./server.prod')
 
 // Tools like Cloud9 rely on this.
-const DEFAULT_PORT = parseInt(process.env.PORT, 10) || 3000
+const DEFAULT_PORT = parseInt(process.env.PORT, 10) || 80
 const HOST = process.env.HOST || '0.0.0.0'
 
 if (process.env.HOST) {
