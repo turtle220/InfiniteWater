@@ -75,6 +75,7 @@ class Menu extends Component {
   }
   render () {
     const { classes, menu, global } = this.props
+console.log('----menu:', menu, classes);
 
     return [
       <div key='overlay' className={classes.overlay} ref={this.setOverlayRef} onClick={this.onHideMenu} />,
@@ -123,20 +124,24 @@ class Menu extends Component {
                           x.menu_title === '我们的团队' && <Link className={classes.dropbtn} to={x.menu_link.url}><span><Symbol icon={people} className={classes.chevronDoubleRight} />{x.menu_title}</span></Link>
                         }
                         {
-                          x.menu_title === '案例研究' && <Link className={classes.dropbtn} to={x.menu_link.url}><span><Symbol icon={award} className={classes.chevronDoubleRight} />{x.menu_title}</span></Link>
+                          x.menu_title === '应用领域' && <Link className={classes.dropbtn} to={x.menu_link.url}><span><Symbol icon={award} className={classes.chevronDoubleRight} />案例研究</span></Link>
                         }
+                        {
+                          x.menu_title === '应用' && <Link className={classes.dropbtn} to={x.menu_link.url}><span><Symbol icon={news} className={classes.chevronDoubleRight} />无限新闻</span></Link>
+                        }
+                
                         {
                           x.menu_title === '公司新闻' && <Link className={classes.dropbtn} to={x.menu_link.url}><span><Symbol icon={news} className={classes.chevronDoubleRight} />{x.menu_title}</span></Link>
                         }
                         {
                           x.menu_title === '联系我们' && <Link className={classes.dropbtn} to={x.menu_link.url}><span><Symbol icon={phone} className={classes.chevronDoubleRight} />{x.menu_title}</span></Link>
                         }
-                        {
+                        {/* {
                           x.menu_title === '应用' && <Link className={classes.dropbtn} to={x.menu_link.url}><span><Symbol icon={tablet} className={classes.chevronDoubleRight} />{x.menu_title}</span></Link>
-                        }
-                        {
+                        } */}
+                        {/* {
                           x.menu_title === '应用领域' && <Link className={classes.dropbtn} to={x.menu_link.url}><span><Symbol icon={barChat} className={classes.chevronDoubleRight} />{x.menu_title}</span></Link>
-                        }
+                        } */}
                         {/* <Link className={classes.dropbtn}  to={x.menu_link.url}><span><Symbol icon={this.getIconFunc('house')} className={classes.chevronDoubleRight} />{ x.menu_title }</span></Link> */}
                       </div>
                     }
@@ -154,10 +159,28 @@ class Menu extends Component {
                             <Link className={classes.test} to={'/page/applications-industrial-use'}><span>Industrial Use</span></Link>
                             <Link className={classes.test} to={'/page/applications-industrial-wastewater-reuse'}><span>Industrial Wastewater and Reuse</span></Link>
                             <Link className={classes.test} to={'/page/applications-sewage-treatment-recycling'}><span>Sewage Treatment & Recycling</span></Link>
-                            <Link className={classes.test} to={'/page/applications-environment-remediation'}><span>Environment remediation</span></Link>
+                            <Link className={classes.test} to={'/page/applications-environment-remediation'}><span>Environment Remediation</span></Link>
                           </div>
                         </div>
 
+                      }
+                    </li>
+                  )
+                }
+                if ( x.menu_title === '案例研究') {
+                  return (
+                    <li key={i} >
+                      {
+                        <div className={classes.dropdown}>
+                          <a className={classes.dropbtn}><span><Symbol icon={tablet} className={classes.chevronDoubleRight} />应用</span></a>
+                          <div className={classes.dropdownContent}>
+                            <Link className={classes.test} to={'/zh/page/applications-potable-use'}><span>地下水</span></Link>
+                            <Link className={classes.test} to={'/zh/page/applications-industrial-use'}><span>地表水</span></Link>
+                            <Link className={classes.test} to={'/zh/page/applications-industrial-wastewater-reuse'}><span>加工用水</span></Link>
+                            <Link className={classes.test} to={'/zh/page/applications-sewage-treatment-recycling'}><span>废水</span></Link>
+                            <Link className={classes.test} to={'/zh/page/applications-environment-remediation'}><span>环境修复</span></Link>
+                          </div>
+                        </div>
                       }
                     </li>
                   )
@@ -177,6 +200,32 @@ class Menu extends Component {
                           <Link className={classes.test} to={'/page/industries-food-beverage'}><span>Food & Beverage</span></Link>
                           <Link className={classes.test} to={'/page/industries-printing-packaging'}><span>Printing & Packaging</span></Link>
                           <Link className={classes.test} to={'/page/industries-manufacturing'}><span>Manufacturing</span></Link>
+                        </div>
+                      </div>
+                    }
+                  </li>
+                )
+              }
+              if (x.menu_title === '公司新闻') {
+                return (
+                  <li key={i} >
+                    {
+                      <div className={classes.dropdown}>
+                        <a className={classes.dropbtn}><Symbol icon={barChat} className={classes.chevronDoubleRight} />公司新闻</a>
+                        <div className={classes.dropdownContent}>
+                          <Link className={classes.test} to={'/zh/page/industries-municipal'}><span>商业机构与组织</span></Link>
+                          {/* <Link className={classes.test} to={'/zh/page/industries-municipal'}><span>商业机构与组织Municipal</span></Link> */}
+                          <Link className={classes.test} to={'/zh/page/industries-commercial'}><span>建设</span></Link>
+                          {/* <Link className={classes.test} to={'/zh/page/industries-commercial'}><span>Commercial</span></Link> */}
+                          <Link className={classes.test} to={'/zh/page/industries-infrastructure'}><span>赈灾与偏远地区</span></Link>
+                          {/* <Link className={classes.test} to={'/zh/page/industries-infrastructure'}><span>Infrastructure</span></Link> */}
+                          <Link className={classes.test} to={'/zh/page/industries-mining'}><span>工业</span></Link>
+                          <Link className={classes.test} to={'/zh/page/industries-food-beverage'}><span>市政</span></Link>
+                          {/* <Link className={classes.test} to={'/zh/page/industries-food-beverage'}><span>Food & Beverage</span></Link> */}
+                          <Link className={classes.test} to={'/zh/page/industries-printing-packaging'}><span>印刷包装</span></Link>
+                          {/* <Link className={classes.test} to={'/zh/page/industries-printing-packaging'}><span>Printing & Packaging</span></Link> */}
+                          <Link className={classes.test} to={'/zh/page/industries-manufacturing'}><span>制造业</span></Link>
+                          {/* <Link className={classes.test} to={'/zh/page/industries-manufacturing'}><span>Manufacturing</span></Link> */}
                         </div>
                       </div>
                     }
