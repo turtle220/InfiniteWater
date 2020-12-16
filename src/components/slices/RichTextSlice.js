@@ -6,23 +6,37 @@ import cn from "classnames";
 import CTA from "../widgets/CTA";
 import get from "lodash/get";
 import FloatingImages from "../FloatingImages";
+import { between } from "../../styles/breakpoints";
 
 class RichTextSlice extends PureComponent {
   constructor(props) {
     super(props);
     this.state = {
-      articles: [],
-      groundwater: [],
+      municipal: [],
+      arsenicGroundwater: [],
+      glyphosateRemoval: [],
+      tableIndustrial: [],
+      multiplexConstruction: [],
+      peoplesLiberation: [],
+      treatmentGroundwater: [],
+      manufacturingWastewater: [],
+      manufacturingIndustry: [],
+      miningWash: [],
+      metalloids: [],
+      glyphosateRemovaltable2: [],
       selectTable: "",
+      selectURL: "",
     };
   }
 
   componentDidMount() {
+    
     fetch(
-      "https://api.airtable.com/v0/appSiM4BMjfa2tOwy/municipal?api_key=keySWJROaGROOvXyK"
+      "https://api.airtable.com/v0/appSiM4BMjfa2tOwy/municipal?api_key=keySWJROaGROOvXyK&view=Grid%20view"
     )
       .then((resp) => resp.json())
       .then((data) => {
+        console.log('----data:', data)
         this.setState({ municipal: data.records });
       })
       .catch((err) => {
@@ -30,54 +44,120 @@ class RichTextSlice extends PureComponent {
       });
 
     fetch(
-      "https://api.airtable.com/v0/appSiM4BMjfa2tOwy/groundwater?api_key=keySWJROaGROOvXyK"
+      "https://api.airtable.com/v0/appSiM4BMjfa2tOwy/arsenic-groundwater?api_key=keySWJROaGROOvXyK&view=Grid%20view"
     )
       .then((resp) => resp.json())
       .then((data) => {
-        this.setState({ groundwater: data.records });
+        this.setState({ arsenicGroundwater: data.records });
       })
       .catch((err) => {
         // Error :(
       });
 
     fetch(
-      "https://api.airtable.com/v0/appSiM4BMjfa2tOwy/glyphosate-removal?api_key=keySWJROaGROOvXyK"
+      "https://api.airtable.com/v0/appSiM4BMjfa2tOwy/glyphosate-removal?api_key=keySWJROaGROOvXyK&view=Grid%20view"
     )
       .then((resp) => resp.json())
       .then((data) => {
-        this.setState({ glyphosate_removal: data.records });
+        this.setState({ glyphosateRemoval: data.records });
       })
       .catch((err) => {
         // Error :(
       });
 
     fetch(
-      "https://api.airtable.com/v0/appSiM4BMjfa2tOwy/table-industrial?api_key=keySWJROaGROOvXyK"
+      "https://api.airtable.com/v0/appSiM4BMjfa2tOwy/glyphosate-removal-1?api_key=keySWJROaGROOvXyK&view=Grid%20view"
     )
       .then((resp) => resp.json())
       .then((data) => {
-        this.setState({ table_industrial: data.records });
+        this.setState({ glyphosateRemovaltable2: data.records });
       })
       .catch((err) => {
         // Error :(
       });
 
     fetch(
-      "https://api.airtable.com/v0/appSiM4BMjfa2tOwy/multiplex-construction?api_key=keySWJROaGROOvXyK"
+      "https://api.airtable.com/v0/appSiM4BMjfa2tOwy/table-industrial?api_key=keySWJROaGROOvXyK&view=Grid%20view"
     )
       .then((resp) => resp.json())
       .then((data) => {
-        this.setState({ multiplex_construction: data.records });
+        this.setState({ tableIndustrial: data.records });
+      })
+      .catch((err) => {
+        // Error :(
+      });
+
+    fetch(
+      "https://api.airtable.com/v0/appSiM4BMjfa2tOwy/multiplex-construction?api_key=keySWJROaGROOvXyK&view=Grid%20view"
+    )
+      .then((resp) => resp.json())
+      .then((data) => {
+        this.setState({ multiplexConstruction: data.records });
       })
       .catch((err) => {
         // Error :(
       });
     fetch(
-      "https://api.airtable.com/v0/appSiM4BMjfa2tOwy/peoples-liberation?api_key=keySWJROaGROOvXyK"
+      "https://api.airtable.com/v0/appSiM4BMjfa2tOwy/peoples-liberation?api_key=keySWJROaGROOvXyK&view=Grid%20view"
     )
       .then((resp) => resp.json())
       .then((data) => {
-        this.setState({ peoples_liberation: data.records });
+        this.setState({ peoplesLiberation: data.records });
+      })
+      .catch((err) => {
+        // Error :(
+      });
+
+    fetch(
+      "https://api.airtable.com/v0/appSiM4BMjfa2tOwy/treatment-groundwater?api_key=keySWJROaGROOvXyK&view=Grid%20view"
+    )
+      .then((resp) => resp.json())
+      .then((data) => {
+        this.setState({ treatmentGroundwater: data.records });
+      })
+      .catch((err) => {
+        // Error :(
+      });
+
+    fetch(
+      "https://api.airtable.com/v0/appSiM4BMjfa2tOwy/manufacturing-wastewater?api_key=keySWJROaGROOvXyK&view=Grid%20view"
+    )
+      .then((resp) => resp.json())
+      .then((data) => {
+        this.setState({ manufacturingWastewater: data.records });
+      })
+      .catch((err) => {
+        // Error :(
+      });
+
+    fetch(
+      "https://api.airtable.com/v0/appSiM4BMjfa2tOwy/manufacturing-industry?api_key=keySWJROaGROOvXyK&view=Grid%20view"
+    )
+      .then((resp) => resp.json())
+      .then((data) => {
+        this.setState({ manufacturingIndustry: data.records });
+      })
+      .catch((err) => {
+        // Error :(
+      });
+
+    fetch(
+      "https://api.airtable.com/v0/appSiM4BMjfa2tOwy/mining-wash?api_key=keySWJROaGROOvXyK&view=Grid%20view"
+    )
+      .then((resp) => resp.json())
+      .then((data) => {
+        this.setState({ miningWash: data.records });
+      })
+      .catch((err) => {
+        // Error :(
+      });
+
+    fetch(
+      "https://api.airtable.com/v0/appSiM4BMjfa2tOwy/metalloids?api_key=keySWJROaGROOvXyK&view=Grid%20view"
+    )
+      .then((resp) => resp.json())
+      .then((data) => {
+        this.setState({ metalloids: data.records });
       })
       .catch((err) => {
         // Error :(
@@ -86,26 +166,33 @@ class RichTextSlice extends PureComponent {
 
   render() {
     const { classes, className, slice, menu } = this.props;
-console.log('---menu:', menu)
     const fullWidth = slice.columns === "Full Width";
     const splitIntoColumn = slice.columns === "2";
 
     const hasImages = !!get(slice, ["items", 0, "image", "images"]);
 
     const table = (
-      <table style={{ width: "100%" }}>
-        <tr>
-          <th>Indicators</th>
-          <th>Unit</th>
-          <th>Raw</th>
-          <th>Treated</th>
-        </tr>
+      <table
+        style={{
+          width: "100%",
+          borderCollapse: "collapse",
+          backgroundColor: "#d2b8b833",
+        }}
+      >
+        <thead>
+          <tr style={{ backgroundColor: "#a3a3ca" }}>
+            <th style={{ textAlign: "left" }}>Indicators</th>
+            <th>Unit</th>
+            <th>Raw</th>
+            <th>Treated</th>
+          </tr>
+        </thead>
 
         {this.state.municipal &&
           this.state.municipal.map((key, article) => {
             return (
               <tr>
-                <td style={{ textAlign: "center" }}>{key.fields.Indicators}</td>
+                <td style={{ textAlign: "left" }}>{key.fields.Indicators}</td>
                 <td style={{ textAlign: "center" }}>{key.fields.Unit}</td>
                 <td style={{ textAlign: "center" }}>{key.fields.Raw}</td>
                 <td style={{ textAlign: "center" }}>{key.fields.Treated}</td>
@@ -116,19 +203,512 @@ console.log('---menu:', menu)
     );
 
     const table_groundwater = (
+      <table
+        style={{
+          width: "100%",
+          borderCollapse: "collapse",
+          backgroundColor: "#d2b8b833",
+        }}
+      >
+        <thead>
+          <tr style={{ backgroundColor: "#a3a3ca" }}>
+            <th style={{ textAlign: "left" }}>Indicators</th>
+            <th>Unit</th>
+            <th>Raw</th>
+            <th>Treated</th>
+          </tr>
+        </thead>
+
+        {this.state.arsenicGroundwater &&
+          this.state.arsenicGroundwater.map((key, article) => {
+            return (
+              <tr>
+                <td style={{ textAlign: "left" }}>{key.fields.Indicators}</td>
+                <td style={{ textAlign: "center" }}>{key.fields.Unit}</td>
+                <td style={{ textAlign: "center" }}>{key.fields.Raw}</td>
+                <td style={{ textAlign: "center" }}>{key.fields.Treated}</td>
+              </tr>
+            );
+          })}
+      </table>
+    );
+
+    const glyphosate_removal = (
+      <table style={{ width: "100%", borderCollapse: "collapse" }}>
+        <thead>
+          <tr style={{ backgroundColor: "#a3a3ca" }}>
+            <th style={{ textAlign: "left" }}>Contaminant</th>
+            <th>Unit</th>
+            <th>After-pre-treatment</th>
+            <th>Treated</th>
+          </tr>
+        </thead>
+
+        {this.state.glyphosateRemoval &&
+          this.state.glyphosateRemoval.map((key, article) => {
+            return (
+              <tr>
+                <td style={{ textAlign: "left", whiteSpace: "nowrap" }}>
+                  {key.fields.Contaminant}
+                </td>
+                <td style={{ textAlign: "center", whiteSpace: "nowrap" }}>
+                  {key.fields.Unit}
+                </td>
+                <td style={{ textAlign: "center", whiteSpace: "nowrap" }}>
+                  {key.fields.AfterPreTreatment}
+                </td>
+                <td style={{ textAlign: "center", whiteSpace: "nowrap" }}>
+                  {key.fields.Treated}
+                </td>
+              </tr>
+            );
+          })}
+      </table>
+    );
+
+    const glyphosate_removal_table2 = (
+      <table style={{ width: "100%", borderCollapse: "collapse" }}>
+        <thead>
+          <tr style={{ backgroundColor: "#a3a3ca" }}>
+            <th style={{ textAlign: "left" }}>Column1</th>
+            <th>Conventional Solution</th>
+            <th>Infinite Water Solution</th>
+          </tr>
+        </thead>
+
+        {this.state.glyphosateRemovaltable2 &&
+          this.state.glyphosateRemovaltable2.map((key, article) => {
+            return (
+              <tr>
+                {/* <td style={{ textAlign: "center" }}>{key.fields.AfterPreTreatment}</td> */}
+                <td style={{ textAlign: "left", whiteSpace: "nowrap" }}>
+                  {key.fields && key.fields.Column1}
+                </td>
+                <td style={{ textAlign: "center", whiteSpace: "nowrap" }}>
+                  {key.fields && key.fields.ConventionalSolution}
+                </td>
+                <td style={{ textAlign: "center", whiteSpace: "nowrap" }}>
+                  {key.fields && key.fields.InfiniteWaterSolution}
+                </td>
+              </tr>
+            );
+          })}
+      </table>
+    );
+
+    const glyphosate_removal_table1 = (
+      <div style={{ backgroundColor: "#d2b8b833" }}>
+        {glyphosate_removal}
+        <br></br>
+        {glyphosate_removal_table2}
+      </div>
+    );
+    const table_industrial = (
       <table style={{ width: "100%" }}>
         <tr>
           <th>Indicators</th>
           <th>Raw</th>
+          <th>Unit</th>
           <th>Treated</th>
-          <th>ASWG</th>
         </tr>
 
-        {this.state.groundwater &&
-          this.state.groundwater.map((key, article) => {
+        {this.state.tableIndustrial &&
+          this.state.tableIndustrial.map((key, article) => {
             return (
               <tr>
                 <td style={{ textAlign: "center" }}>{key.fields.Indicators}</td>
+                <td style={{ textAlign: "center" }}>{key.fields.Raw}</td>
+                <td style={{ textAlign: "center" }}>{key.fields.Unit}</td>
+                <td style={{ textAlign: "center" }}>{key.fields.Treated}</td>
+              </tr>
+            );
+          })}
+      </table>
+    );
+    // const multiplex_construction = (
+    //   <table style={{ width: "100%" }}>
+    //     <tr>
+    //       <th>Indicators</th>
+    //       <th>Raw</th>
+    //       <th>Unit</th>
+    //       <th>Treated</th>
+    //     </tr>
+
+    //     {this.state.multiplexConstruction &&
+    //       this.state.multiplexConstruction.map((key, article) => {
+    //         return (
+    //           <tr>
+    //             <td style={{ textAlign: "center" }}>{key.fields.Indicators}</td>
+    //             <td style={{ textAlign: "center" }}>{key.fields.Raw}</td>
+    //             <td style={{ textAlign: "center" }}>{key.fields.Unit}</td>
+    //             <td style={{ textAlign: "center" }}>{key.fields.Treated}</td>
+    //           </tr>
+    //         );
+    //       })}
+    //   </table>
+    // );
+    // const peoples_liberation = (
+    //   <table style={{ width: "100%" }}>
+    //     <tr>
+    //       <th>Indicators</th>
+    //       <th>Raw</th>
+    //       <th>Unit</th>
+    //       <th>Treated</th>
+    //     </tr>
+
+    //     {this.state.peoplesLiberation &&
+    //       this.state.peoplesLiberation.map((key, article) => {
+    //         return (
+    //           <tr>
+    //             <td style={{ textAlign: "center" }}>{key.fields.Indicators}</td>
+    //             <td style={{ textAlign: "center" }}>{key.fields.Raw}</td>
+    //             <td style={{ textAlign: "center" }}>{key.fields.Unit}</td>
+    //             <td style={{ textAlign: "center" }}>{key.fields.Treated}</td>
+    //           </tr>
+    //         );
+    //       })}
+    //   </table>
+    // );
+    const treatment_groundwater = (
+      <table
+        style={{
+          width: "100%",
+          backgroundColor: "#d2b8b833",
+          borderCollapse: "collapse",
+        }}
+      >
+        <thead>
+          <tr style={{ backgroundColor: "#a3a3ca" }}>
+            <th style={{ textAlign: "left" }}>Indicators</th>
+            <th>Raw</th>
+            <th>Unit</th>
+            <th>Treated</th>
+          </tr>
+        </thead>
+
+        {this.state.treatmentGroundwater &&
+          this.state.treatmentGroundwater.map((key, article) => {
+            return (
+              <tr>
+                <td style={{ textAlign: "left" }}>{key.fields.Indicators}</td>
+                <td style={{ textAlign: "center" }}>{key.fields.Raw}</td>
+                <td style={{ textAlign: "center" }}>{key.fields.Unit}</td>
+                <td style={{ textAlign: "center" }}>{key.fields.Treated}</td>
+              </tr>
+            );
+          })}
+      </table>
+    );
+    const manufacturing_wastewater = (
+      <div style={{ display: "block" }}>
+        <div
+          style={{
+            width: "30%",
+            height: "30px",
+            marginLeft: "34%",
+            border: "1px solid black",
+            backgroundColor: "#d2b8b833",
+            textAlign: "center",
+            borderColor: "grey",
+            borderRadius: "3px",
+          }}
+        >
+          Polymer
+        </div>
+        <div
+          style={{
+            fontSize: "30px",
+            marginTop: "-1.2%",
+            position: "absolute",
+            zIndex: "1",
+            width: "369px",
+            textAlign: "center",
+            fontWeight: "300",
+          }}
+        >
+          &#8595;
+        </div>
+        <div style={{ display: "flex", marginTop: "3%" }}>
+          <span style={{ textAlign: "center" }}>Plant Effluent</span>
+          <span style={{ fontSize: "30px", fontWeight: "300" }}>&#8594;</span>
+          <div
+            style={{
+              border: "1px solid black",
+              width: "25%",
+              backgroundColor: "#d2b8b833",
+              display: "block",
+              borderColor: "grey",
+              borderRadius: "3px",
+            }}
+          >
+            <div style={{ display: "flex", fontSize: "16px" }}>
+              Hydroxon<span style={{ fontSize: "10px" }}>TM</span>
+            </div>
+            <div style={{ display: "flex", placeContent: "space-between" }}>
+              <span style={{ fontSize: "16px" }}>CAO</span>{" "}
+              <span style={{ fontSize: "14px" }}> reactor</span>
+            </div>
+          </div>
+          <span style={{ fontSize: "30px", fontWeight: "300" }}>&#8594;</span>
+          <div
+            style={{
+              border: "1px solid black",
+              width: "25%",
+              backgroundColor: "#d2b8b833",
+              fontSize: "16px",
+              borderColor: "grey",
+              textAlign: "center",
+              borderRadius: "3px",
+            }}
+          >
+            Mixing Tank
+          </div>
+          <span style={{ fontSize: "30px", fontWeight: "300" }}>&#8594;</span>
+          <div
+            style={{
+              border: "1px solid black",
+              width: "25%",
+              backgroundColor: "#d2b8b833",
+              fontSize: "16px",
+              textAlign: "center",
+              borderColor: "grey",
+              borderRadius: "3px",
+            }}
+          >
+            Sludge Dewatering
+          </div>
+          <span
+            style={{
+              fontSize: "30px",
+              // marginLeft: "20.3%",
+              marginTop: "2.1%",
+              position: "absolute",
+              zIndex: "1",
+              width: "308px",
+              // right: "right",
+              textAlign: "right",
+              width: "325px",
+              fontWeight: "300",
+            }}
+          >
+            &#8595;
+          </span>
+          <span
+            style={{
+              fontSize: "16px",
+              // marginLeft: "20.3%",
+              marginTop: "4.5%",
+              position: "absolute",
+              zIndex: "1",
+              width: "392px",
+              // right: "right",
+              textAlign: "right",
+              // width: "602px",
+            }}
+          >
+            Solids for disposal
+          </span>
+          <span style={{ fontSize: "30px", fontWeight: "300" }}>&#8594;</span>
+          <span style={{ textAlign: "center" }}>Treated Water</span>
+        </div>
+      </div>
+    );
+    const manufacturing_industry = (
+      <div style={{ display: "block" }}>
+        <div
+          style={{
+            display: "flex",
+            placeContent: "space-between",
+            paddingLeft: "10%",
+          }}
+        >
+          <div
+            style={{
+              border: "1px solid black",
+              fontSize: "16px",
+              borderColor: "grey",
+              height: "30px",
+              width: "50%",
+              textAlign: "center",
+              backgroundColor: "#d2b8b833",
+              borderRadius: "3px",
+            }}
+          >
+            IW Polymer blend
+          </div>
+          <div
+            style={{
+              fontSize: "30px",
+              // marginLeft: "11.3%",
+              marginTop: "0.8%",
+              position: "absolute",
+              zIndex: "1",
+              width: "185px",
+              textAlign: "center",
+              fontWeight: "300",
+            }}
+          >
+            &#8595;
+          </div>
+          <div
+            style={{
+              fontSize: "30px",
+              // marginLeft: "11.3%",
+              marginTop: "0.8%",
+              position: "absolute",
+              zIndex: "1",
+              width: "266px",
+              textAlign: "right",
+              fontWeight: "300",
+            }}
+          >
+            &#8595;
+          </div>
+          <div
+            style={{
+              border: "1px solid black",
+              fontSize: "16px",
+              borderColor: "grey",
+              width: "46%",
+              textAlign: "center",
+              backgroundColor: "#d2b8b833",
+              borderRadius: "3px",
+            }}
+          >
+            Oxidant
+          </div>
+        </div>
+        <div style={{ display: "flex", marginTop: "3.4%" }}>
+          <div
+            style={{
+              border: "1px solid black",
+              fontSize: "16px",
+              borderColor: "grey",
+              width: "30%",
+              textAlign: "center",
+              backgroundColor: "#d2b8b833",
+              height: "42px",
+              whiteSpace: "nowrap",
+              paddingTop: "2%",
+              borderRadius: "3px",
+            }}
+          >
+            <span>Feed tank</span>
+          </div>
+          <span style={{ fontSize: "30px", fontWeight: "300" }}>&#8594;</span>
+          <div
+            style={{
+              border: "1px solid black",
+              fontSize: "16px",
+              borderColor: "grey",
+              width: "30%",
+              textAlign: "center",
+              backgroundColor: "#d2b8b833",
+              height: "42px",
+              whiteSpace: "nowrap",
+              paddingTop: "2%",
+              borderRadius: "3px",
+            }}
+          >
+            Mixing tank
+          </div>
+          <span style={{ fontSize: "30px", fontWeight: "300" }}>&#8594;</span>
+          <div
+            style={{
+              border: "1px solid black",
+              fontSize: "16px",
+              borderColor: "grey",
+              width: "30%",
+              textAlign: "center",
+              backgroundColor: "#d2b8b833",
+              height: "42px",
+              whiteSpace: "nowrap",
+              paddingTop: "2%",
+              borderRadius: "3px",
+            }}
+          >
+            Bagfilter
+          </div>
+          <span style={{ fontSize: "30px", fontWeight: "300" }}>&#8594;</span>
+          <div
+            style={{
+              border: "1px solid black",
+              fontSize: "12px",
+              borderColor: "grey",
+              width: "30%",
+              textAlign: "center",
+              backgroundColor: "#d2b8b833",
+              height: "42px",
+              display: "block",
+              borderRadius: "3px",
+            }}
+          >
+            <div style={{ fontSize: "16px", display: "flex" }}>
+              Hydroxon <span style={{ fontSize: "12px" }}>TM</span>
+            </div>
+            <div style={{ display: "flex", placeContent: "space-between" }}>
+              <span style={{ fontSize: "16px" }}> CAO </span>
+              <span style={{ fontSize: "14px" }}> reactor </span>
+            </div>
+          </div>
+          <span style={{ fontSize: "30px", fontWeight: "300" }}>&#8594;</span>
+          <span style={{ textAlign: "center" }}>Treated water</span>
+          <span
+            style={{
+              fontSize: "30px",
+              // marginLeft: "20.3%",
+              marginTop: "1.6%",
+              position: "absolute",
+              zIndex: "1",
+              width: "308px",
+              right: "right",
+              textAlign: "center",
+              width: "502px",
+              fontWeight: "300",
+            }}
+          >
+            &#8595;
+          </span>
+          <span
+            style={{
+              fontSize: "16px",
+              // marginLeft: "20.3%",
+              marginTop: "4%",
+              position: "absolute",
+              zIndex: "1",
+              width: "308px",
+              right: "right",
+              textAlign: "center",
+              width: "502px",
+            }}
+          >
+            Dry sludge for disposal
+          </span>
+        </div>
+      </div>
+    );
+    const mining_wash = (
+      <table
+        style={{
+          width: "100%",
+          backgroundColor: "#d2b8b833",
+          borderCollapse: "collapse",
+        }}
+      >
+        <thead>
+          <tr style={{ backgroundColor: "#a3a3ca" }}>
+            <th style={{ textAlign: "left" }}>Indicators</th>
+            <th>Raw</th>
+            <th>Treated</th>
+            <th>ADWG</th>
+          </tr>
+        </thead>
+
+        {this.state.miningWash &&
+          this.state.miningWash.map((key, article) => {
+            return (
+              <tr>
+                <td style={{ textAlign: "left" }}>{key.fields.Indicators}</td>
                 <td style={{ textAlign: "center" }}>{key.fields.Raw}</td>
                 <td style={{ textAlign: "center" }}>{key.fields.Treated}</td>
                 <td style={{ textAlign: "center" }}>{key.fields.ADWG}</td>
@@ -137,98 +717,43 @@ console.log('---menu:', menu)
           })}
       </table>
     );
+    // const metalloids = (
+    //   <table style={{ width: "100%" }}>
+    //     <tr>
+    //       <th>Indicators</th>
+    //       <th>Raw</th>
+    //       <th>Unit</th>
+    //       <th>Treated</th>
+    //     </tr>
 
-    const glyphosate_removal = (
-      <table style={{ width: "100%" }}>
-        <tr>
-          <th>Indicators</th>
-          <th>Raw</th>
-          <th>Unit</th>
-          <th>ASWG</th>
-        </tr>
+    //     {this.state.metalloids &&
+    //       this.state.metalloids.map((key, article) => {
+    //         return (
+    //           <tr>
+    //             <td style={{ textAlign: "center" }}>{key.fields.Indicators}</td>
+    //             <td style={{ textAlign: "center" }}>{key.fields.Raw}</td>
+    //             <td style={{ textAlign: "center" }}>{key.fields.Unit}</td>
+    //             <td style={{ textAlign: "center" }}>{key.fields.Treated}</td>
+    //           </tr>
+    //         );
+    //       })}
+    //   </table>
+    // );
 
-        {this.state.glyphosate_removal &&
-          this.state.glyphosate_removal.map((key, article) => {
-            return (
-              <tr>
-                <td style={{ textAlign: "center" }}>{key.fields.Indicators}</td>
-                <td style={{ textAlign: "center" }}>{key.fields.Raw}</td>
-                <td style={{ textAlign: "center" }}>{key.fields.Unit}</td>
-                <td style={{ textAlign: "center" }}>{key.fields.Treated}</td>
-              </tr>
-            );
-          })}
-      </table>
-    );
+    const ch =
+      typeof window !== "undefined" && window.location.href.split("/")[3];
 
-    const table_industrial = (
-      <table style={{ width: "100%" }}>
-        <tr>
-          <th>Indicators</th>
-          <th>Raw</th>
-          <th>Unit</th>
-          <th>ASWG</th>
-        </tr>
-
-        {this.state.table_industrial &&
-          this.state.table_industrial.map((key, article) => {
-            return (
-              <tr>
-                <td style={{ textAlign: "center" }}>{key.fields.Indicators}</td>
-                <td style={{ textAlign: "center" }}>{key.fields.Raw}</td>
-                <td style={{ textAlign: "center" }}>{key.fields.Unit}</td>
-                <td style={{ textAlign: "center" }}>{key.fields.Treated}</td>
-              </tr>
-            );
-          })}
-      </table>
-    );
-    const multiplex_construction = (
-      <table style={{ width: "100%" }}>
-        <tr>
-          <th>Indicators</th>
-          <th>Raw</th>
-          <th>Unit</th>
-          <th>ASWG</th>
-        </tr>
-
-        {this.state.multiplex_construction &&
-          this.state.multiplex_construction.map((key, article) => {
-            return (
-              <tr>
-                <td style={{ textAlign: "center" }}>{key.fields.Indicators}</td>
-                <td style={{ textAlign: "center" }}>{key.fields.Raw}</td>
-                <td style={{ textAlign: "center" }}>{key.fields.Unit}</td>
-                <td style={{ textAlign: "center" }}>{key.fields.Treated}</td>
-              </tr>
-            );
-          })}
-      </table>
-    );
-    const peoples_liberation = (
-      <table style={{ width: "100%" }}>
-        <tr>
-          <th>Indicators</th>
-          <th>Raw</th>
-          <th>Unit</th>
-          <th>ASWG</th>
-        </tr>
-
-        {this.state.peoples_liberation &&
-          this.state.peoples_liberation.map((key, article) => {
-            return (
-              <tr>
-                <td style={{ textAlign: "center" }}>{key.fields.Indicators}</td>
-                <td style={{ textAlign: "center" }}>{key.fields.Raw}</td>
-                <td style={{ textAlign: "center" }}>{key.fields.Unit}</td>
-                <td style={{ textAlign: "center" }}>{key.fields.Treated}</td>
-              </tr>
-            );
-          })}
-      </table>
-    );
-
-    const url = typeof window !== 'undefined' && window.location.href.split("/")[4];
+    if (ch === "zh") {
+      this.setState({
+        selectURL:
+          typeof window !== "undefined" && window.location.href.split("/")[5],
+      });
+    } else {
+      this.setState({
+        selectURL:
+          typeof window !== "undefined" && window.location.href.split("/")[4],
+      });
+    }
 
     return (
       <Section>
@@ -266,19 +791,35 @@ console.log('---menu:', menu)
           {hasImages && (
             <div className={classes.floatRight}>
               <FloatingImages images={slice.items.map((x) => x.image)} />
-              {url === "qingyuan-industrial-park1111"
+              {this.state.selectURL === "qingyuan-industrial-park1111"
                 ? table
-                : url === "qingyuan-industrial-park111"
+                : this.state.selectURL === "qingyuan-industrial-park111"
                 ? table_groundwater
-                : url === "glyphosate_removal"
-                ? glyphosate_removal
-                : url === "qingyuan-industrial-park11"
-                ? table_industrial
-                : url === "multiplex-construction"
-                ? multiplex_construction
-                : url === "peoples-liberation-army-of-china"
-                ? peoples_liberation
-                : null}
+                : this.state.selectURL === "removal-glyphosate"
+                ? glyphosate_removal_table1
+                : // : this.state.selectURL === "qingyuan-industrial-park11"
+                // ? table_industrial
+                // : this.state.selectURL === "multiplex-construction"
+                // ? multiplex_construction
+                // : this.state.selectURL === "peoples-liberation-army-of-china"
+                // ? peoples_liberation
+                this.state.selectURL === "treatment-groundwater-treatment"
+                ? treatment_groundwater
+                : this.state.selectURL ===
+                  "manufacturing-wastewater-discharge-treatment"
+                ? manufacturing_wastewater
+                : this.state.selectURL ===
+                  "wastewater-treatment-manufacturing-industry"
+                ? manufacturing_industry
+                : this.state.selectURL === "mining-wash-down-for-safe-discharge"
+                ? mining_wash
+                : // : this.state.selectURL === "treatment-for-removal-of-heavy-metals-and-metalloids"
+                  // ? metalloids
+                  null}
+              {/* {this.state.selectURL === "removal-glyphosate"
+                ? glyphosate_removal_table1
+                : null} */}
+              {/* {glyphosate_removal_table1} */}
             </div>
           )}
         </div>

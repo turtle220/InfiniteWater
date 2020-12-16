@@ -66,16 +66,11 @@ class Menu extends Component {
   setListRef = (ref) => { this.listRef = ref }
   getIconFunc = (ref) => {
     const { house } = this.props
-    console.log(ref)
-    // if(string(house)==ref){
-    //   console.log("YES");
-    // }
-    // this.setState({iconTag: house});
+
     return house
   }
   render () {
     const { classes, menu, global } = this.props
-console.log('----menu:', menu, classes);
 
     return [
       <div key='overlay' className={classes.overlay} ref={this.setOverlayRef} onClick={this.onHideMenu} />,
@@ -232,6 +227,7 @@ console.log('----menu:', menu, classes);
                   </li>
                 )
               }
+              return (<li></li>)
             })}
           </ul>
         </div>
