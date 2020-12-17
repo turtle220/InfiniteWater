@@ -30,13 +30,12 @@ class RichTextSlice extends PureComponent {
   }
 
   componentDidMount() {
-    
     fetch(
       "https://api.airtable.com/v0/appSiM4BMjfa2tOwy/municipal?api_key=keySWJROaGROOvXyK&view=Grid%20view"
     )
       .then((resp) => resp.json())
       .then((data) => {
-        console.log('----data:', data)
+        console.log("----data:", data);
         this.setState({ municipal: data.records });
       })
       .catch((err) => {
@@ -234,7 +233,13 @@ class RichTextSlice extends PureComponent {
     );
 
     const glyphosate_removal = (
-      <table style={{ width: "100%", borderCollapse: "collapse" }}>
+      <table
+        style={{
+          width: "100%",
+          borderCollapse: "collapse",
+          backgroundColor: "#d2b8b833",
+        }}
+      >
         <thead>
           <tr style={{ backgroundColor: "#a3a3ca" }}>
             <th style={{ textAlign: "left" }}>Contaminant</th>
@@ -267,7 +272,13 @@ class RichTextSlice extends PureComponent {
     );
 
     const glyphosate_removal_table2 = (
-      <table style={{ width: "100%", borderCollapse: "collapse" }}>
+      <table
+        style={{
+          width: "100%",
+          borderCollapse: "collapse",
+          backgroundColor: "#d2b8b833",
+        }}
+      >
         <thead>
           <tr style={{ backgroundColor: "#a3a3ca" }}>
             <th style={{ textAlign: "left" }}>Column1</th>
@@ -297,7 +308,7 @@ class RichTextSlice extends PureComponent {
     );
 
     const glyphosate_removal_table1 = (
-      <div style={{ backgroundColor: "#d2b8b833" }}>
+      <div>
         {glyphosate_removal}
         <br></br>
         {glyphosate_removal_table2}
@@ -403,9 +414,9 @@ class RichTextSlice extends PureComponent {
       <div style={{ display: "block" }}>
         <div
           style={{
-            width: "30%",
+            width: "114px",
             height: "30px",
-            marginLeft: "34%",
+            marginLeft: "128px",
             border: "1px solid black",
             backgroundColor: "#d2b8b833",
             textAlign: "center",
@@ -418,7 +429,7 @@ class RichTextSlice extends PureComponent {
         <div
           style={{
             fontSize: "30px",
-            marginTop: "-1.2%",
+            marginTop: "-19px",
             position: "absolute",
             zIndex: "1",
             width: "369px",
@@ -434,7 +445,7 @@ class RichTextSlice extends PureComponent {
           <div
             style={{
               border: "1px solid black",
-              width: "25%",
+              // width: "25%",
               backgroundColor: "#d2b8b833",
               display: "block",
               borderColor: "grey",
@@ -467,7 +478,7 @@ class RichTextSlice extends PureComponent {
           <div
             style={{
               border: "1px solid black",
-              width: "25%",
+              // width: "25%",
               backgroundColor: "#d2b8b833",
               fontSize: "16px",
               textAlign: "center",
@@ -481,7 +492,7 @@ class RichTextSlice extends PureComponent {
             style={{
               fontSize: "30px",
               // marginLeft: "20.3%",
-              marginTop: "2.1%",
+              marginTop: "31px",
               position: "absolute",
               zIndex: "1",
               width: "308px",
@@ -497,7 +508,7 @@ class RichTextSlice extends PureComponent {
             style={{
               fontSize: "16px",
               // marginLeft: "20.3%",
-              marginTop: "4.5%",
+              marginTop: "60px",
               position: "absolute",
               zIndex: "1",
               width: "392px",
@@ -528,7 +539,7 @@ class RichTextSlice extends PureComponent {
               fontSize: "16px",
               borderColor: "grey",
               height: "30px",
-              width: "50%",
+              width: "160px",
               textAlign: "center",
               backgroundColor: "#d2b8b833",
               borderRadius: "3px",
@@ -540,7 +551,7 @@ class RichTextSlice extends PureComponent {
             style={{
               fontSize: "30px",
               // marginLeft: "11.3%",
-              marginTop: "0.8%",
+              marginTop: "10px",
               position: "absolute",
               zIndex: "1",
               width: "185px",
@@ -554,7 +565,7 @@ class RichTextSlice extends PureComponent {
             style={{
               fontSize: "30px",
               // marginLeft: "11.3%",
-              marginTop: "0.8%",
+              marginTop: "10px",
               position: "absolute",
               zIndex: "1",
               width: "266px",
@@ -569,7 +580,7 @@ class RichTextSlice extends PureComponent {
               border: "1px solid black",
               fontSize: "16px",
               borderColor: "grey",
-              width: "46%",
+              width: "160px",
               textAlign: "center",
               backgroundColor: "#d2b8b833",
               borderRadius: "3px",
@@ -657,7 +668,7 @@ class RichTextSlice extends PureComponent {
             style={{
               fontSize: "30px",
               // marginLeft: "20.3%",
-              marginTop: "1.6%",
+              marginTop: "24px",
               position: "absolute",
               zIndex: "1",
               width: "308px",
@@ -673,13 +684,13 @@ class RichTextSlice extends PureComponent {
             style={{
               fontSize: "16px",
               // marginLeft: "20.3%",
-              marginTop: "4%",
+              marginTop: "58px",
               position: "absolute",
               zIndex: "1",
               width: "308px",
               right: "right",
               textAlign: "center",
-              width: "502px",
+              width: "520px",
             }}
           >
             Dry sludge for disposal
@@ -777,6 +788,25 @@ class RichTextSlice extends PureComponent {
                 content={slice.text.html}
               />
             )}
+            {this.state.selectURL === "qingyuan-industrial-park1111"
+              ? table
+              : this.state.selectURL === "qingyuan-industrial-park111"
+              ? table_groundwater
+              : this.state.selectURL === "removal-glyphosate"
+              ? glyphosate_removal_table1
+              : // : this.state.selectURL === "qingyuan-industrial-park11"
+              // ? table_industrial
+              // : this.state.selectURL === "multiplex-construction"
+              // ? multiplex_construction
+              // : this.state.selectURL === "peoples-liberation-army-of-china"
+              // ? peoples_liberation
+              this.state.selectURL === "treatment-groundwater-treatment"
+              ? treatment_groundwater
+              : this.state.selectURL === "mining-wash-down-for-safe-discharge"
+              ? mining_wash
+              : // : this.state.selectURL === "treatment-for-removal-of-heavy-metals-and-metalloids"
+                // ? metalloids
+                null}
             {slice.link_url && slice.link_text && (
               <CTA
                 className={cn(classes.link, {
@@ -791,35 +821,13 @@ class RichTextSlice extends PureComponent {
           {hasImages && (
             <div className={classes.floatRight}>
               <FloatingImages images={slice.items.map((x) => x.image)} />
-              {this.state.selectURL === "qingyuan-industrial-park1111"
-                ? table
-                : this.state.selectURL === "qingyuan-industrial-park111"
-                ? table_groundwater
-                : this.state.selectURL === "removal-glyphosate"
-                ? glyphosate_removal_table1
-                : // : this.state.selectURL === "qingyuan-industrial-park11"
-                // ? table_industrial
-                // : this.state.selectURL === "multiplex-construction"
-                // ? multiplex_construction
-                // : this.state.selectURL === "peoples-liberation-army-of-china"
-                // ? peoples_liberation
-                this.state.selectURL === "treatment-groundwater-treatment"
-                ? treatment_groundwater
-                : this.state.selectURL ===
+              {this.state.selectURL ===
                   "manufacturing-wastewater-discharge-treatment"
                 ? manufacturing_wastewater
                 : this.state.selectURL ===
                   "wastewater-treatment-manufacturing-industry"
                 ? manufacturing_industry
-                : this.state.selectURL === "mining-wash-down-for-safe-discharge"
-                ? mining_wash
-                : // : this.state.selectURL === "treatment-for-removal-of-heavy-metals-and-metalloids"
-                  // ? metalloids
-                  null}
-              {/* {this.state.selectURL === "removal-glyphosate"
-                ? glyphosate_removal_table1
-                : null} */}
-              {/* {glyphosate_removal_table1} */}
+                : null}
             </div>
           )}
         </div>
