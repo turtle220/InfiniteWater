@@ -71,7 +71,7 @@ class Menu extends Component {
   }
   render () {
     const { classes, menu, global } = this.props
-
+console.log(menu)
     return [
       <div key='overlay' className={classes.overlay} ref={this.setOverlayRef} onClick={this.onHideMenu} />,
 
@@ -99,12 +99,23 @@ class Menu extends Component {
                         {
                           x.menu_title === 'Case Studies' && <Link className={classes.dropbtn} to={x.menu_link.url}><span><Symbol icon={award} className={classes.chevronDoubleRight} />{x.menu_title}</span></Link>
                         }
-                        {
+                        {/* {
                           x.menu_title === 'Infinite News' && <Link className={classes.dropbtn} to={x.menu_link.url}><span><Symbol icon={news} className={classes.chevronDoubleRight} />{x.menu_title}</span></Link>
-                        }
+                        } */}
                         {
                           x.menu_title === 'Contact' && <Link className={classes.dropbtn} to={x.menu_link.url}><span><Symbol icon={phone} className={classes.chevronDoubleRight} />{x.menu_title}</span></Link>
                         }
+                      
+                        {x.menu_title === 'Infinite News' &&
+                          <div className={classes.dropdown}>
+                            <a className={classes.dropbtn}><span><Symbol icon={news} className={classes.chevronDoubleRight} />Infinite News</span></a>
+                            <div className={classes.dropdownContent}>
+                              <Link className={classes.test} to={'/page/company-news'}><span>Company News</span></Link>
+                              <Link className={classes.test} to={'/page/blogs'}><span>Blogs</span></Link>
+                            </div>
+                          </div>
+                        }
+                     
                         {/* chinese */}
                         {
                           x.menu_title === '主页' && <Link className={classes.dropbtn} to={x.menu_link.url}><span><Symbol icon={house} className={classes.chevronDoubleRight} />{x.menu_title}</span></Link>
@@ -456,10 +467,11 @@ export default flow([
           }
         },
         [theme.breakpoints.down('md')]: {
-          position: 'relative',
+          // position: 'relative',
           height: 'auto'
         }
       },
+   
       dropdown: {
         textAlign: 'left',
         '&:hover $dropdownContent': { display: 'block' },

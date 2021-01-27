@@ -8,8 +8,10 @@ import Link from '../widgets/Link'
 import Section from '../widgets/Section'
 
 class Articles extends PureComponent {
+
   render () {
     const {classes, page, slice} = this.props
+
     if (!page) return
 
     return <Section contentClassName={classes.section}>
@@ -20,6 +22,7 @@ class Articles extends PureComponent {
           </Link>}
           <div className={cn(classes.content, {reverse: i % 2})}>
             <h2 className={classes.title}>{article.title.text}</h2>
+            <p> {article.text} </p>
             <RichTextContainer content={article.summary.html} />
             <CTA className={classes.link} to={article.url} text={slice.cta_text || 'Read Full Article'} />
           </div>
