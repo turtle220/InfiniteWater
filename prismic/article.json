@@ -16,7 +16,7 @@
     "article_type" : {
       "type" : "Select",
       "config" : {
-        "options" : [ "News Article", "Case Study", "Blogs" ],
+        "options" : [ "News Article", "Case Study" ],
         "default_value" : "News Article",
         "label" : "Article Type"
       }
