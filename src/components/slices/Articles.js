@@ -22,6 +22,7 @@ console.log(page,'Articles------')
           </Link>}
           <div className={cn(classes.content, {reverse: i % 2})}>
             <h2 className={classes.title}>{article.title.text}</h2>
+            <p>{article.date.text}</p>
             <RichTextContainer content={article.summary.html} />
             <CTA className={classes.link} to={article.url} text={slice.cta_text || 'Read Full Article'} />
           </div>
