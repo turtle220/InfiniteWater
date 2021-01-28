@@ -24,6 +24,7 @@ class RichTextSlice extends PureComponent {
       miningWash: [],
       metalloids: [],
       glyphosateRemovaltable2: [],
+      hydrox: [],
       selectTable: "",
       selectURL: "",
     };
@@ -157,6 +158,19 @@ class RichTextSlice extends PureComponent {
       .then((resp) => resp.json())
       .then((data) => {
         this.setState({ metalloids: data.records });
+      })
+      .catch((err) => {
+        // Error :(
+      });
+
+    //Hydrox imported excel data
+    fetch(
+      "https://api.airtable.com/v0/app3JNKz8kVbrJs9D/Hydrox?api_key=keySWJROaGROOvXyK&view=Grid%20view"
+    )
+      .then((resp) => resp.json())
+      .then((data) => {
+        // console.log("----data000000:", data);
+        this.setState({ hydrox: data.records });
       })
       .catch((err) => {
         // Error :(
@@ -728,6 +742,45 @@ class RichTextSlice extends PureComponent {
           })}
       </table>
     );
+
+    const hydrox_table = (
+      <table
+        style={{
+          width: "100%",
+          backgroundColor: "#d2b8b833",
+          borderCollapse: "collapse",
+        }}
+      >
+        <thead>
+          <tr style={{ backgroundColor: "#a3a3ca" }}>
+            <th style={{ textAlign: "left" }}> Microbal group</th>
+            <th>Challenge test microorganism</th>
+            <th>Final concentration</th>
+            <th>Units</th>
+            <th>LRV demostrated by the HYDROXON</th>
+            <th>LRV that could be credited to secondary treatment plus HYDROXON process</th>
+            <th>Queensland Class A+ and AGWR dual reticulation LRV requirements</th>
+          </tr>
+
+        </thead>
+
+        {this.state.hydrox &&
+          this.state.hydrox.map((key, article) => {
+            console.log('----oooooo', key.fields);
+            return (
+              <tr>
+                <td style={{ textAlign: "left" }}>{key.fields.Microbal}</td>
+                <td style={{ textAlign: "center" }}>{key.fields.Challenge}</td>
+                <td style={{ textAlign: "center" }}>{key.fields.Final}</td>
+                <td style={{ textAlign: "center" }}>{key.fields.Units}</td>
+                <td style={{ textAlign: "center" }}>{key.fields.Demostrated}</td>
+                <td style={{ textAlign: "center" }}>{key.fields.treatment}</td>
+                <td style={{ textAlign: "center" }}>{key.fields.Queensland}</td>
+              </tr>
+            );
+          })}
+      </table>
+    );
     // const metalloids = (
     //   <table style={{ width: "100%" }}>
     //     <tr>
@@ -765,7 +818,6 @@ class RichTextSlice extends PureComponent {
           typeof window !== "undefined" && window.location.href.split("/")[4],
       });
     }
-
     return (
       <Section>
         <div
@@ -804,9 +856,9 @@ class RichTextSlice extends PureComponent {
               ? treatment_groundwater
               : this.state.selectURL === "mining-wash-down-for-safe-discharge"
               ? mining_wash
-              : // : this.state.selectURL === "treatment-for-removal-of-heavy-metals-and-metalloids"
-                // ? metalloids
-                null}
+              : this.state.selectURL === "hydroxon-aop-advanced-oxidation-process--disinfection-innovation-for-water-recycling-and-reuse"
+              ? hydrox_table
+              :  null}
             {slice.link_url && slice.link_text && (
               <CTA
                 className={cn(classes.link, {
