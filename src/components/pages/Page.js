@@ -44,7 +44,6 @@ class Page extends PureComponent {
 
   render () {
     const {classes, page} = this.props
-  console.log('---classes:',classes, page);
     const pageSections = [{slices: [], theme: page.theme}]
 
     if (page.type === 'article' && !(first(page.slices) && first(page.slices).type === 'hero_slice')) {
@@ -79,7 +78,7 @@ class Page extends PureComponent {
     )
 
     return [
-      <div>
+      <div key='page' className={pageClasses}>
         {pageSections.filter(x => x.slices.length > 0).map((section, i) => <div key={i} className={cn(classes.pageSection, section.theme)}>
           {i === 0 && page.uid === 'technology' && // HACK
           <div className={classes.patternContainer}>
@@ -112,13 +111,6 @@ export default injectSheet(theme => ({
     '& li:before': {
       backgroundColor: theme.colors.skin
     },
-    '&.light': {
-      backgroundColor: theme.colors.skin,
-      color: theme.colors.primary,
-      '& li:before': {
-        backgroundColor: theme.colors.primary
-      }
-    },
     '&.water': {
       backgroundColor: theme.colors.water,
       color: "black",
@@ -126,6 +118,13 @@ export default injectSheet(theme => ({
         backgroundColor: theme.colors.primary
       }
     },
+    '&.light': {
+      backgroundColor: theme.colors.skin,
+      color: theme.colors.primary,
+      '& li:before': {
+        backgroundColor: theme.colors.primary
+      }
+    },   
     '& section:last-child': {
       marginBottom: 0
     }
