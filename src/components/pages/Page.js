@@ -87,8 +87,8 @@ class Page extends PureComponent {
           }
           {section.slices}
         </div>)}
-      </div>,
-      <SmallFooter key='footer' theme={pageSections ? last(pageSections).theme : 'light'} />
+      </div>,      
+      <SmallFooter key='footer' theme={pageSections ? last(pageSections).theme : page.theme === "water" ? 'water' : 'light'} />
     ]
   }
 }
