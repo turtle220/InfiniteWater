@@ -169,7 +169,7 @@ class RichTextSlice extends PureComponent {
     )
       .then((resp) => resp.json())
       .then((data) => {
-        // console.log("----data000000:", data);
+        console.log("----Hydrox----000000:", data);
         this.setState({ hydrox: data.records });
       })
       .catch((err) => {
@@ -818,6 +818,8 @@ class RichTextSlice extends PureComponent {
           typeof window !== "undefined" && window.location.href.split("/")[4],
       });
     }
+    console.log('-------selectURL:', this.state.selectURL);
+    
     return (
       <Section>
         <div
