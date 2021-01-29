@@ -766,7 +766,6 @@ class RichTextSlice extends PureComponent {
 
         {this.state.hydrox &&
           this.state.hydrox.map((key, article) => {
-            console.log('----oooooo', key.fields);
             return (
               <tr>
                 <td style={{ textAlign: "left" }}>{key.fields.Microbal}</td>
@@ -860,7 +859,9 @@ class RichTextSlice extends PureComponent {
               ? mining_wash
               : this.state.selectURL === "hydroxon-aop-advanced-oxidation-process--disinfection-innovation-for-water-recycling-and-reuse"
               ? hydrox_table
-              :  null}
+              : this.state.selectURL === "hydroxon-aop-advanced-oxidation-process--disinfection-innovation-for-water-recycling-and-reuse1"
+              ? hydrox_table
+              : null}
             {slice.link_url && slice.link_text && (
               <CTA
                 className={cn(classes.link, {
