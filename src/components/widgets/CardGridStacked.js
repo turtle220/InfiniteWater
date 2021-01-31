@@ -110,7 +110,7 @@ class SwipableCard extends Component {
       options={{threshold: 0, inputClass: 'TouchMouseInput'}}>
       <div className={classes.cell} onMouseDown={this.onMouseDown}>
         <ResponsiveImage images={item.hero_image.images} aspect={1} />
-        <RichTextContainer className={cn(classes.summary, {top})} content={item.summary.html} />
+        {/* <RichTextContainer className={cn(classes.summary, {top})} content={item.summary.html} /> */}
       </div>
     </Hammer>
   }
