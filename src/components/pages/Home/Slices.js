@@ -186,7 +186,7 @@ export default flow([
     content: {
       color: theme.colors.skin,
       position: 'relative',
-      height: '100%',
+      height: '91%',
       display: 'flex',
       flexDirection: 'column-reverse',
       width: '100%',
