@@ -115,7 +115,17 @@ console.log(menu)
                             </div>
                           </div>
                         }
-                     
+                                            
+                        {x.menu_title === "应用" &&
+                          <div className={classes.dropdown}>
+                            <a className={classes.dropbtn}><span><Symbol icon={news} className={classes.chevronDoubleRight} />无限新闻</span></a>
+                            <div className={classes.dropdownContent}>
+                              <Link className={classes.test} to={'/zh/page/company-news'}><span>公司新闻</span></Link>
+                              <Link className={classes.test} to={'/zh/page/blogs'}><span>网志</span></Link>
+                            </div>
+                          </div>
+                        }
+
                         {/* chinese */}
                         {
                           x.menu_title === '主页' && <Link className={classes.dropbtn} to={x.menu_link.url}><span><Symbol icon={house} className={classes.chevronDoubleRight} />{x.menu_title}</span></Link>
@@ -132,9 +142,9 @@ console.log(menu)
                         {
                           x.menu_title === '应用领域' && <Link className={classes.dropbtn} to={x.menu_link.url}><span><Symbol icon={award} className={classes.chevronDoubleRight} />案例研究</span></Link>
                         }
-                        {
+                        {/* {
                           x.menu_title === '应用' && <Link className={classes.dropbtn} to={x.menu_link.url}><span><Symbol icon={news} className={classes.chevronDoubleRight} />无限新闻</span></Link>
-                        }
+                        } */}
                 
                         {
                           x.menu_title === '公司新闻' && <Link className={classes.dropbtn} to={x.menu_link.url}><span><Symbol icon={news} className={classes.chevronDoubleRight} />{x.menu_title}</span></Link>
@@ -142,6 +152,7 @@ console.log(menu)
                         {
                           x.menu_title === '联系我们' && <Link className={classes.dropbtn} to={x.menu_link.url}><span><Symbol icon={phone} className={classes.chevronDoubleRight} />{x.menu_title}</span></Link>
                         }
+
                         {/* {
                           x.menu_title === '应用' && <Link className={classes.dropbtn} to={x.menu_link.url}><span><Symbol icon={tablet} className={classes.chevronDoubleRight} />{x.menu_title}</span></Link>
                         } */}
