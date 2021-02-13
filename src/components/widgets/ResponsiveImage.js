@@ -55,7 +55,7 @@ class ResponsiveImage extends Component {
       onLoad={this.onImageLoaded}
     />)
 
-    return <div className={cn(classes.container, { [classes.fixedAspect]: aspect }, className)} ref={onRef}>
+    return <div className={cn(classes.container, { [classes.fixedAspect]: aspect }, className)} style={{width: '500px !important', height:'300px !important'}} ref={onRef}>
       {blur && <img key='blur' src={blur.data ? blur.data : blur.url} className={classes.imageBlur} alt={mainImage ? mainImage.alt : ''} />}
       <picture>
         {/* <!--[if IE 9]><video style="display: none;"><![endif]--> */}

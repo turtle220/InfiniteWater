@@ -11,12 +11,12 @@ class Articles extends PureComponent {
 
   render () {
     const {classes, page, slice} = this.props
-console.log(page,'Articles------')
+console.log(this.props,'Articles------')
     if (!page) return
 
     return <Section contentClassName={classes.section}>
       {page.articles.map((article, i) => (
-        <div key={article.uid} className={cn(classes.articleContainer, {reverse: i % 2})}>
+        <div key={article.uid} className={cn(classes.articleContainer, {reverse: i % 2})} style={{paddingTop:'5% !important'}}>
           {article.hero_image && <Link className={classes.imageContainer} to={article.url}>
             <ResponsiveImage className={cn(classes.image, {reverse: i % 2})} images={article.hero_image.images} blur={article.hero_image.blur} aspect={1} />
           </Link>}
