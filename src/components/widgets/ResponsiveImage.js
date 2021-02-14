@@ -85,7 +85,7 @@ export default injectSheet((theme) => ({
   },
   fixedAspect: {
     '&::before': {
-      paddingTop: ({aspect}) => `${round(50 / aspect)}%`
+      paddingTop: ({aspect}) => `${round(100 / aspect)}%`
     }
   },
   image: {

@@ -21,17 +21,16 @@ class Articles extends PureComponent {
     if (!page) return;
 
     const ch =
-      typeof window !== "undefined" && window.location.href.split("/")[2];
-console.log('----ch:', ch);
+      typeof window !== "undefined" && window.location.href.split("/")[3];
+
     if (ch === "zh") {
       this.setState({ selectURL: page.url.split("/")[3] });
     } else {
       this.setState({ selectURL: page.url.split("/")[2] });
     }
-
     return (
       <Section contentClassName={classes.section}>
-      {page.articles.map((article, i) => (
+        {page.articles.map((article, i) => (
           <div
             key={article.uid}
             className={cn(classes.articleContainer, { reverse: i % 2 })}
@@ -51,15 +50,19 @@ console.log('----ch:', ch);
               <h2 className={classes.title}>{article.title.text}</h2>
               {/* <p>{article.date.text}</p> */}
               <RichTextContainer content={article.summary.html} />
-              {this.state.selectURL ? (<CTA
-                className={classes.bloglink}
-                to={article.url}
-                text={slice.cta_text || "Read Full Article"}
-              />) : (<CTA
-                className={classes.link}
-                to={article.url}
-                text={slice.cta_text || "Read Full Article"}
-              />) }
+              {this.state.selectURL === "blogs" ? (
+                <CTA
+                  className={classes.bloglink}
+                  to={article.url}
+                  text={slice.cta_text || "Read Full Article"}
+                />
+              ) : (
+                <CTA
+                  className={classes.link}
+                  to={article.url}
+                  text={slice.cta_text || "Read Full Article"}
+                />
+              )}
             </div>
           </div>
         ))}
@@ -72,7 +75,7 @@ export default injectSheet((theme) => ({
   section: {},
   articleContainer: {
     display: "block",
-    paddingTop: "5%",
+    paddingTop: "6%",
     alignItems: "center",
     marginBottom: theme.spacing.md,
     [theme.breakpoints.up("md")]: {
@@ -125,8 +128,8 @@ export default injectSheet((theme) => ({
   },
   bloglink: {
     color: "#4d4e56",
-    "&:hover": {
-      color: "#4d4e56",
-    },
+    '&:hover': {
+      color: "#4d4e56"
+    }
   },
 }))(Articles);
