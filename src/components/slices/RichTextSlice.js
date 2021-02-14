@@ -817,7 +817,6 @@ class RichTextSlice extends PureComponent {
           typeof window !== "undefined" && window.location.href.split("/")[4],
       });
     }
-    console.log('-------selectURL:', this.state.selectURL);
     
     return (
       <Section>
