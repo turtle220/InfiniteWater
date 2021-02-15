@@ -48,8 +48,8 @@ class Articles extends PureComponent {
             )}
             <div className={cn(classes.content, { reverse: i % 2 })}>
               <h2 className={classes.title}>{article.title.text}</h2>
-              {/* <p>{article.date.text}</p> */}
-              <RichTextContainer content={article.summary.html} />
+              <p>{article.date.text}</p>
+              {/* <RichTextContainer content={article.summary.html} /> */}
               {this.state.selectURL === "blogs" ? (
                 <CTA
                   className={classes.bloglink}
@@ -75,7 +75,7 @@ export default injectSheet((theme) => ({
   section: {},
   articleContainer: {
     display: "block",
-    paddingTop: "6%",
+    // paddingTop: "5%",
     alignItems: "center",
     marginBottom: theme.spacing.md,
     [theme.breakpoints.up("md")]: {

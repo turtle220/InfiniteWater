@@ -72,7 +72,7 @@ const BLUR_PIXELS = 10
 
 export default injectSheet((theme) => ({
   container: {
-    height: '300px',
+    // height: '300px',
     position: 'relative',
     width: '100%',
     display: 'block',
