@@ -34,7 +34,7 @@ class Articles extends PureComponent {
           <div
             key={article.uid}
             className={cn(classes.articleContainer, { reverse: i % 2 })}
-            style={{ paddingTop: "10% !important" }}
+            // style={{ paddingTop: "10% !important" }}
           >
             {article.hero_image && (
               <Link className={classes.imageContainer} to={article.url}>
@@ -49,7 +49,7 @@ class Articles extends PureComponent {
             <div className={cn(classes.content, { reverse: i % 2 })}>
               <h2 className={classes.title}>{article.title.text}</h2>
               <p>{article.date.text}</p>
-              {/* <RichTextContainer content={article.summary.html} /> */}
+              <RichTextContainer content={article.summary.html} />
               {this.state.selectURL === "blogs" ? (
                 <CTA
                   className={classes.bloglink}
@@ -75,7 +75,6 @@ export default injectSheet((theme) => ({
   section: {},
   articleContainer: {
     display: "block",
-    // paddingTop: "5%",
     alignItems: "center",
     marginBottom: theme.spacing.md,
     [theme.breakpoints.up("md")]: {
