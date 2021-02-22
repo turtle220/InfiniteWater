@@ -1,7 +1,13 @@
 import { NOT_FOUND } from 'redux-first-router'
 import { fetchGlobal, fetchContent } from './api'
 import { globalContentLoaded, pageContentLoaded } from './actions'
-import { getGlobalContent, isNotFound, getCurrentLocation, getCurrentLocality, getCurrentPathWithoutLocality } from './selectors'
+import {
+  getGlobalContent,
+  isNotFound,
+  getCurrentLocation,
+  getCurrentLocality,
+  getCurrentPathWithoutLocality
+} from './selectors'
 import { beginTask, endTask } from 'redux-nprogress'
 
 export default {

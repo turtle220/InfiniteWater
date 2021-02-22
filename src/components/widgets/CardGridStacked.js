@@ -10,7 +10,6 @@ import last from 'lodash/last'
 import map from 'lodash/map'
 import reverse from 'lodash/reverse'
 import ResponsiveImage from './ResponsiveImage'
-import RichTextContainer from './RichTextContainer'
 import {CONTENT_ROUTE} from '../../actions'
 import CTA from '../widgets/CTA'
 
@@ -101,7 +100,7 @@ class SwipableCard extends Component {
   }
 
   render () {
-    const {classes, item, top} = this.props
+    const {classes, item} = this.props
 
     return <Hammer direction='DIRECTION_HORIZONTAL'
       onTap={this.handleTap} onSwipe={this.handleSwipe}

@@ -1,4 +1,4 @@
-import React, {PureComponent} from 'react'
+import React, { PureComponent } from 'react'
 import injectSheet from 'react-jss'
 import Section from '../widgets/Section'
 import ResponsiveImage from '../widgets/ResponsiveImage'
@@ -6,25 +6,34 @@ import RichTextContainer from '../widgets/RichTextContainer'
 
 class TeamMemberSlice extends PureComponent {
   render () {
-    const {classes, slice} = this.props
+    const { classes, slice } = this.props
     if (!slice) return
 
-    return <Section>
-      <div className={classes.teamMember}>
-        {slice.team_member_image.images &&
-        <ResponsiveImage images={slice.team_member_image.images} className={classes.image} aspect={1} />
-        }
-        <div className={classes.content}>
-          <h2 className={classes.title}>{slice.team_member_name.text}</h2>
-          <h3 className={classes.position}>{slice.team_member_position}</h3>
+    return (
+      <Section>
+        <div className={classes.teamMember}>
+          {slice.team_member_image.images && (
+            <ResponsiveImage
+              images={slice.team_member_image.images}
+              className={classes.image}
+              aspect={1}
+            />
+          )}
+          <div className={classes.content}>
+            <h2 className={classes.title}>{slice.team_member_name.text}</h2>
+            <h3 className={classes.position}>{slice.team_member_position}</h3>
+          </div>
         </div>
-      </div>
-      <RichTextContainer className={classes.bio} content={slice.team_member_bio.html} />
-    </Section>
+        <RichTextContainer
+          className={classes.bio}
+          content={slice.team_member_bio.html}
+        />
+      </Section>
+    )
   }
 }
 
-export default injectSheet(theme => ({
+export default injectSheet((theme) => ({
   teamMember: {
     display: 'flex',
     alignItems: 'center',
@@ -50,7 +59,7 @@ export default injectSheet(theme => ({
   },
   content: {
     // flex: '1 0 auto'
-    width: '70%',
+    width: '70%'
   },
   title: {
     marginBottom: 0,
