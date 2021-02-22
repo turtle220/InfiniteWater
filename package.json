@@ -25,6 +25,7 @@
     "fullpage.js": "3.0.8",
     "gsap": "^2.0.1",
     "history": "^4.7.2",
+    "isomorphic-fetch": "^3.0.0",
     "jimp": "^0.16.1",
     "jquery": "^3.5.1",
     "jsonp": "^0.2.1",
