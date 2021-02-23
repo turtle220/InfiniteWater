@@ -9,7 +9,8 @@ class ArticleHeroSlice extends PureComponent {
 
     return <Section className={classes.section} verticalPadding={false}>
       <div className={classes.content}>
-        <ResponsiveImage images={page.hero_image.images} blur={page.hero_image.blur} aspect={1.4} className={classes.image} />
+        {page.hero_image && <ResponsiveImage images={page.hero_image.images} blur={page.hero_image.blur} aspect={1.4} className={classes.image} />}
+        {page.article_video && <video style={{width: '85%', height: 300}} controls> <source src={page.article_video.url} type='video/mp4' /> </video>}
         <h1 className={classes.title}>{page.title.text}</h1>
       </div>
     </Section>
