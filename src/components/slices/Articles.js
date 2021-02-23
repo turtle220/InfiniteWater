@@ -36,6 +36,7 @@ class Articles extends PureComponent {
             className={cn(classes.articleContainer, { reverse: i % 2 })}
           // style={{ paddingTop: "10% !important" }}
           >
+            {console.log('------------articleVideo:')}
             {article.hero_image && (
               <Link className={classes.imageContainer} to={article.url}>
                 <ResponsiveImage
@@ -44,6 +45,11 @@ class Articles extends PureComponent {
                   blur={article.hero_image.blur}
                   aspect={1}
                 />
+              </Link>
+            )}
+            {article.article_video && (
+              <Link className={classes.imageContainer} to={article.url}>
+                <source src={article.article_video.url} type='video/mp4' />
               </Link>
             )}
             <div className={cn(classes.content, { reverse: i % 2 })}>
