@@ -48,7 +48,7 @@ class Articles extends PureComponent {
             )}
             {article.article_video && (
               <Link className={classes.imageContainer} to={article.url}>
-                <video className={cn(classes.image, { reverse: i % 2 })} style={{width:'85%', height:300}} controls>
+                <video className={cn(classes.image, { reverse: i % 2 })} style={{width: '85%', height: 300}} controls>
                   <source src={article.article_video.url} type='video/mp4' />
                 </video>
               </Link>
