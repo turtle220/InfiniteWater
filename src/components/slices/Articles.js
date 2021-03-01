@@ -47,8 +47,8 @@ class Articles extends PureComponent {
               </Link>
             )}
             {article.article_video && (
-              <Link className={classes.imageContainer} to={article.url}>
-                <video className={cn(classes.image, { reverse: i % 2 })} style={{width: '85%', height: 300, outline: 'none'}} controls>
+              <Link className={classes.imageContainer} to={article.url} style={{textAlign: 'center'}} >
+                <video className={classes.video} style={{width: '100%', height: 300, outline: 'none'}} controls>
                   <source src={article.article_video.url} type='video/mp4' />
                 </video>
               </Link>
@@ -110,6 +110,9 @@ export default injectSheet((theme) => ({
         marginRight: 0
       }
     }
+  },
+  video: {
+    marginLeft: '19%'
   },
   content: {
     flex: '1 1 0%',

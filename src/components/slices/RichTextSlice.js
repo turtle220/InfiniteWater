@@ -134,7 +134,7 @@ class RichTextSlice extends PureComponent {
     )
       .then((resp) => resp.json())
       .then((data) => {
-        console.log('----Hydrox----000000:', data)
+        // console.log('----Hydrox----000000:', data)
         this.setState({ hydrox: data.records })
       })
   }
@@ -745,28 +745,6 @@ class RichTextSlice extends PureComponent {
           })}
       </table>
     )
-    // const metalloids = (
-    //   <table style={{ width: "100%" }}>
-    //     <tr>
-    //       <th>Indicators</th>
-    //       <th>Raw</th>
-    //       <th>Unit</th>
-    //       <th>Treated</th>
-    //     </tr>
-
-    //     {this.state.metalloids &&
-    //       this.state.metalloids.map((key, article) => {
-    //         return (
-    //           <tr>
-    //             <td style={{ textAlign: "center" }}>{key.fields.Indicators}</td>
-    //             <td style={{ textAlign: "center" }}>{key.fields.Raw}</td>
-    //             <td style={{ textAlign: "center" }}>{key.fields.Unit}</td>
-    //             <td style={{ textAlign: "center" }}>{key.fields.Treated}</td>
-    //           </tr>
-    //         );
-    //       })}
-    //   </table>
-    // );
 
     const ch =
       typeof window !== 'undefined' && window.location.href.split('/')[3]
@@ -819,7 +797,7 @@ class RichTextSlice extends PureComponent {
                 'hydroxon-aop-advanced-oxidation-process--disinfection-innovation-for-water-recycling-and-reuse'
                         ? HydroxTable
                         : this.state.selectURL ===
-                'hydroxon-aop-advanced-oxidation-process--disinfection-innovation-for-water-recycling-and-reuse1'
+                'hydroxon-aop-advanced-oxidation-process--disinfection-innovation-for-water-recycling-and-reuse2'
                           ? HydroxTable
                           : null}
             {slice.link_url && slice.link_text && (
@@ -832,6 +810,7 @@ class RichTextSlice extends PureComponent {
                 target={slice.link_url.target}
               />
             )}
+            {slice.video_url && <iframe width='850' height='315' src='https://www.youtube.com/embed/oI3QI5SRBFY' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture' allowfullscreen />}
           </div>
           {hasImages && (
             <div className={classes.floatRight}>
