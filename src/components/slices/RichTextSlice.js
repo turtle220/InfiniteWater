@@ -797,7 +797,7 @@ class RichTextSlice extends PureComponent {
                 'hydroxon-aop-advanced-oxidation-process--disinfection-innovation-for-water-recycling-and-reuse'
                         ? HydroxTable
                         : this.state.selectURL ===
-                'hydroxon-aop-advanced-oxidation-process--disinfection-innovation-for-water-recycling-and-reuse2'
+                'hydroxon-aop-advanced-oxidation-process--disinfection-innovation-for-water-recycling-and-reuse-2'
                           ? HydroxTable
                           : null}
             {slice.link_url && slice.link_text && (
@@ -810,7 +810,7 @@ class RichTextSlice extends PureComponent {
                 target={slice.link_url.target}
               />
             )}
-            {slice.video_url && <iframe width='850' height='315' src='https://www.youtube.com/embed/oI3QI5SRBFY' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture' allowfullscreen />}
+            {this.state.selectURL === 'groundwater-contamination-treatment-solutions' && slice.video_url && <iframe width='100%' height='315' src='https://www.youtube.com/embed/oI3QI5SRBFY' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture' allowfullscreen />}
           </div>
           {hasImages && (
             <div className={classes.floatRight}>
