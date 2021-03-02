@@ -187,7 +187,7 @@ class Menu extends Component {
 
                         {x.menu_title === 'Infinite News' && (
                           <div className={classes.dropdown}>
-                            <a className={classes.dropbtn} href='/page/company-news'>
+                            <a className={classes.dropbtn}>
                               <span>
                                 <Symbol
                                   icon={news}
@@ -196,7 +196,7 @@ class Menu extends Component {
                                 Infinite News
                               </span>
                             </a>
-                            <div className={classes.dropdownContent}>
+                            <div className={classes.dropdownContentInfiniteNews}>
                               <Link
                                 className={classes.test}
                                 to={'/page/company-news'}>
@@ -353,7 +353,7 @@ class Menu extends Component {
                     <li key={i}>
                       {
                         <div className={classes.dropdown}>
-                          <a className={classes.dropbtn} href='/page/applications-potable-use'>
+                          <Link className={classes.dropbtn} to={'/page/applications-potable-use'}>
                             <span>
                               <Symbol
                                 icon={tablet}
@@ -361,7 +361,7 @@ class Menu extends Component {
                               />
                               Applications
                             </span>
-                          </a>
+                          </Link>
                           <div className={classes.dropdownContent}>
                             <Link
                               className={classes.test}
@@ -459,13 +459,13 @@ class Menu extends Component {
                   <li key={i}>
                     {
                       <div className={classes.dropdown}>
-                        <a className={classes.dropbtn} href='/page/industries-municipal'>
+                        <Link className={classes.dropbtn} to={'/page/industries-municipal'}>
                           <Symbol
                             icon={barChat}
                             className={classes.chevronDoubleRight}
                           />
                           Industries
-                        </a>
+                        </Link>
                         <div className={classes.dropdownContent}>
                           <Link
                             className={classes.test}
@@ -802,6 +802,51 @@ export default flow([
       [theme.breakpoints.down('md')]: {
         // position: 'relative !important',
         display: 'none !important',
+        height: 'auto'
+      }
+    },
+    dropdownContentInfiniteNews: {
+      padding: '10px 40px',
+      marginTop: '4px',
+      color: '#4d4e56',
+      textAlign: 'left',
+      display: 'none',
+      position: 'absolute',
+      border: 'none',
+      minWidth: '200px',
+      backgroundColor: '#cfabab',
+      boxShadow: '0px 8px 16px 0px rgba(0,0,0,0.2)',
+      zIndex: 1,
+      '& a': {
+        fontWeight: '100',
+        opacity: 0.6,
+        fontSize: 'inherit',
+        textDecoration: 'none',
+        display: 'block',
+        transition: ' all 0.5s',
+        '&:hover': {
+          opacity: 1,
+          color: '#4d4e56'
+        },
+        '& span': {
+          cursor: 'pointer',
+          display: 'inline-block',
+          position: 'relative',
+          transition: '0.5s',
+          '&:hover': {
+            opacity: 1,
+            color: '#4d4e56',
+            paddingLeft: '25px',
+            '& after': {
+              opacity: '1',
+              right: '0'
+            }
+          }
+        }
+      },
+      [theme.breakpoints.down('md')]: {
+        position: 'relative !important',
+        // display: 'none !important',
         height: 'auto'
       }
     },
