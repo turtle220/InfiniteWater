@@ -56,7 +56,7 @@ class ResponsiveImage extends Component {
     />)
 
     return <div className={cn(classes.container, { [classes.fixedAspect]: aspect }, className)} ref={onRef}>
-      {blur && <img key='blur' src={blur.data ? blur.data : blur.url} className={classes.imageBlur} alt={mainImage ? mainImage.alt : ''} />}
+      {/* {blur && <img key='blur' src={blur.data ? blur.data : blur.url} className={classes.imageBlur} alt={mainImage ? mainImage.alt : ''} />} */}
       <picture>
         {/* <!--[if IE 9]><video style="display: none;"><![endif]--> */}
         {sources}
@@ -98,9 +98,10 @@ export default injectSheet((theme) => ({
     width: '100%',
     height: '100%',
     transition: 'all 0.3s',
-    objectFit: 'cover',
+    objectFit: 'contain',
     pointerEvents: 'none',
-    fontFamily: '"object-fit: cover;"' // object-fit polyfill
+    fontFamily: '"object-fit: cover;"', // object-fit polyfill
+    transform: 'scale(1.1)'
   },
   imageBlur: {
     position: 'absolute',

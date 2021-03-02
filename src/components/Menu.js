@@ -187,7 +187,7 @@ class Menu extends Component {
 
                         {x.menu_title === 'Infinite News' && (
                           <div className={classes.dropdown}>
-                            <a className={classes.dropbtn}>
+                            <a className={classes.dropbtn} href='/page/company-news'>
                               <span>
                                 <Symbol
                                   icon={news}
@@ -353,7 +353,7 @@ class Menu extends Component {
                     <li key={i}>
                       {
                         <div className={classes.dropdown}>
-                          <a className={classes.dropbtn}>
+                          <a className={classes.dropbtn} href='/page/applications-potable-use'>
                             <span>
                               <Symbol
                                 icon={tablet}
@@ -459,7 +459,7 @@ class Menu extends Component {
                   <li key={i}>
                     {
                       <div className={classes.dropdown}>
-                        <a className={classes.dropbtn}>
+                        <a className={classes.dropbtn} href='/page/industries-municipal'>
                           <Symbol
                             icon={barChat}
                             className={classes.chevronDoubleRight}
@@ -800,7 +800,8 @@ export default flow([
         }
       },
       [theme.breakpoints.down('md')]: {
-        // position: 'relative',
+        // position: 'relative !important',
+        display: 'none !important',
         height: 'auto'
       }
     },
