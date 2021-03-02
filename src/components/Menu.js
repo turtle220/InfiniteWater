@@ -858,6 +858,13 @@ export default flow([
         textAlign: 'left'
       }
     },
+    dropdown: {
+      textAlign: 'left',
+      '&:hover $dropdownContentInfiniteNews': { display: 'block' },
+      [theme.breakpoints.down('lg')]: {
+        textAlign: 'left'
+      }
+    },
     navbar: {
       overflow: 'hidden',
       backgroundColor: '#333'
