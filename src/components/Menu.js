@@ -186,7 +186,7 @@ class Menu extends Component {
                         )}
 
                         {x.menu_title === 'Infinite News' && (
-                          <div className={classes.dropdown}>
+                          <div className={classes.dropdownInfinteNews}>
                             <a className={classes.dropbtn}>
                               <span>
                                 <Symbol
@@ -858,7 +858,7 @@ export default flow([
         textAlign: 'left'
       }
     },
-    dropdown: {
+    dropdownInfinteNews: {
       textAlign: 'left',
       '&:hover $dropdownContentInfiniteNews': { display: 'block' },
       [theme.breakpoints.down('lg')]: {
