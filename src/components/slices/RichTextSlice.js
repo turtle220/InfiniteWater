@@ -247,47 +247,47 @@ class RichTextSlice extends PureComponent {
       </table>
     )
 
-    const GlyphosateRemovalTable2 = (
-      <table
-        style={{
-          width: '100%',
-          borderCollapse: 'collapse',
-          backgroundColor: '#d2b8b833'
-        }}
-      >
-        <thead>
-          <tr style={{ backgroundColor: '#a3a3ca' }}>
-            <th style={{ textAlign: 'left' }}>Column1</th>
-            <th>Conventional Solution</th>
-            <th>Infinite Water Solution</th>
-          </tr>
-        </thead>
+    // const GlyphosateRemovalTable2 = (
+    //   <table
+    //     style={{
+    //       width: '100%',
+    //       borderCollapse: 'collapse',
+    //       backgroundColor: '#d2b8b833'
+    //     }}
+    //   >
+    //     <thead>
+    //       <tr style={{ backgroundColor: '#a3a3ca' }}>
+    //         <th style={{ textAlign: 'left' }}>Column1</th>
+    //         <th>Conventional Solution</th>
+    //         <th>Infinite Water Solution</th>
+    //       </tr>
+    //     </thead>
 
-        {this.state.glyphosateRemovaltable2 &&
-          this.state.glyphosateRemovaltable2.map((key, article) => {
-            return (
-              <tr>
-                {/* <td style={{ textAlign: "center" }}>{key.fields.AfterPreTreatment}</td> */}
-                <td style={{ textAlign: 'left', whiteSpace: 'nowrap' }}>
-                  {key.fields && key.fields.Column1}
-                </td>
-                <td style={{ textAlign: 'center', whiteSpace: 'nowrap' }}>
-                  {key.fields && key.fields.ConventionalSolution}
-                </td>
-                <td style={{ textAlign: 'center', whiteSpace: 'nowrap' }}>
-                  {key.fields && key.fields.InfiniteWaterSolution}
-                </td>
-              </tr>
-            )
-          })}
-      </table>
-    )
+    //     {this.state.glyphosateRemovaltable2 &&
+    //       this.state.glyphosateRemovaltable2.map((key, article) => {
+    //         return (
+    //           <tr>
+    //             {/* <td style={{ textAlign: "center" }}>{key.fields.AfterPreTreatment}</td> */}
+    //             <td style={{ textAlign: 'left', whiteSpace: 'nowrap' }}>
+    //               {key.fields && key.fields.Column1}
+    //             </td>
+    //             <td style={{ textAlign: 'center', whiteSpace: 'nowrap' }}>
+    //               {key.fields && key.fields.ConventionalSolution}
+    //             </td>
+    //             <td style={{ textAlign: 'center', whiteSpace: 'nowrap' }}>
+    //               {key.fields && key.fields.InfiniteWaterSolution}
+    //             </td>
+    //           </tr>
+    //         )
+    //       })}
+    //   </table>
+    // )
 
     const GlyphosateRemovalTable1 = (
       <div>
         {GlyphosateRemoval}
-        <br />
-        {GlyphosateRemovalTable2}
+        {/* <br /> */}
+        {/* {GlyphosateRemovalTable2} */}
       </div>
     )
     // const TableIndustrial = (

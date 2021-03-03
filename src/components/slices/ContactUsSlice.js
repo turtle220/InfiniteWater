@@ -16,6 +16,19 @@ class ContactUsSlice extends PureComponent {
     email: '',
     message: ''
   }
+  componentDidMount () {
+    const script = document.createElement('script')
+    script.src = 'https://js.hsforms.net/forms/v2.js'
+    script.src = 'https://js.hsforms.net/forms/v2-legacy.js.js'
+    script.addEventListener('load', () => {
+      if (window.hbspt) {
+        window.hbspt.forms.create({
+          portalld: '4527957',
+          formId: 'b5c3a785-e621-4cd8-91d8-059b046babd0'
+        })
+      }
+    })
+  }
 
   onSubmit = (e) => {
     const {status} = this.props
