@@ -187,7 +187,7 @@ class Menu extends Component {
 
                         {x.menu_title === 'Infinite News' && (
                           <div className={classes.dropdown}>
-                            <a className={classes.dropbtn}>
+                            <a className={classes.dropbtn} id='infinite_news'>
                               <span>
                                 <Symbol
                                   icon={news}
@@ -802,55 +802,13 @@ export default flow([
       [theme.breakpoints.down('md')]: {
         // position: 'relative !important',
         display: 'none !important',
-        height: 'auto'
+        height: 'auto',
+        '#infinite_news:active': {
+          display: 'block !important'
+        }
       }
     },
-    // dropdownContentInfiniteNews: {
-    //   padding: '10px 40px',
-    //   marginTop: '4px',
-    //   color: '#4d4e56',
-    //   textAlign: 'left',
-    //   display: 'none',
-    //   position: 'absolute',
-    //   border: 'none',
-    //   minWidth: '200px',
-    //   backgroundColor: '#cfabab',
-    //   boxShadow: '0px 8px 16px 0px rgba(0,0,0,0.2)',
-    //   zIndex: 1,
-    //   '& a': {
-    //     fontWeight: '100',
-    //     opacity: 0.6,
-    //     fontSize: 'inherit',
-    //     textDecoration: 'none',
-    //     display: 'block',
-    //     transition: ' all 0.5s',
-    //     '&:hover': {
-    //       opacity: 1,
-    //       color: '#4d4e56'
-    //     },
-    //     '& span': {
-    //       cursor: 'pointer',
-    //       display: 'inline-block',
-    //       position: 'relative',
-    //       transition: '0.5s',
-    //       '&:hover': {
-    //         opacity: 1,
-    //         color: '#4d4e56',
-    //         paddingLeft: '25px',
-    //         '& after': {
-    //           opacity: '1',
-    //           right: '0'
-    //         }
-    //       }
-    //     }
-    //   },
-    //   [theme.breakpoints.down('md')]: {
-    //     position: 'relative !important',
-    //     // display: 'none !important',
-    //     height: 'auto'
-    //   }
-    // },
-
+  
     dropdown: {
       textAlign: 'left',
       '&:hover $dropdownContent': { display: 'block' },
@@ -858,13 +816,7 @@ export default flow([
         textAlign: 'left'
       }
     },
-    // dropdownInfinteNews: {
-    //   textAlign: 'left',
-    //   '&:hover $dropdownContentInfiniteNews': { display: 'block' },
-    //   [theme.breakpoints.down('lg')]: {
-    //     textAlign: 'left'
-    //   }
-    // },
+
     navbar: {
       overflow: 'hidden',
       backgroundColor: '#333'
