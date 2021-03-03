@@ -803,12 +803,10 @@ export default flow([
         // position: 'relative !important',
         display: 'none !important',
         height: 'auto',
-        '#infinite_news:active': {
-          display: 'block !important'
-        }
+        '#infinite_news:active': { display: 'block !important' }
       }
     },
-  
+
     dropdown: {
       textAlign: 'left',
       '&:hover $dropdownContent': { display: 'block' },
