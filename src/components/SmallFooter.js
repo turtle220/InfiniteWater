@@ -4,7 +4,7 @@ import cn from 'classnames'
 import injectSheet from 'react-jss'
 import {getGlobalContent} from '../selectors'
 import flow from 'lodash/flow'
-import Link from './widgets/Link'
+// import Link from './widgets/Link'
 
 class Modal extends React.Component {
   constructor (props) {
