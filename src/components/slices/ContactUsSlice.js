@@ -3,18 +3,34 @@ import injectSheet from 'react-jss'
 import {connect} from 'react-redux'
 import Section from '../widgets/Section'
 import RichTextContainer from '../widgets/RichTextContainer'
-import Symbol from '../SVGSymbol'
-import arrow from '../../img/icons/arrow.svg'
-import cn from 'classnames'
+// import Symbol from '../SVGSymbol'
+// import arrow from '../../img/icons/arrow.svg'
+// import cn from 'classnames'
 import {submitContact} from '../../actions'
 import {getContactStatus, getContactMessage} from '../../selectors'
-import Spinner from '../widgets/Spinner'
+// import Spinner from '../widgets/Spinner'
 
 class ContactUsSlice extends PureComponent {
   state = {
     name: '',
     email: '',
     message: ''
+  }
+
+  componentDidMount () {
+    var script = document.createElement('script')
+    script.src = 'https://js.hsforms.net/forms/v2.js'
+    document.body.appendChild(script)
+
+    script.addEventListener('load', () => {
+      if (window.hbspt) {
+        window.hbspt.forms.create({
+          portalId: '4527957',
+          formId: 'b5c3a785-e621-4cd8-91d8-059b046babd0',
+          target: '#hubspotForm'
+        })
+      }
+    })
   }
 
   onSubmit = (e) => {
@@ -29,7 +45,7 @@ class ContactUsSlice extends PureComponent {
 
   render () {
     const {classes, slice, page, status} = this.props
-    const {name, email, message} = this.state
+    // const {name, email, message} = this.state
     if (!slice) return
 
     return <Section className={classes.section}>
@@ -38,7 +54,7 @@ class ContactUsSlice extends PureComponent {
           <h1>{page.title.text}</h1>
           {slice.text && slice.text.html && <RichTextContainer content={slice.text.html} />}
         </div>
-        {status !== 'success' &&
+        {/* {status !== 'success' &&
         <form className={classes.form} onSubmit={this.onSubmit}>
           <input name='name' type='text' required className={classes.input} placeholder={slice.name_field_placeholder} onChange={this.onChanged('name')} value={name} />
           <input name='email' type='email' required className={classes.input} placeholder={slice.email_field_placeholder} onChange={this.onChanged('email')} value={email} />
@@ -47,8 +63,8 @@ class ContactUsSlice extends PureComponent {
             {slice.cta_text}
             {status === 'loading' ? <Spinner className={classes.spinner} /> : <Symbol icon={arrow} className={classes.arrow} />}
           </button>
-        </form>}
-
+        </form>} */}
+        <div id='hubspotForm' />
         {status === 'success' && <RichTextContainer className={classes.form} content={slice.successful_message.html} />}
       </div>
       <div className={classes.contactInfoContainer}>

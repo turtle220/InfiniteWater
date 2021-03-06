@@ -27,7 +27,8 @@ class Modal extends React.Component {
         width: 500,
         padding: 20,
         boxSizing: 'border-box',
-        backgroundColor: '#fff',
+        backgroundColor: '#4d4e56',
+        top: '17%',
         margin: '40px auto',
         borderRadius: 3,
         zIndex: 2,
@@ -125,9 +126,9 @@ class SmallFooter extends Component {
     script.addEventListener('load', () => {
       if (window.hbspt) {
         window.hbspt.forms.create({
-          portalId: '2323210',
-          formId: 'd8232cf6-b9ed-4abc-a81e-585801849cea',
-          target: '#hubspotForm'
+          portalId: '4527957',
+          formId: 'b5c3a785-e621-4cd8-91d8-059b046babd0',
+          target: '#hubspotForm1'
         })
       }
     })
@@ -139,18 +140,18 @@ class SmallFooter extends Component {
     return <footer className={cn(classes.footer, theme === 'dark' && 'dark-theme')}>
       <div className={classes.footerContainer}>
         {global.contact_us_link && <div className={classes.linkContainer}>
-          <Link to={global.contact_us_link.url} target={global.contact_us_link.target}>{global.contact_us_text}</Link>
+          <button style={{backgroundColor: 'transparent', border: 'none', outline: 'none', color: 'white', width: '210px', cursor: 'pointer'}} onClick={this.openModal} to={global.contact_us_link.url} target={global.contact_us_link.target}>{global.contact_us_text}</button>
         </div>
         }
 
         <div style={{paddingLeft: '8%'}}>
-          <button style={{backgroundColor: 'transparent', border: 'none', outline: 'none', color: 'white', width: '130px', cursor: 'pointer'}} onClick={this.openModal} className={classes.callAction}> call to action </button>
+          {/* <button style={{backgroundColor: 'transparent', border: 'none', outline: 'none', color: 'white', width: '130px', cursor: 'pointer'}} onClick={this.openModal} className={classes.callAction}> call to action </button> */}
           <Modal
             isModalOpen={this.state.isModalOpen}
             closeModal={this.closeModal}
             style={modalStyle}
           >
-            <div id='hubspotForm' />
+            <div id='hubspotForm1' />
 
             <button
               style={{
