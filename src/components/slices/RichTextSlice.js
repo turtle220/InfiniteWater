@@ -143,7 +143,7 @@ class RichTextSlice extends PureComponent {
     const { classes, className, slice } = this.props
     const fullWidth = slice.columns === 'Full Width'
     const splitIntoColumn = slice.columns === '2'
-    console.log(slice, '----------slice:')
+    console.log(slice, this.state.selectURL, '----------slice:')
 
     const hasImages = !!get(slice, ['items', 0, 'image', 'images'])
 
@@ -811,16 +811,10 @@ class RichTextSlice extends PureComponent {
                 target={slice.link_url.target}
               />
             )}
-            {/* {slice.link_url && slice.link_text && (
-              <CTA
-                className={cn(classes.link, {
-                  withMargin: slice.text && slice.text.text
-                })}
-                text={slice.link_text}
-                to={slice.link_url.url}
-                target={slice.link_url.target}
-              />
-            )} */}
+
+            {this.state.selectURL === 'groundwater-contamination-treatment-solutions' && slice.video_url && slice.video_url.url && (
+              <iframe style='max-width: 85.5%; padding-left: 14.5%' width='100%' height='315' src='https://www.youtube.com/embed/oI3QI5SRBFY' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture' allowfullscreen />
+            )}
             {/* {this.state.selectURL === 'groundwater-contamination-treatment-solutions' && slice.video_url && <iframe width='100%' height='315' src='https://www.youtube.com/embed/oI3QI5SRBFY' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture' allowfullscreen />} */}
           </div>
           {hasImages && (
