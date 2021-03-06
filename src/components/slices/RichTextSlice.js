@@ -761,6 +761,7 @@ class RichTextSlice extends PureComponent {
           typeof window !== 'undefined' && window.location.href.split('/')[4]
       })
     }
+    // console.log(slice.video_url.url, '--------videourltest:')
 
     return (
       <Section>
@@ -811,10 +812,9 @@ class RichTextSlice extends PureComponent {
                 target={slice.link_url.target}
               />
             )}
-
-            {this.state.selectURL === 'groundwater-contamination-treatment-solutions' && slice.video_url && slice.video_url.url && (
+            {this.state.selectURL === 'groundwater-contamination-treatment-solution' && slice.video_url && (
               // <iframe style='max-width: 85.5%; padding-left: 14.5%' width='100%' height='315' src='https://www.youtube.com/embed/oI3QI5SRBFY' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture' allowfullscreen />
-              <img src='https://www.youtube.com/embed/oI3QI5SRBFY' alt='' />
+              <iframe style={{maxWidth: '85.5%', paddingLeft: '14.5%', width: '100%', height: '315'}} allowfullscreen src='https://www.youtube.com/embed/oI3QI5SRBFY' alt='' />
             )}
             {/* {this.state.selectURL === 'groundwater-contamination-treatment-solutions' && slice.video_url && <iframe width='100%' height='315' src='https://www.youtube.com/embed/oI3QI5SRBFY' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture' allowfullscreen />} */}
           </div>
