@@ -403,7 +403,7 @@ class Menu extends Component {
                     <li key={i}>
                       {
                         <div className={classes.dropdown}>
-                          <a className={classes.dropbtn}>
+                          <Link className={classes.dropbtn}>
                             <span>
                               <Symbol
                                 icon={tablet}
@@ -411,7 +411,7 @@ class Menu extends Component {
                               />
                               应用
                             </span>
-                          </a>
+                          </Link>
                           <div className={classes.dropdownContent} id='Applications'>
                             <Link
                               className={classes.test}
@@ -513,13 +513,13 @@ class Menu extends Component {
                   <li key={i}>
                     {
                       <div className={classes.dropdown}>
-                        <a className={classes.dropbtn}>
+                        <Link className={classes.dropbtn}>
                           <Symbol
                             icon={barChat}
                             className={classes.chevronDoubleRight}
                           />
                           公司新闻
-                        </a>
+                        </Link>
                         <div className={classes.dropdownContent} id='Industries'>
                           <Link
                             className={classes.test}
