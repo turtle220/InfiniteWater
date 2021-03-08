@@ -27,7 +27,7 @@ class Modal extends React.Component {
         width: 500,
         padding: 20,
         boxSizing: 'border-box',
-        backgroundColor: '#4d4e56',
+        backgroundColor: '#36454f',
         top: '17%',
         margin: '40px auto',
         borderRadius: 3,
@@ -46,6 +46,7 @@ class Modal extends React.Component {
         height: '100%',
         backgroundColor: 'rgba(0,0,0,0.5)',
         ...this.props.style.overlay
+        // cursor: 'pointer'
       }
     }
   }
@@ -79,10 +80,10 @@ const mainStyle = {
     margin: '120px 0'
   },
   button: {
-    backgroundColor: '#408cec',
+    backgroundColor: '#F5E5DA',
     border: 0,
     padding: '12px 20px',
-    color: '#fff',
+    color: 'black',
     margin: '0 auto',
     width: 150,
     display: 'block',
@@ -158,7 +159,8 @@ class SmallFooter extends Component {
                 ...mainStyle.button,
                 margin: 0,
                 width: 'auto',
-                marginTop: 10
+                marginTop: 10,
+                cursor: 'pointer'
               }}
               onClick={this.closeModal}
             >

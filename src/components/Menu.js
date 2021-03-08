@@ -196,7 +196,7 @@ class Menu extends Component {
                                 Infinite News
                               </span>
                             </a>
-                            <div className={classes.dropdownContent}>
+                            <div className={classes.dropdownContent} id='infiniteNews'>
                               <Link
                                 className={classes.test}
                                 to={'/page/company-news'}>
@@ -220,7 +220,7 @@ class Menu extends Component {
                                 无限新闻
                               </span>
                             </a>
-                            <div className={classes.dropdownContent}>
+                            <div className={classes.dropdownContent} id='infiniteNews'>
                               <Link
                                 className={classes.test}
                                 to={'/zh/page/company-news'}>
@@ -362,7 +362,7 @@ class Menu extends Component {
                               Applications
                             </span>
                           </Link>
-                          <div className={classes.dropdownContent}>
+                          <div className={classes.dropdownContent} id='Applications'>
                             <Link
                               className={classes.test}
                               to={'/page/applications-potable-use'}>
@@ -412,7 +412,7 @@ class Menu extends Component {
                               应用
                             </span>
                           </a>
-                          <div className={classes.dropdownContent}>
+                          <div className={classes.dropdownContent} id='Applications'>
                             <Link
                               className={classes.test}
                               to={'/zh/page/applications-potable-use'}>
@@ -466,7 +466,7 @@ class Menu extends Component {
                           />
                           Industries
                         </Link>
-                        <div className={classes.dropdownContent}>
+                        <div className={classes.dropdownContent} id='Industries'>
                           <Link
                             className={classes.test}
                             to={'/page/industries-municipal'}>
@@ -520,7 +520,7 @@ class Menu extends Component {
                           />
                           公司新闻
                         </a>
-                        <div className={classes.dropdownContent}>
+                        <div className={classes.dropdownContent} id='Industries'>
                           <Link
                             className={classes.test}
                             to={'/zh/page/industries-municipal'}>
@@ -760,6 +760,7 @@ export default flow([
       display: 'invisible',
       transition: 'transform 0.5s ease-in-out'
     },
+
     dropdownContent: {
       padding: '10px 40px',
       marginTop: '4px',
@@ -801,20 +802,40 @@ export default flow([
       },
       [theme.breakpoints.down('md')]: {
         // position: 'relative !important',
-        display: 'none !important',
-        height: 'auto'
+        // display: 'none',
+
         // '#infinite_news:active': { display: 'block !important' }
+        // '&#infiniteNews': {
+        //   position: 'relative !important',
+        //   // display: 'none',
+        //   height: 'auto',
+        //   // display: 'block !important',
+        // },
+        '&#infiniteNews': {
+          position: 'relative !important',
+          height: 'auto'
+          // display: 'block !important',
+        },
+        '&#Industries, &#Applications': {
+          display: 'none'
+        }
+
+        // '&:active, &:hover, &:focus, &:visited': {
+        //   display: 'none !important',
+        // }
       }
     },
-
     dropdown: {
       textAlign: 'left',
       '&:hover $dropdownContent': { display: 'block' },
       [theme.breakpoints.down('lg')]: {
         textAlign: 'left'
+      },
+      [theme.breakpoints.down('md')]: {
+        // '&:hover': { display: 'none' },
+
       }
     },
-
     navbar: {
       overflow: 'hidden',
       backgroundColor: '#333'
@@ -830,6 +851,7 @@ export default flow([
         // height: 40
       }
     }
+
   })),
   connect(mapStateToProps, mapDispatchToProps)
 ])(Menu)
