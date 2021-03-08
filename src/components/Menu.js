@@ -403,7 +403,7 @@ class Menu extends Component {
                     <li key={i}>
                       {
                         <div className={classes.dropdown}>
-                          <Link className={classes.dropbtn}>
+                          <Link className={classes.dropbtn} to={'/page/applications-potable-use'}>
                             <span>
                               <Symbol
                                 icon={tablet}
@@ -513,7 +513,7 @@ class Menu extends Component {
                   <li key={i}>
                     {
                       <div className={classes.dropdown}>
-                        <Link className={classes.dropbtn}>
+                        <Link className={classes.dropbtn} to={'/page/industries-municipal'}>
                           <Symbol
                             icon={barChat}
                             className={classes.chevronDoubleRight}
