@@ -98,7 +98,7 @@ export default injectSheet((theme) => ({
     width: '100%',
     height: '100%',
     transition: 'all 0.3s',
-    objectFit: 'cover',
+    // objectFit: 'cover',
     pointerEvents: 'none',
     // fontFamily: '"object-fit: cover;"', // object-fit polyfill
     transform: 'scale(1.1)'
