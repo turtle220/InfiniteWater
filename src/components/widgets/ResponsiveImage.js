@@ -98,9 +98,9 @@ export default injectSheet((theme) => ({
     width: '100%',
     height: '100%',
     transition: 'all 0.3s',
-    objectFit: 'contain',
+    objectFit: 'cover',
     pointerEvents: 'none',
-    fontFamily: '"object-fit: cover;"', // object-fit polyfill
+    // fontFamily: '"object-fit: cover;"', // object-fit polyfill
     transform: 'scale(1.1)'
   },
   imageBlur: {

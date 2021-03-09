@@ -62,7 +62,7 @@ export default injectSheet(theme => ({
     justifyContent: 'space-between'
   },
   content: {
-    flex: '1 0 auto'
+    // flex: '1 0 auto'
   },
   titleAndCopy: {
     [theme.breakpoints.up('md')]: {

@@ -801,28 +801,14 @@ export default flow([
         }
       },
       [theme.breakpoints.down('md')]: {
-        // position: 'relative !important',
-        // display: 'none',
 
-        // '#infinite_news:active': { display: 'block !important' }
-        // '&#infiniteNews': {
-        //   position: 'relative !important',
-        //   // display: 'none',
-        //   height: 'auto',
-        //   // display: 'block !important',
-        // },
         '&#infiniteNews': {
           position: 'relative !important',
           height: 'auto'
-          // display: 'block !important',
         },
         '&#Industries, &#Applications': {
           display: 'none'
         }
-
-        // '&:active, &:hover, &:focus, &:visited': {
-        //   display: 'none !important',
-        // }
       }
     },
     dropdown: {
