@@ -822,7 +822,6 @@ class RichTextSlice extends PureComponent {
                   </span>
                 </div>
               </div>
-
             )}
             { slice.image && slice.image.images[0].url && (
               // <img src={slice.image.images[0].url} alt='' />
