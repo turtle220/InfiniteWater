@@ -186,7 +186,7 @@ export default flow([
     content: {
       color: theme.colors.skin,
       position: 'relative',
-      height: '91%',
+      height: '100%',
       display: 'flex',
       flexDirection: 'column-reverse',
       width: '100%',
@@ -222,7 +222,7 @@ export default flow([
     inner: {
       marginTop: 60,
       fontSize: theme.getRemValue(16),
-      maxWidth: 430,
+      maxWidth: 500,
       position: 'relative',
       flex: '0 0 auto',
       [theme.breakpoints.up('sm')]: {

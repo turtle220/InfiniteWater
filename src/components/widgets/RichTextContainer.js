@@ -96,6 +96,9 @@ export default connect(mapStateToProps, mapDispatchToProps)(injectSheet(theme =>
     '& a': {
       color: 'inherit'
     },
+    '&:hover a': {
+      color: 'inherit'
+    },
     '& ul': {
       listStyle: 'none',
       fontWeight: 400,

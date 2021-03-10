@@ -42,7 +42,7 @@ class Tabs extends PureComponent {
 
     return <nav className={cn(classes.container, theme)}>
       <div className={classes.boundingBox} ref={this.setBoundingBox}>
-        <ul className={classes.list} ref={this.setListRef}>
+        <ul className={classes.list} >
           {filter(tabs, x => x.tab_link).map((tab, i) => <li key={i}>
             {/* <div>{location.pathname }</div> */}
             <Spinner className={cn(classes.wave, {selected: location.pathname === tab.tab_link.url})} animate={false} frequency={20} width={350} />
