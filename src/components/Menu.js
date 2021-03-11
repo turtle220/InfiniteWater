@@ -66,13 +66,17 @@ class Menu extends Component {
     TweenLite.to(this.overlayRef, 0.5, { autoAlpha: open ? 0.5 : 0 })
     TweenLite.to(this.ref, 0.5, { y: open ? '0%' : '-100%' })
     if (!open) {
-      document.getElementById('Applications').style.display = 'none'
-      document.getElementById('Industries').style.display = 'none'
-      document.getElementById('infiniteNews').style.display = 'none'
+      if(document.getElementById('Applications') && document.getElementById('Industries') && document.getElementById('infiniteNews')) {
+        document.getElementById('Applications').style.display = 'none'
+        document.getElementById('Industries').style.display = 'none'
+        document.getElementById('infiniteNews').style.display = 'none'
+      }
     } else {
-      document.getElementById('Applications').style.removeProperty('display')
-      document.getElementById('Industries').style.removeProperty('display')
-      document.getElementById('infiniteNews').style.removeProperty('display')
+      if(document.getElementById('Applications') && document.getElementById('Industries') && document.getElementById('infiniteNews')) {      
+        document.getElementById('Applications').style.removeProperty('display')
+        document.getElementById('Industries').style.removeProperty('display')
+        document.getElementById('infiniteNews').style.removeProperty('display')
+      }
     }
   }
   setMenuRef = (ref) => {

@@ -24,11 +24,11 @@ class Modal extends React.Component {
     this.style = {
       modal: {
         position: 'relative',
-        width: 410,
+        width: 340,
         padding: 20,
         boxSizing: 'border-box',
         backgroundColor: '#36454f',
-        top: '15%',
+        top: '10%',
         margin: '40px auto',
         borderRadius: 3,
         zIndex: 2,
