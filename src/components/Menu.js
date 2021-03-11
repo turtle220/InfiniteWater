@@ -65,6 +65,15 @@ class Menu extends Component {
     const { open } = this.props
     TweenLite.to(this.overlayRef, 0.5, { autoAlpha: open ? 0.5 : 0 })
     TweenLite.to(this.ref, 0.5, { y: open ? '0%' : '-100%' })
+    if (!open) {
+      document.getElementById('Applications').style.display = 'none'
+      document.getElementById('Industries').style.display = 'none'
+      document.getElementById('infiniteNews').style.display = 'none'
+    } else {
+      document.getElementById('Applications').style.removeProperty('display')
+      document.getElementById('Industries').style.removeProperty('display')
+      document.getElementById('infiniteNews').style.removeProperty('display')
+    }
   }
   setMenuRef = (ref) => {
     this.ref = ref
@@ -813,7 +822,9 @@ export default flow([
     },
     dropdown: {
       textAlign: 'left',
-      '&:hover $dropdownContent': { display: 'block' },
+      // '&#Industries, &#Applications' : {
+      '&#Industries, &#Applications, &:hover $dropdownContent': { display: 'block' },
+      // },
       [theme.breakpoints.down('lg')]: {
         textAlign: 'left'
       },

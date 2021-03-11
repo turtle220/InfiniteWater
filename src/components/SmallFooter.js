@@ -24,11 +24,11 @@ class Modal extends React.Component {
     this.style = {
       modal: {
         position: 'relative',
-        width: 500,
+        width: 410,
         padding: 20,
         boxSizing: 'border-box',
         backgroundColor: '#36454f',
-        top: '17%',
+        top: '15%',
         margin: '40px auto',
         borderRadius: 3,
         zIndex: 2,
@@ -131,6 +131,11 @@ class SmallFooter extends Component {
           formId: 'b5c3a785-e621-4cd8-91d8-059b046babd0',
           target: '#hubspotForm1'
         })
+
+        // setTimeout(() => {
+        //   if (document.getElementById('hubspotForm1').querySelector('iframe'))
+        //     document.getElementById('hubspotForm1').querySelector('iframe').style.width = "380px";
+        // }, 1000);
       }
     })
   }
@@ -224,6 +229,7 @@ export default flow([
         color: theme.colors.skin
       }
     },
+
     footerContainer: {
       ...theme.mixin.contentContainer(),
       justifyContent: 'space-between',
