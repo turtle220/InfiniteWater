@@ -12,6 +12,17 @@ import { NProgress } from 'redux-nprogress'
 
 class App extends Component {
   componentDidMount () {
+    var script = document.createElement('script')
+    script.src = 'https://www.googletagmanager.com/gtag/js?id=UA-176089089-1https://js.hsforms.net/forms/v2.js'
+    document.body.appendChild(script)
+
+    script.addEventListener('load', () => {
+      window.dataLayer = window.dataLayer || []
+      function gtag () { window.dataLayer.push(arguments) }
+      gtag('js', new Date())
+
+      gtag('config', 'UA-176089089-1')
+    })
   }
 
   render () {

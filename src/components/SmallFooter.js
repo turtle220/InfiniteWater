@@ -146,18 +146,18 @@ class SmallFooter extends Component {
     return <footer className={cn(classes.footer, theme === 'dark' && 'dark-theme')}>
       <div className={classes.footerContainer}>
         {global.contact_us_link && <div>
-          <button style={{backgroundColor: 'transparent', border: 'none', outline: 'none', width: '210px', cursor: 'pointer'}} onClick={this.openModal} to={global.contact_us_link.url} target={global.contact_us_link.target}>{global.contact_us_text}</button>
+          <button style={{backgroundColor: 'transparent', border: 'none', outline: 'none', width: '180px', cursor: 'pointer', textAlign:'left'}} onClick={this.openModal} to={global.contact_us_link.url} target={global.contact_us_link.target}>{global.contact_us_text}</button>
         </div>
         }
 
-        <div style={{paddingLeft: '8%'}}>
+        <div>
           {/* <button style={{backgroundColor: 'transparent', border: 'none', outline: 'none', color: 'white', width: '130px', cursor: 'pointer'}} onClick={this.openModal} className={classes.callAction}> call to action </button> */}
           <Modal
             isModalOpen={this.state.isModalOpen}
             closeModal={this.closeModal}
             style={modalStyle}
           >
-            <div id='hubspotForm1' />
+            <div id='hubspotForm1'/>
 
             <button
               style={{
@@ -174,7 +174,7 @@ class SmallFooter extends Component {
           </Modal>
         </div>
 
-        <div className={classes.container}>
+        <div className={classes.container} style={{width: '80%'}}>
           {global.phone && <a href={`tel:${global.phone}`}>{global.phone}</a>}
           {global.email && <a href={`mailto:${global.email}`}>{global.email}</a>}
         </div>
