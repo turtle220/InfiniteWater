@@ -146,7 +146,7 @@ class SmallFooter extends Component {
     return <footer className={cn(classes.footer, theme === 'dark' && 'dark-theme')}>
       <div className={classes.footerContainer}>
         {global.contact_us_link && <div>
-          <button style={{backgroundColor: 'transparent', border: 'none', outline: 'none', width: '180px', cursor: 'pointer', textAlign:'left'}} onClick={this.openModal} to={global.contact_us_link.url} target={global.contact_us_link.target}>{global.contact_us_text}</button>
+          <button style={{backgroundColor: 'transparent', border: 'none', outline: 'none', width: '180px', cursor: 'pointer', textAlign: 'left'}} onClick={this.openModal} to={global.contact_us_link.url} target={global.contact_us_link.target}>{global.contact_us_text}</button>
         </div>
         }
 
@@ -157,7 +157,7 @@ class SmallFooter extends Component {
             closeModal={this.closeModal}
             style={modalStyle}
           >
-            <div id='hubspotForm1'/>
+            <div id='hubspotForm1' />
 
             <button
               style={{
