@@ -147,7 +147,7 @@ class SmallFooter extends Component {
       <div className={classes.footerContainer}>
         {global.contact_us_link && <div style={{display: 'flex'}}>
           <button style={{backgroundColor: 'transparent', border: 'none', outline: 'none', width: '180px', cursor: 'pointer', textAlign: 'left'}} onClick={this.openModal} to={global.contact_us_link.url} target={global.contact_us_link.target}>{global.contact_us_text}</button>
-          <a style={{backgroundColor: 'transparent', border: 'none', outline: 'none', width: '180px', cursor: 'pointer', textAlign: 'left'}} href='/page/website-private-policy' >Private Policy</a>
+          <a style={{backgroundColor: 'transparent', border: 'none', outline: 'none', width: '180px', cursor: 'pointer', textAlign: 'left'}} href='/page/website-private-policy' >Privacy Policy</a>
         </div>
         }
 
