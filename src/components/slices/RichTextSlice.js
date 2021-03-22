@@ -143,7 +143,6 @@ class RichTextSlice extends PureComponent {
     const { classes, className, slice } = this.props
     const fullWidth = slice.columns === 'Full Width'
     const splitIntoColumn = slice.columns === '2'
-    console.log(slice, this.state.selectURL, '----------slice:')
 
     const hasImages = !!get(slice, ['items', 0, 'image', 'images'])
 

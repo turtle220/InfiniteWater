@@ -84,7 +84,6 @@ class ResponsiveImage extends Component {
           typeof window !== 'undefined' && window.location.href.split('/')[4]
       })
     }
-    console.log(this.state.selectURL, '-----------ResponsiveImage:')
 
     return <div className={cn(classes.container, { [classes.fixedAspect]: aspect }, className)} ref={onRef}>
       {/* {blur && <img key='blur' src={blur.data ? blur.data : blur.url} className={classes.imageBlur} alt={mainImage ? mainImage.alt : ''} />} */}
