@@ -11,6 +11,13 @@ export function round (num) { return parseFloat(Math.round(num * 100) / 100).toF
 const defaultImage = 'data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=='
 
 class ResponsiveImage extends Component {
+  constructor (props) {
+    super(props)
+    this.state = {
+      selectURL: ''
+    }
+  }
+
   shouldComponentUpdate (nextProps, nextState) {
     // only change if the images change
     const {images, children, className, classes} = this.props
@@ -55,12 +62,35 @@ class ResponsiveImage extends Component {
       onLoad={this.onImageLoaded}
     />)
 
+    const ImageElement1 = (props) => (mainImage && <img data-sizes='auto' draggable='false'
+      alt={mainImage ? mainImage.alt : ''}
+      style={{objectFit: 'contain !important'}}
+      className={imageCss}
+      src={defaultImage} // should be the source image to fallback on
+      onLoad={this.onImageLoaded}
+    />)
+
+    const ch =
+    typeof window !== 'undefined' && window.location.href.split('/')[3]
+
+    if (ch === 'zh') {
+      this.setState({
+        selectURL:
+          typeof window !== 'undefined' && window.location.href.split('/')[5]
+      })
+    } else {
+      this.setState({
+        selectURL:
+          typeof window !== 'undefined' && window.location.href.split('/')[4]
+      })
+    }
+
     return <div className={cn(classes.container, { [classes.fixedAspect]: aspect }, className)} ref={onRef}>
       {/* {blur && <img key='blur' src={blur.data ? blur.data : blur.url} className={classes.imageBlur} alt={mainImage ? mainImage.alt : ''} />} */}
       <picture>
         {/* <!--[if IE 9]><video style="display: none;"><![endif]--> */}
         {sources}
-        <ImageElement />
+        {this.state.selectURL === 'water-world-day' ? <ImageElement1 /> : <ImageElement /> }
         {/* <!--[if IE 9]></video><![endif]--> */}
       </picture>
       {children}
@@ -98,7 +128,7 @@ export default injectSheet((theme) => ({
     width: '100%',
     height: '100%',
     transition: 'all 0.3s',
-    objectFit: 'contain',
+    // objectFit: 'contain',
     pointerEvents: 'none',
     // fontFamily: '"object-fit: cover;"', // object-fit polyfill
     transform: 'scale(1.1)'
