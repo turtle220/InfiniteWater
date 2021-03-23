@@ -21,7 +21,7 @@ class ResponsiveImage extends Component {
   shouldComponentUpdate (nextProps, nextState) {
     // only change if the images change
     const {images, children, className, classes} = this.props
-    
+
     if (first(images).url !== first(nextProps.images).url) {
       return true
     }
@@ -76,8 +76,8 @@ class ResponsiveImage extends Component {
       <picture>
         {/* <!--[if IE 9]><video style="display: none;"><![endif]--> */}
         {sources}
-        {typeof window !== 'undefined' && window.location.href.split('/')[4] === 'world-water-day' ? <ImageElement1 /> : 
-          typeof window !== 'undefined' && window.location.href.split('/')[5] === 'world-water-day' ?  <ImageElement1 /> : <ImageElement />}
+        {typeof window !== 'undefined' && window.location.href.split('/')[4] === 'world-water-day' ? <ImageElement1 />
+          : typeof window !== 'undefined' && window.location.href.split('/')[5] === 'world-water-day' ? <ImageElement1 /> : <ImageElement />}
         {/* <!--[if IE 9]></video><![endif]--> */}
       </picture>
       {children}
