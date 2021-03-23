@@ -21,6 +21,7 @@ class ResponsiveImage extends Component {
   shouldComponentUpdate (nextProps, nextState) {
     // only change if the images change
     const {images, children, className, classes} = this.props
+    
     if (first(images).url !== first(nextProps.images).url) {
       return true
     }
@@ -64,34 +65,19 @@ class ResponsiveImage extends Component {
 
     const ImageElement1 = (props) => (mainImage && <img data-sizes='auto' draggable='false'
       alt={mainImage ? mainImage.alt : ''}
-      style={{objectFit: 'contain !important'}}
+      style={{objectFit: 'contain'}}
       className={imageCss}
       src={defaultImage} // should be the source image to fallback on
       onLoad={this.onImageLoaded}
     />)
-
-    const ch =
-    typeof window !== 'undefined' && window.location.href.split('/')[3]
-
-    if (ch === 'zh') {
-      this.setState({
-        selectURL:
-          typeof window !== 'undefined' && window.location.href.split('/')[5]
-      })
-    } else {
-      this.setState({
-        selectURL:
-          typeof window !== 'undefined' && window.location.href.split('/')[4]
-      })
-    }
-    console.log(this.state.selectURL, '-------', typeof window !== 'undefined' && window.location.href.split('/')[4], '*********REesponsiveImage---')
 
     return <div className={cn(classes.container, { [classes.fixedAspect]: aspect }, className)} ref={onRef}>
       {/* {blur && <img key='blur' src={blur.data ? blur.data : blur.url} className={classes.imageBlur} alt={mainImage ? mainImage.alt : ''} />} */}
       <picture>
         {/* <!--[if IE 9]><video style="display: none;"><![endif]--> */}
         {sources}
-        {typeof window !== 'undefined' && window.location.href.split('/')[4] === 'world-water-day' ? <ImageElement1 /> : <ImageElement /> }
+        {typeof window !== 'undefined' && window.location.href.split('/')[4] === 'world-water-day' ? <ImageElement1 /> : 
+          typeof window !== 'undefined' && window.location.href.split('/')[5] === 'world-water-day' ?  <ImageElement1 /> : <ImageElement />}
         {/* <!--[if IE 9]></video><![endif]--> */}
       </picture>
       {children}
