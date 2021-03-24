@@ -62,7 +62,7 @@ class NewFooter extends React.Component {
       <footer className={classes.footer}>
         <div className={classes.container}>
           <div>
-            <div className={classes.row} style={{paddingLeft: '5%', paddingRight: '5%'}}>
+            <div className={classes.row} style={{paddingLeft: '5%', paddingRight: '5%', paddingTop: '4%'}}>
               <div className={classes.section}>
                 <div className={classes.widget}>
                   <div style={{display: 'flex'}}>
@@ -165,7 +165,7 @@ class NewFooter extends React.Component {
                 <p style={{paddingTop: '4%', color: '#F5E5DA'}}>Copyright © 2021 Infinitewater Holdings Limited - </p>
               </div>
               <div className={classes.copyright} style={{paddingTop: '3%'}}>
-                <a style={{color: '#F5E5DA', fontWeight: '500', cursor: 'pointer', fontSize: '13px'}} href='/page/private-policy'>Privacy Policy</a>
+                <a style={{color: '#F5E5DA', fontWeight: '500', cursor: 'pointer', fontSize: '13px'}} href='/page/privacy-policy'>Privacy Policy</a>
               </div>
             </div>
           </div>
@@ -234,12 +234,15 @@ export default flow([
       }
     },
     footer: {
+      borderTopColor: 'white',
+      border: '1px solid',
+      borderLeft: 'none',
+      borderRight: 'none',
+      borderBottom: 'none',
       position: 'relative',
-      // backgroundColor: '#eee',
-      // borderTop: '5px solid rgba(0, 0, 0, 0.2)',
       color: 'rgba(255, 255, 255, 0.75)',
       backgroundColor: '#4d4e56',
-      borderTopColor: 'rgba(255, 255, 255, 0.15)'
+      // borderTopColor: 'rgba(255, 255, 255, 0.15)'
     },
     copyrights: {
       // backgroundColor: '#ddd',
