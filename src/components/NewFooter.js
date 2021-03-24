@@ -4,7 +4,6 @@ import injectSheet from 'react-jss'
 import {connect} from 'react-redux'
 
 import {getGlobalContent} from '../selectors'
-import './NewFooter.css'
 import logo from '../img/icons/logo.svg'
 import youtube from '../img/icons/youtube.svg'
 import facebook from '../img/icons/facebook.svg'
@@ -55,19 +54,19 @@ class NewFooter extends React.Component {
 
   // render modal
   render () {
-    const {global} = this.props
+    const {global, classes} = this.props
 
     if (!global) return null
 
     return (
-      <footer id='footer' className='dark'>
-        <div className='container'>
-          <div className='footer-widgets-wrap'>
-            <div className='row col-mb-50' style={{paddingLeft: '5%', paddingRight: '5%'}}>
-              <div className='col-md-6 col-lg-4'>
-                <div className='widget clearfix'>
+      <footer className={classes.footer}>
+        <div className={classes.container}>
+          <div>
+            <div className={classes.row} style={{paddingLeft: '5%', paddingRight: '5%'}}>
+              <div className={classes.section}>
+                <div className={classes.widget}>
                   <div style={{display: 'flex'}}>
-                    <Symbol icon={logo} className='footer-logo' style={{width: '90px', height: '100px', color: '#F5E5DA'}} />
+                    <Symbol icon={logo} className={classes.footerlogo} style={{width: '90px', height: '100px', color: '#F5E5DA'}} />
                     <div style={{paddingTop: '10%', paddingLeft: '5%'}}>
                       <p style={{color: '#F5E5DA'}}>Infinitewater</p>
                     </div>
@@ -99,8 +98,8 @@ class NewFooter extends React.Component {
                   </div>
                 </div>
               </div>
-              <div className='col-md-6 col-lg-4' style={{paddingLeft: '4%'}} >
-                <div className='widget clearfix'>
+              <div className={classes.section} style={{paddingLeft: '4%'}} >
+                <div className={classes.widget}>
                   <div style={{color: '#F5E5DA'}}>
                     <p style={{paddingTop: '10%', color: '#F5E5DA'}}>INDUSTRIES WE SERVICE</p>
                   </div>
@@ -149,7 +148,7 @@ class NewFooter extends React.Component {
                   </ul>
                 </div>
               </div>
-              <div className='col-md-6 col-lg-4'>
+              <div className={classes.section}>
                 <div className='widget clearfix'>
                   <p style={{paddingTop: '9%', color: '#F5E5DA'}}>HOW CAN WE HELP YOU? </p>
                   <div id='hubspotForm2' />
@@ -159,13 +158,13 @@ class NewFooter extends React.Component {
           </div>
         </div>
 
-        <div id='copyrights'>
-          <div className='row justify-content-between' style={{justifyContent: 'center'}}>
-            <div className='col-12 col-lg-auto text-center text-lg-left copy-letter' style={{display: 'flex'}}>
-              <div className='copy_left'>
+        <div className={classes.copyrights}>
+          <div className={classes.row} style={{justifyContent: 'center'}}>
+            <div className={classes.copyletter} style={{display: 'flex'}}>
+              <div className={classes.copyleft}>
                 <p style={{paddingTop: '4%', color: '#F5E5DA'}}>Copyright © 2021 Infinitewater Holdings Limited - </p>
               </div>
-              <div className='copy_right' style={{paddingTop: '3%'}}>
+              <div className={classes.copyright} style={{paddingTop: '3%'}}>
                 <a style={{color: '#F5E5DA', fontWeight: '500', cursor: 'pointer', fontSize: '13px'}} href='/page/private-policy'>Privacy Policy</a>
               </div>
             </div>
@@ -182,7 +181,108 @@ const mapStateToProps = (state) => {
 }
 export default flow([
   injectSheet(theme => ({
-
+    container: {
+      width: '100%',
+      paddingRight: '15px',
+      paddingLeft: '15px',
+      marginRight: 'auto',
+      marginLeft: 'auto',
+      '@media (min-width: 576px)': {
+        maxWidth: '540px'
+      },
+      '@media (min-width: 768px)': {
+        maxWidth: '720px'
+      },
+      '@media (min-width: 992px)': {
+        maxWidth: '960px'
+      },
+      '@media (min-width: 1200px)': {
+        maxWidth: '1140px'
+      },
+      '@media (min-width: 1440px)': {
+        maxWidth: '1320px'
+      }
+    },
+    row: {
+      // display: '-webkit-box',
+      // display: '-ms-flexbox',
+      display: 'flex',
+      // -ms-flex-wrap: wrap;
+      flexWrap: 'wrap',
+      marginRight: '-15px',
+      marginLeft: '-15px'
+    },
+    section: {
+      '@media (min-width: 768px)': {
+        // -webkit-box-flex: 0,
+        // -ms-flex: '0 0 50%',
+        flex: '0 0 50%',
+        maxWidth: '50%'
+      },
+      '@media (min-width: 992px)': {
+        // .col-lg-auto {
+        //   -webkit-box-flex: 0;
+        //   -ms-flex: 0 0 auto;
+        //   flex: 0 0 auto;
+        //   width: auto;
+        //   max-width: 100%;
+        // }
+        // -webkit-box-flex: 0,
+        // -ms-flex: '0 0 33.33333%',
+        flex: '0 0 33.33333%',
+        maxWidth: '33.33333%'
+      }
+    },
+    footer: {
+      position: 'relative',
+      // backgroundColor: '#eee',
+      // borderTop: '5px solid rgba(0, 0, 0, 0.2)',
+      color: 'rgba(255, 255, 255, 0.75)',
+      backgroundColor: '#4d4e56',
+      borderTopColor: 'rgba(255, 255, 255, 0.15)'
+    },
+    copyrights: {
+      // backgroundColor: '#ddd',
+      fontSize: '0.875rem',
+      lineHeight: '1.8',
+      height: '45px',
+      color: 'rgba(255, 255, 255, 0.4)',
+      backgroundColor: 'rgba(0, 0, 0, 0.2)'
+    },
+    footerlogo: {
+      display: 'block',
+      marginBottom: '30px',
+      width: '90px'
+    },
+    widget: {
+      position: 'relative',
+      lineHeight: '1.7'
+    },
+    municipal: {
+      listStylePosition: 'inside',
+      padding: '0px !important'
+    },
+    copyletter: {
+      '@media only screen and (max-width: 400px)': {
+        display: 'block !important'
+      }
+    },
+    copyleft: {
+      '@media only screen and (max-width: 400px)': {
+        width: '104%',
+        textAlign: 'center',
+        paddingLeft: 0,
+        '& p': {
+          paddingTop: '0 !important'
+        }
+      }
+    },
+    copyright: {
+      '@media only screen and (max-width: 400px)': {
+        marginTop: '-11% !important',
+        textAlign: 'center'
+      }
+    }
   })),
   connect(mapStateToProps)
 ])(NewFooter)
