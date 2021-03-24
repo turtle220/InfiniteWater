@@ -241,7 +241,7 @@ export default flow([
       borderBottom: 'none',
       position: 'relative',
       color: 'rgba(255, 255, 255, 0.75)',
-      backgroundColor: '#4d4e56',
+      backgroundColor: '#4d4e56'
       // borderTopColor: 'rgba(255, 255, 255, 0.15)'
     },
     copyrights: {
