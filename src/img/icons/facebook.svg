@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="41" height="40" viewBox="0 0 41 40">
+    <defs>
+        <style>
+            .prefix__cls-1{fill:none}
+        </style>
+    </defs>
+    <g id="prefix__facebook">
+        <path id="prefix__Rectangle" d="M0 0H40V40H0z" class="prefix__cls-1" transform="translate(1)"/>
+        <g id="prefix__Oval" style="stroke:#fff;stroke-miterlimit:10;stroke-width:2px;fill:none">
+            <circle cx="20" cy="20" r="20" style="stroke:none"/>
+            <circle cx="20" cy="20" r="19" class="prefix__cls-1"/>
+        </g>
+        <path id="prefix__Shape" d="M6.664 21.236h-4v-11h-3v-3h3v-2c0-2.971.406-5 4-5h3v3h-1a1.909 1.909 0 0 0-2 2v2h3v3h-3v11z" transform="translate(15.336 9.765)" style="fill:#fff"/>
+    </g>
+</svg>
+<defs xmlns="http://www.w3.org/2000/svg">
+    <style>
+        .prefix__cls-1{fill:none}
+    </style>
+</defs>
+<g xmlns="http://www.w3.org/2000/svg" id="prefix__facebook">
+    <path id="prefix__Rectangle" d="M0 0H40V40H0z" class="prefix__cls-1" transform="translate(1)"/>
+    <g id="prefix__Oval" style="stroke:#fff;stroke-miterlimit:10;stroke-width:2px;fill:none">
+        <circle cx="20" cy="20" r="20" style="stroke:none"/>
+        <circle cx="20" cy="20" r="19" class="prefix__cls-1"/>
+    </g>
+    <path id="prefix__Shape" d="M6.664 21.236h-4v-11h-3v-3h3v-2c0-2.971.406-5 4-5h3v3h-1a1.909 1.909 0 0 0-2 2v2h3v3h-3v11z" transform="translate(15.336 9.765)" style="fill:#fff"/>
+</g>

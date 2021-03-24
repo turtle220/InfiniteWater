@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="41" height="40" viewBox="0 0 41 40">
+    <defs>
+        <style>
+            .prefix__cls-1{fill:none}
+        </style>
+    </defs>
+    <g id="prefix__youtube-play" transform="translate(.056)">
+        <path id="prefix__Rectangle" d="M0 0H40V40H0z" class="prefix__cls-1" transform="translate(.944)"/>
+        <g id="prefix__Oval" transform="translate(-.056)" style="stroke:#fff;stroke-miterlimit:10;stroke-width:2px;fill:none">
+            <circle cx="20" cy="20" r="20" style="stroke:none"/>
+            <circle cx="20" cy="20" r="19" class="prefix__cls-1"/>
+        </g>
+        <path id="prefix__Shape" d="M15.353 12.662H3.284a2.938 2.938 0 0 1-2.232-.825A3.245 3.245 0 0 1 .284 9.66v-7a2.783 2.783 0 0 1 2.931-3h12.069a2.937 2.937 0 0 1 2.231.825 3.25 3.25 0 0 1 .768 2.175v7a2.783 2.783 0 0 1-2.93 3.002zm-9.07-10v7l6-3z" transform="translate(11.66 13.34)" style="fill:#fff"/>
+    </g>
+</svg>
+<defs xmlns="http://www.w3.org/2000/svg">
+    <style>
+        .prefix__cls-1{fill:none}
+    </style>
+</defs>
+<g xmlns="http://www.w3.org/2000/svg" id="prefix__youtube-play" transform="translate(.056)">
+    <path id="prefix__Rectangle" d="M0 0H40V40H0z" class="prefix__cls-1" transform="translate(.944)"/>
+    <g id="prefix__Oval" transform="translate(-.056)" style="stroke:#fff;stroke-miterlimit:10;stroke-width:2px;fill:none">
+        <circle cx="20" cy="20" r="20" style="stroke:none"/>
+        <circle cx="20" cy="20" r="19" class="prefix__cls-1"/>
+    </g>
+    <path id="prefix__Shape" d="M15.353 12.662H3.284a2.938 2.938 0 0 1-2.232-.825A3.245 3.245 0 0 1 .284 9.66v-7a2.783 2.783 0 0 1 2.931-3h12.069a2.937 2.937 0 0 1 2.231.825 3.25 3.25 0 0 1 .768 2.175v7a2.783 2.783 0 0 1-2.93 3.002zm-9.07-10v7l6-3z" transform="translate(11.66 13.34)" style="fill:#fff"/>
+</g>
+<g xmlns="http://www.w3.org/2000/svg" id="prefix__Oval" transform="translate(-.056)" style="stroke:#fff;stroke-miterlimit:10;stroke-width:2px;fill:none">
+    <circle cx="20" cy="20" r="20" style="stroke:none"/>
+    <circle cx="20" cy="20" r="19" class="prefix__cls-1"/>
+</g>
+<path xmlns="http://www.w3.org/2000/svg" id="prefix__Shape" d="M15.353 12.662H3.284a2.938 2.938 0 0 1-2.232-.825A3.245 3.245 0 0 1 .284 9.66v-7a2.783 2.783 0 0 1 2.931-3h12.069a2.937 2.937 0 0 1 2.231.825 3.25 3.25 0 0 1 .768 2.175v7a2.783 2.783 0 0 1-2.93 3.002zm-9.07-10v7l6-3z" transform="translate(11.66 13.34)" style="fill:#fff"/>

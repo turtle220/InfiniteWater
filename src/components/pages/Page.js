@@ -18,7 +18,8 @@ import ContactUsSlice from '../slices/ContactUsSlice'
 import VideoSlice from '../slices/VideoSlice'
 import EmbedSlice from '../slices/EmbedSlice'
 
-import SmallFooter from '../SmallFooter'
+// import SmallFooter from '../SmallFooter'
+import NewFooter from '../NewFooter'
 import WavePattern from '../WavePattern'
 
 const slices = {
@@ -57,6 +58,13 @@ const slices = {
 }
 
 class Page extends PureComponent {
+  constructor (props) {
+    super(props)
+    this.state = {
+      selectURL: ''
+    }
+  }
+
   addTopMargin = () => {
     const { page } = this.props
     return (
@@ -114,6 +122,15 @@ class Page extends PureComponent {
       'light-theme': page.theme === 'light'
     })
 
+    const ch =
+      typeof window !== 'undefined' && window.location.href.split('/')[3]
+
+    if (ch === 'zh') {
+      this.setState({ selectURL: page.url.split('/')[3] })
+    } else {
+      this.setState({ selectURL: page.url.split('/')[2] })
+    }
+
     return [
       <div key='page' className={pageClasses}>
         {pageSections
@@ -130,16 +147,19 @@ class Page extends PureComponent {
             </div>
           ))}
       </div>,
-      <SmallFooter
-        key='footer'
-        theme={
-          pageSections
-            ? last(pageSections).theme
-            : page.theme === 'water'
-              ? 'water'
-              : 'light'
-        }
-      />
+      <div>
+        {this.state.selectURL !== 'contact' && <NewFooter />}
+      </div>
+      // <SmallFooter
+      //   key='footer'
+      //   theme={
+      //     pageSections
+      //       ? last(pageSections).theme
+      //       : page.theme === 'water'
+      //         ? 'water'
+      //         : 'light'
+      //   }
+      // />
     ]
   }
 }
