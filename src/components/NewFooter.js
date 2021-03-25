@@ -162,10 +162,10 @@ class NewFooter extends React.Component {
           <div className={classes.row} style={{justifyContent: 'center'}}>
             <div className={classes.copyletter} style={{display: 'flex'}}>
               <div className={classes.copyleft}>
-                <p style={{paddingTop: '4%', color: '#F5E5DA'}}>Copyright © 2021 Infinitewater Holdings Limited - </p>
+                <p style={{paddingTop: '4%', color: '#F5E5DA'}}>Copyright © 2021 Infinite Water Holdings Limited - {''}</p>
               </div>
               <div className={classes.copyright} style={{paddingTop: '3%'}}>
-                <a style={{color: '#F5E5DA', fontWeight: '500', cursor: 'pointer', fontSize: '13px'}} href='/page/privacy-policy'>Privacy Policy</a>
+                <a style={{color: '#F5E5DA', fontWeight: '500', cursor: 'pointer', fontSize: '13px'}} href='/page/privacy-policy'> Privacy Policy</a>
               </div>
             </div>
           </div>
@@ -266,12 +266,12 @@ export default flow([
       padding: '0px !important'
     },
     copyletter: {
-      '@media only screen and (max-width: 400px)': {
+      '@media only screen and (max-width: 420px)': {
         display: 'block !important'
       }
     },
     copyleft: {
-      '@media only screen and (max-width: 400px)': {
+      '@media only screen and (max-width: 420px)': {
         width: '104%',
         textAlign: 'center',
         paddingLeft: 0,
@@ -281,7 +281,7 @@ export default flow([
       }
     },
     copyright: {
-      '@media only screen and (max-width: 400px)': {
+      '@media only screen and (max-width: 420px)': {
         marginTop: '-11% !important',
         textAlign: 'center'
       }

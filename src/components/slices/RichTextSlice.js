@@ -12,18 +12,18 @@ class RichTextSlice extends PureComponent {
   constructor (props) {
     super(props)
     this.state = {
-      municipal: [],
+      // municipal: [],
       arsenicGroundwater: [],
       glyphosateRemoval: [],
-      tableIndustrial: [],
+      // tableIndustrial: [],
       multiplexConstruction: [],
-      peoplesLiberation: [],
+      // peoplesLiberation: [],
       treatmentGroundwater: [],
       manufacturingWastewater: [],
       manufacturingIndustry: [],
       miningWash: [],
       metalloids: [],
-      glyphosateRemovaltable2: [],
+      // glyphosateRemovaltable2: [],
       hydrox: [],
       selectTable: '',
       selectURL: ''
@@ -31,14 +31,14 @@ class RichTextSlice extends PureComponent {
   }
 
   componentDidMount () {
-    fetch(
-      'https://api.airtable.com/v0/appSiM4BMjfa2tOwy/municipal?api_key=keySWJROaGROOvXyK&view=Grid%20view'
-    )
-      .then((resp) => resp.json())
-      .then((data) => {
-        console.log('----data:', data)
-        this.setState({ municipal: data.records })
-      })
+    // fetch(
+    //   'https://api.airtable.com/v0/appSiM4BMjfa2tOwy/municipal?api_key=keySWJROaGROOvXyK&view=Grid%20view'
+    // )
+    //   .then((resp) => resp.json())
+    //   .then((data) => {
+    //     console.log('----data:', data)
+    //     this.setState({ municipal: data.records })
+    //   })
 
     fetch(
       'https://api.airtable.com/v0/appSiM4BMjfa2tOwy/arsenic-groundwater?api_key=keySWJROaGROOvXyK&view=Grid%20view'
@@ -57,35 +57,11 @@ class RichTextSlice extends PureComponent {
       })
 
     fetch(
-      'https://api.airtable.com/v0/appSiM4BMjfa2tOwy/glyphosate-removal-1?api_key=keySWJROaGROOvXyK&view=Grid%20view'
-    )
-      .then((resp) => resp.json())
-      .then((data) => {
-        this.setState({ glyphosateRemovaltable2: data.records })
-      })
-
-    fetch(
-      'https://api.airtable.com/v0/appSiM4BMjfa2tOwy/table-industrial?api_key=keySWJROaGROOvXyK&view=Grid%20view'
-    )
-      .then((resp) => resp.json())
-      .then((data) => {
-        this.setState({ tableIndustrial: data.records })
-      })
-
-    fetch(
       'https://api.airtable.com/v0/appSiM4BMjfa2tOwy/multiplex-construction?api_key=keySWJROaGROOvXyK&view=Grid%20view'
     )
       .then((resp) => resp.json())
       .then((data) => {
         this.setState({ multiplexConstruction: data.records })
-      })
-
-    fetch(
-      'https://api.airtable.com/v0/appSiM4BMjfa2tOwy/peoples-liberation?api_key=keySWJROaGROOvXyK&view=Grid%20view'
-    )
-      .then((resp) => resp.json())
-      .then((data) => {
-        this.setState({ peoplesLiberation: data.records })
       })
 
     fetch(
@@ -146,36 +122,36 @@ class RichTextSlice extends PureComponent {
 
     const hasImages = !!get(slice, ['items', 0, 'image', 'images'])
 
-    const table = (
-      <table
-        style={{
-          width: '100%',
-          borderCollapse: 'collapse',
-          backgroundColor: '#d2b8b833'
-        }}
-      >
-        <thead>
-          <tr style={{ backgroundColor: '#a3a3ca' }}>
-            <th style={{ textAlign: 'left' }}>Indicators</th>
-            <th>Unit</th>
-            <th>Raw</th>
-            <th>Treated</th>
-          </tr>
-        </thead>
+    // const table = (
+    //   <table
+    //     style={{
+    //       width: '100%',
+    //       borderCollapse: 'collapse',
+    //       backgroundColor: '#d2b8b833'
+    //     }}
+    //   >
+    //     <thead>
+    //       <tr style={{ backgroundColor: '#a3a3ca' }}>
+    //         <th style={{ textAlign: 'left' }}>Indicators</th>
+    //         <th>Unit</th>
+    //         <th>Raw</th>
+    //         <th>Treated</th>
+    //       </tr>
+    //     </thead>
 
-        {this.state.municipal &&
-          this.state.municipal.map((key, article) => {
-            return (
-              <tr>
-                <td style={{ textAlign: 'left' }}>{key.fields.Indicators}</td>
-                <td style={{ textAlign: 'center' }}>{key.fields.Unit}</td>
-                <td style={{ textAlign: 'center' }}>{key.fields.Raw}</td>
-                <td style={{ textAlign: 'center' }}>{key.fields.Treated}</td>
-              </tr>
-            )
-          })}
-      </table>
-    )
+    //     {this.state.municipal &&
+    //       this.state.municipal.map((key, article) => {
+    //         return (
+    //           <tr>
+    //             <td style={{ textAlign: 'left' }}>{key.fields.Indicators}</td>
+    //             <td style={{ textAlign: 'center' }}>{key.fields.Unit}</td>
+    //             <td style={{ textAlign: 'center' }}>{key.fields.Raw}</td>
+    //             <td style={{ textAlign: 'center' }}>{key.fields.Treated}</td>
+    //           </tr>
+    //         )
+    //       })}
+    //   </table>
+    // )
 
     const TableGroundWater = (
       <table
@@ -247,115 +223,12 @@ class RichTextSlice extends PureComponent {
       </table>
     )
 
-    // const GlyphosateRemovalTable2 = (
-    //   <table
-    //     style={{
-    //       width: '100%',
-    //       borderCollapse: 'collapse',
-    //       backgroundColor: '#d2b8b833'
-    //     }}
-    //   >
-    //     <thead>
-    //       <tr style={{ backgroundColor: '#a3a3ca' }}>
-    //         <th style={{ textAlign: 'left' }}>Column1</th>
-    //         <th>Conventional Solution</th>
-    //         <th>Infinite Water Solution</th>
-    //       </tr>
-    //     </thead>
-
-    //     {this.state.glyphosateRemovaltable2 &&
-    //       this.state.glyphosateRemovaltable2.map((key, article) => {
-    //         return (
-    //           <tr>
-    //             {/* <td style={{ textAlign: "center" }}>{key.fields.AfterPreTreatment}</td> */}
-    //             <td style={{ textAlign: 'left', whiteSpace: 'nowrap' }}>
-    //               {key.fields && key.fields.Column1}
-    //             </td>
-    //             <td style={{ textAlign: 'center', whiteSpace: 'nowrap' }}>
-    //               {key.fields && key.fields.ConventionalSolution}
-    //             </td>
-    //             <td style={{ textAlign: 'center', whiteSpace: 'nowrap' }}>
-    //               {key.fields && key.fields.InfiniteWaterSolution}
-    //             </td>
-    //           </tr>
-    //         )
-    //       })}
-    //   </table>
-    // )
-
     const GlyphosateRemovalTable1 = (
       <div>
         {GlyphosateRemoval}
-        {/* <br /> */}
-        {/* {GlyphosateRemovalTable2} */}
       </div>
     )
-    // const TableIndustrial = (
-    //   <table style={{ width: '100%' }}>
-    //     <tr>
-    //       <th>Indicators</th>
-    //       <th>Raw</th>
-    //       <th>Unit</th>
-    //       <th>Treated</th>
-    //     </tr>
 
-    //     {this.state.tableIndustrial &&
-    //       this.state.tableIndustrial.map((key, article) => {
-    //         return (
-    //           <tr>
-    //             <td style={{ textAlign: 'center' }}>{key.fields.Indicators}</td>
-    //             <td style={{ textAlign: 'center' }}>{key.fields.Raw}</td>
-    //             <td style={{ textAlign: 'center' }}>{key.fields.Unit}</td>
-    //             <td style={{ textAlign: 'center' }}>{key.fields.Treated}</td>
-    //           </tr>
-    //         )
-    //       })}
-    //   </table>
-    // )
-    // const multiplex_construction = (
-    //   <table style={{ width: "100%" }}>
-    //     <tr>
-    //       <th>Indicators</th>
-    //       <th>Raw</th>
-    //       <th>Unit</th>
-    //       <th>Treated</th>
-    //     </tr>
-
-    //     {this.state.multiplexConstruction &&
-    //       this.state.multiplexConstruction.map((key, article) => {
-    //         return (
-    //           <tr>
-    //             <td style={{ textAlign: "center" }}>{key.fields.Indicators}</td>
-    //             <td style={{ textAlign: "center" }}>{key.fields.Raw}</td>
-    //             <td style={{ textAlign: "center" }}>{key.fields.Unit}</td>
-    //             <td style={{ textAlign: "center" }}>{key.fields.Treated}</td>
-    //           </tr>
-    //         );
-    //       })}
-    //   </table>
-    // );
-    // const peoples_liberation = (
-    //   <table style={{ width: "100%" }}>
-    //     <tr>
-    //       <th>Indicators</th>
-    //       <th>Raw</th>
-    //       <th>Unit</th>
-    //       <th>Treated</th>
-    //     </tr>
-
-    //     {this.state.peoplesLiberation &&
-    //       this.state.peoplesLiberation.map((key, article) => {
-    //         return (
-    //           <tr>
-    //             <td style={{ textAlign: "center" }}>{key.fields.Indicators}</td>
-    //             <td style={{ textAlign: "center" }}>{key.fields.Raw}</td>
-    //             <td style={{ textAlign: "center" }}>{key.fields.Unit}</td>
-    //             <td style={{ textAlign: "center" }}>{key.fields.Treated}</td>
-    //           </tr>
-    //         );
-    //       })}
-    //   </table>
-    // );
     const TreatmentGroundWater = (
       <table
         style={{
@@ -784,23 +657,21 @@ class RichTextSlice extends PureComponent {
                 content={slice.text.html}
               />
             )}
-            {this.state.selectURL === 'qingyuan-industrial-park1111'
-              ? table
-              : this.state.selectURL === 'qingyuan-industrial-park111'
-                ? TableGroundWater
-                : this.state.selectURL === 'removal-glyphosate'
-                  ? GlyphosateRemovalTable1
-                  : this.state.selectURL === 'treatment-groundwater-treatment'
-                    ? TreatmentGroundWater
-                    : this.state.selectURL === 'mining-wash-down-for-safe-discharge'
-                      ? MiningWash
-                      : this.state.selectURL ===
+            {this.state.selectURL === 'qingyuan-industrial-park111'
+              ? TableGroundWater
+              : this.state.selectURL === 'removal-glyphosate'
+                ? GlyphosateRemovalTable1
+                : this.state.selectURL === 'treatment-groundwater-treatment'
+                  ? TreatmentGroundWater
+                  : this.state.selectURL === 'mining-wash-down-for-safe-discharge'
+                    ? MiningWash
+                    : this.state.selectURL ===
                 'hydroxon-aop-advanced-oxidation-process--disinfection-innovation-for-water-recycling-and-reuse'
-                        ? HydroxTable
-                        : this.state.selectURL ===
+                      ? HydroxTable
+                      : this.state.selectURL ===
                 'hydroxon-aop-advanced-oxidation-process--disinfection-innovation-for-water-recycling-and-reuse-2'
-                          ? HydroxTable
-                          : null}
+                        ? HydroxTable
+                        : null}
             {slice.link_url && slice.link_text && (
               <CTA
                 className={cn(classes.link, {
