@@ -603,7 +603,7 @@ class RichTextSlice extends PureComponent {
           typeof window !== 'undefined' && window.location.href.split('/')[4]
       })
     }
-console.log(slice.image, '------RichTextSlice:')
+    console.log(slice.image, '------RichTextSlice:')
     return (
       <Section>
         <div
@@ -664,7 +664,7 @@ console.log(slice.image, '------RichTextSlice:')
               </div>
             )}
             { slice.image && slice.image.images && (
-              <ResponsiveImage className={cn(classes.image, { reverse: i % 2 })} images={slice.image.images} blur={slice.image.blur} aspect={1} />
+              <ResponsiveImage className={classes.image} images={slice.image.images} blur={slice.image.blur} aspect={1} />
             )}
 
             {/* {this.state.selectURL === 'groundwater-contamination-treatment-solutions' && slice.video_url && <iframe width='100%' height='315' src=' ' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture' allowfullscreen />} */}
