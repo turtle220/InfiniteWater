@@ -699,7 +699,8 @@ export default injectSheet((theme) => ({
   image: {
     maxWidth: '100%',
     width: '100%',
-    marginTop: '8%'
+    marginTop: '8%',
+    height: '614px'
   },
   floatRight: {
     float: 'right',
