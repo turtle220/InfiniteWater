@@ -633,7 +633,7 @@ class RichTextSlice extends PureComponent {
           typeof window !== 'undefined' && window.location.href.split('/')[4]
       })
     }
-    // console.log(slice.video_url.url, '--------videourltest:')
+    console.log(slice.video_url, '--------videourltest:')
 
     return (
       <Section>
@@ -683,19 +683,24 @@ class RichTextSlice extends PureComponent {
               />
             )}
             {slice.video_url && slice.video_url.url && (
+              // slice.video_url.url
               // <iframe style='max-width: 85.5%; padding-left: 14.5%' width='100%' height='315' src='https://www.youtube.com/embed/oI3QI5SRBFY' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture' allowfullscreen />
               <div>
                 <iframe style={{maxWidth: '100%', width: '100%', height: '315px', marginTop: '8%'}} allowfullscreen src='https://www.youtube.com/embed/oI3QI5SRBFY' alt='' />
                 <div style={{textAlign: 'center', color: 'black', fontWeight: 'bold'}}>
                   <span>
-                      Great Artesian Basin Coordinating Committee
+                    Great Artesian Basin Coordinating Committee
                   </span>
                 </div>
               </div>
             )}
+            {/* { slice.image && slice.image.images[0].url && (
+              // <img src={slice.image.images[0].url} alt='' />
+              <img style={{maxWidth: '100%', width: '100%', marginTop: '8%'}} src={slice.image.images[0].url} alt='' />
+            )} */}
             { slice.image && slice.image.images[0].url && (
               // <img src={slice.image.images[0].url} alt='' />
-              <img style={{maxWidth: '100%', width: '100%', marginTop: '8%'}} src='https://upload.wikimedia.org/wikipedia/commons/9/94/Water_cycle.png' alt='' />
+              <img style={{maxWidth: '100%', width: '100%', marginTop: '8%'}} src={slice.image.images[0].url} alt='' />
             )}
             {/* {this.state.selectURL === 'groundwater-contamination-treatment-solutions' && slice.video_url && <iframe width='100%' height='315' src=' ' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture' allowfullscreen />} */}
           </div>
