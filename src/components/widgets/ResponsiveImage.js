@@ -41,7 +41,7 @@ class ResponsiveImage extends Component {
 
   render () {
     const {images, blur, classes, className, imageClassName, aspect, children, onRef} = this.props
-
+    console.log(images, '----------ResponsiveImage:')
     const mainImage = images && last(images)
     const hasWebp = find(images, image => image.url_webp)
 
