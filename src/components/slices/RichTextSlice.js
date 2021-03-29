@@ -603,8 +603,7 @@ class RichTextSlice extends PureComponent {
           typeof window !== 'undefined' && window.location.href.split('/')[4]
       })
     }
-    console.log(slice.video_url, slice.image, '--------videourltest:')
-
+console.log(slice.image, '------RichTextSlice:')
     return (
       <Section>
         <div
@@ -664,13 +663,10 @@ class RichTextSlice extends PureComponent {
                 </div>
               </div>
             )}
-            {/* {page.hero_image && page.hero_image.images &&
-              <ResponsiveImage className={classes.backgroundImage} images={page.hero_image.images} blur={page.hero_image.blur} />
-            } */}
-            { slice.image && slice.image.images[0].url && (
-              <ResponsiveImage style={{maxWidth: '100%', width: '100%', marginTop: '8%'}} images={slice.image.images} blur={slice.image.blur} />
-              // <img style={{maxWidth: '100%', width: '100%', marginTop: '8%'}} src={slice.image.images[0].url} alt='' />
+            { slice.image && slice.image.images && (
+              <ResponsiveImage className={cn(classes.image, { reverse: i % 2 })} images={slice.image.images} blur={slice.image.blur} aspect={1} />
             )}
+
             {/* {this.state.selectURL === 'groundwater-contamination-treatment-solutions' && slice.video_url && <iframe width='100%' height='315' src=' ' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture' allowfullscreen />} */}
           </div>
           {hasImages && (
@@ -699,6 +695,11 @@ export default injectSheet((theme) => ({
       width: '50%',
       maxWidth: theme.text.maxWidth
     }
+  },
+  image: {
+    maxWidth: '100%',
+    width: '100%',
+    marginTop: '8%'
   },
   floatRight: {
     float: 'right',
