@@ -7,6 +7,7 @@ import CTA from '../widgets/CTA'
 import get from 'lodash/get'
 import FloatingImages from '../FloatingImages'
 import fetch from 'isomorphic-fetch'
+import ResponsiveImage from '../widgets/ResponsiveImage'
 
 class RichTextSlice extends PureComponent {
   constructor (props) {
@@ -121,37 +122,6 @@ class RichTextSlice extends PureComponent {
     const splitIntoColumn = slice.columns === '2'
 
     const hasImages = !!get(slice, ['items', 0, 'image', 'images'])
-
-    // const table = (
-    //   <table
-    //     style={{
-    //       width: '100%',
-    //       borderCollapse: 'collapse',
-    //       backgroundColor: '#d2b8b833'
-    //     }}
-    //   >
-    //     <thead>
-    //       <tr style={{ backgroundColor: '#a3a3ca' }}>
-    //         <th style={{ textAlign: 'left' }}>Indicators</th>
-    //         <th>Unit</th>
-    //         <th>Raw</th>
-    //         <th>Treated</th>
-    //       </tr>
-    //     </thead>
-
-    //     {this.state.municipal &&
-    //       this.state.municipal.map((key, article) => {
-    //         return (
-    //           <tr>
-    //             <td style={{ textAlign: 'left' }}>{key.fields.Indicators}</td>
-    //             <td style={{ textAlign: 'center' }}>{key.fields.Unit}</td>
-    //             <td style={{ textAlign: 'center' }}>{key.fields.Raw}</td>
-    //             <td style={{ textAlign: 'center' }}>{key.fields.Treated}</td>
-    //           </tr>
-    //         )
-    //       })}
-    //   </table>
-    // )
 
     const TableGroundWater = (
       <table
@@ -633,7 +603,7 @@ class RichTextSlice extends PureComponent {
           typeof window !== 'undefined' && window.location.href.split('/')[4]
       })
     }
-    console.log(slice.video_url, '--------videourltest:')
+    console.log(slice.video_url, slice.image, '--------videourltest:')
 
     return (
       <Section>
@@ -694,13 +664,12 @@ class RichTextSlice extends PureComponent {
                 </div>
               </div>
             )}
-            {/* { slice.image && slice.image.images[0].url && (
-              // <img src={slice.image.images[0].url} alt='' />
-              <img style={{maxWidth: '100%', width: '100%', marginTop: '8%'}} src={slice.image.images[0].url} alt='' />
-            )} */}
+            {/* {page.hero_image && page.hero_image.images &&
+              <ResponsiveImage className={classes.backgroundImage} images={page.hero_image.images} blur={page.hero_image.blur} />
+            } */}
             { slice.image && slice.image.images[0].url && (
-              // <img src={slice.image.images[0].url} alt='' />
-              <img style={{maxWidth: '100%', width: '100%', marginTop: '8%'}} src={slice.image.images[0].url} alt='' />
+              <ResponsiveImage style={{maxWidth: '100%', width: '100%', marginTop: '8%'}} images={slice.image.images[0].url} blur={slice.image.images[0].blur} />
+              // <img style={{maxWidth: '100%', width: '100%', marginTop: '8%'}} src={slice.image.images[0].url} alt='' />
             )}
             {/* {this.state.selectURL === 'groundwater-contamination-treatment-solutions' && slice.video_url && <iframe width='100%' height='315' src=' ' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture' allowfullscreen />} */}
           </div>
