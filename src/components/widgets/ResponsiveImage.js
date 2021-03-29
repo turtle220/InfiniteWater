@@ -118,7 +118,7 @@ export default injectSheet((theme) => ({
     // objectFit: 'contain',
     pointerEvents: 'none',
     // fontFamily: '"object-fit: cover;"', // object-fit polyfill
-    transform: 'scale(1.1)'
+    // transform: 'scale(1.1)'
   },
   imageBlur: {
     position: 'absolute',
