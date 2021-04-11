@@ -17,10 +17,12 @@ import ArticleHeroSlice from '../slices/ArticleHeroSlice'
 import ContactUsSlice from '../slices/ContactUsSlice'
 import VideoSlice from '../slices/VideoSlice'
 import EmbedSlice from '../slices/EmbedSlice'
-
+import BluePattern from '../../img/icons/BluePattern.jpg'
+import CharcoalPattern from '../../img/icons/CharcoalPattern.jpg'
 // import SmallFooter from '../SmallFooter'
 import NewFooter from '../NewFooter'
 import WavePattern from '../WavePattern'
+// const svgString = encodeURIComponent(renderToStaticMarkup(<BackgroundSVG />));
 
 const slices = {
   text_with_image_slice: (slice, key) => (
@@ -76,8 +78,8 @@ class Page extends PureComponent {
 
   render () {
     const { classes, page } = this.props
-    const pageSections = [{ slices: [], theme: page.theme }]
 
+    const pageSections = [{ slices: [], theme: page.theme }]
     if (
       page.type === 'article' &&
       !(first(page.slices) && first(page.slices).type === 'hero_slice')
@@ -117,13 +119,8 @@ class Page extends PureComponent {
       }
     })
 
-    const pageClasses = cn(classes.page, {
-      [classes.pageMargin]: this.addTopMargin(),
-      'light-theme': page.theme === 'light'
-    })
-
     const ch =
-      typeof window !== 'undefined' && window.location.href.split('/')[3]
+    typeof window !== 'undefined' && window.location.href.split('/')[3]
 
     if (ch === 'zh') {
       this.setState({ selectURL: page.url.split('/')[3] })
@@ -131,25 +128,42 @@ class Page extends PureComponent {
       this.setState({ selectURL: page.url.split('/')[2] })
     }
 
+    const pageClasses = cn(classes.page, {
+      [classes.pageMargin]: this.addTopMargin(),
+      'light-theme': page.theme === 'light'
+    })
+
     return [
       <div key='page' className={pageClasses}>
         {pageSections
           .filter((x) => x.slices.length > 0)
           .map((section, i) => (
-            <div key={i} className={cn(classes.pageSection, section.theme)}>
-              {i === 0 &&
-                page.uid === 'technology' && ( // HACK
-                  <div className={classes.patternContainer}>
-                    <WavePattern />
-                  </div>
-                )}
-              {section.slices}
+            <div>
+              {this.state.selectURL === 'case-studies' ? <div key={i} className={cn(classes.casePageSection, section.theme)}>
+                {i === 0 &&
+                  page.uid === 'technology' && ( // HACK
+                    <div className={classes.patternContainer}>
+                      <WavePattern />
+                    </div>
+                  )}
+                {section.slices}
+              </div> : <div key={i} className={cn(classes.pageSection, section.theme)}>
+                {i === 0 &&
+                  page.uid === 'technology' && ( // HACK
+                    <div className={classes.patternContainer}>
+                      <WavePattern />
+                    </div>
+                  )}
+                {section.slices}
+              </div>}
             </div>
+
           ))}
       </div>,
       <div>
         {this.state.selectURL !== 'contact' && <NewFooter />}
       </div>
+
       // <SmallFooter
       //   key='footer'
       //   theme={
@@ -175,24 +189,38 @@ export default injectSheet((theme) => ({
   pageMargin: {
     ...theme.mixin.headerOffset()
   },
+  casePageSection: {
+    backgroundImage: `url(${CharcoalPattern})`,
+    color: theme.colors.skin,
+    position: 'relative',
+    '& li:before': {
+      backgroundColor: theme.colors.skin,
+      backgroundImage: 'none !important'
+    }
+  },
   pageSection: {
     backgroundColor: theme.colors.primary,
     color: theme.colors.skin,
     position: 'relative',
     '& li:before': {
-      backgroundColor: theme.colors.skin
+      backgroundColor: theme.colors.skin,
+      backgroundImage: 'none !important'
     },
     '&.water': {
+      backgroundImage: `url(${BluePattern})`,
       backgroundColor: theme.colors.water,
       color: 'black',
       '& li:before': {
+        backgroundImage: `url(${BluePattern})`,
         backgroundColor: theme.colors.primary
       }
     },
     '&.light': {
+      backgroundImage: `url(${BluePattern})`,
       backgroundColor: theme.colors.skin,
       color: theme.colors.primary,
       '& li:before': {
+        backgroundImage: `url(${BluePattern})`,
         backgroundColor: theme.colors.primary
       }
     },

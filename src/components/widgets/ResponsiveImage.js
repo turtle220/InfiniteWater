@@ -91,7 +91,7 @@ export default injectSheet((theme) => ({
   container: {
     // height: '300px',
     position: 'relative',
-    width: '100%',
+    // width: '100%',
     display: 'block',
     overflow: 'hidden',
     marginLeft: 'auto',

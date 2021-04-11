@@ -42,7 +42,6 @@ class HomeHero extends Component {
     const {classes, page, openVideoDialog, closeVideoDialog} = this.props
 
     if (!page) return null
-
     return (
       <div className={classes.hero}>
         {page.hero_image && page.hero_image.images &&
@@ -174,6 +173,7 @@ export default flow([
         }
       },
       title: {
+        textShadow: '1px 1px 2px black, 0 0 25px, 0 0 5px #91adbc',
         lineHeight: 1.3,
         fontSize: theme.getRemValue(28),
         [theme.breakpoints.up('md')]: {
@@ -191,9 +191,11 @@ export default flow([
         }
       },
       copy: {
-        maxWidth: 500
+        maxWidth: 500,
+        fontSize: '24px'
       },
       button: {
+        fontSize: '24px',
         fontWeight: 700,
         display: 'inline-flex',
         alignItems: 'center',

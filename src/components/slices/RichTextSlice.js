@@ -604,6 +604,7 @@ class RichTextSlice extends PureComponent {
       })
     }
     console.log(slice.image, '------RichTextSlice:')
+
     return (
       <Section>
         <div

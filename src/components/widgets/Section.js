@@ -6,7 +6,7 @@ import * as breakpoints from '../../styles/breakpoints'
 class Section extends PureComponent {
   render () {
     const {classes, className, children, verticalPadding = true} = this.props
-    return <section className={cn(classes.section, {[classes.verticalPadding]: verticalPadding}, className)}>
+    return <section className={cn(classes.section, {[classes.verticalPadding]: verticalPadding}, className)} >
       {children}
     </section>
   }
