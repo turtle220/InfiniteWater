@@ -216,7 +216,7 @@ export default injectSheet((theme) => ({
       }
     },
     '&.light': {
-      backgroundImage: `url(${BluePattern})`,
+      // backgroundImage: `url(${BluePattern})`,
       backgroundColor: theme.colors.skin,
       color: theme.colors.primary,
       '& li:before': {

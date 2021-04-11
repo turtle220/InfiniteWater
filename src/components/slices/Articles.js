@@ -74,7 +74,7 @@ class Articles extends PureComponent {
 
         const articleContent = <div className={cn(classes.content, { reverse: i % 2 })}>
           <h5 className={classes.title}>{page.articles[i].title.text}</h5>
-          <p>{page.articles[i].date.text}</p>
+          <p style={{paddingLeft: '3%'}}>{page.articles[i].date.text}</p>
           <RichTextContainer className={classes.textcontainer} content={page.articles[i].summary.html} />
           {this.state.selectURL === 'blogs' ? (
             <CTA
