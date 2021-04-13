@@ -62,6 +62,7 @@ class Articles extends PureComponent {
               images={page.articles[i].hero_image.images}
               blur={page.articles[i].hero_image.blur}
               aspect={1}
+              imageClassName={classes.imageClass}
             />
           </Link>)
 
@@ -72,7 +73,7 @@ class Articles extends PureComponent {
             </video>
           </Link>
 
-        const articleContent = <div className={cn(classes.content, { reverse: i % 2 })}>
+        const articleContent = <div className={cn(classes.content, { reverse: i % 2 })} style={{paddingTop: '0px'}}>
           <h5 className={classes.title}>{page.articles[i].title.text}</h5>
           <p style={{paddingLeft: '3%'}}>{page.articles[i].date.text}</p>
           <RichTextContainer className={classes.textcontainer} content={page.articles[i].summary.html} />
@@ -163,6 +164,9 @@ export default injectSheet((theme) => ({
       flexWrap: 'none',
       display: 'block'
     }
+  },
+  imageClass: {
+    height: '80% !important'
   },
   textcontainer: {
     width: '100%',

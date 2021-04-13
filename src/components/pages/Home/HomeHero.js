@@ -173,7 +173,7 @@ export default flow([
         }
       },
       title: {
-        textShadow: '1px 1px 2px black, 0 0 25px, 0 0 5px #91adbc',
+        textShadow: '3px 3px 6px #607d8b, 0 0 20px, 0 0 30px #03a9f4',
         lineHeight: 1.3,
         fontSize: theme.getRemValue(28),
         [theme.breakpoints.up('md')]: {
@@ -191,7 +191,7 @@ export default flow([
         }
       },
       copy: {
-        maxWidth: 500,
+        maxWidth: 680,
         fontSize: '24px'
       },
       button: {
