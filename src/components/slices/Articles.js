@@ -177,7 +177,8 @@ export default injectSheet((theme) => ({
     WebkitBoxOrient: 'vertical',
     overflow: 'hidden',
     textOverflow: 'Ellipsis',
-    display: '-webkit-box'
+    display: '-webkit-box',
+    fontWeight: '100'
   },
   page: {
     width: '33.3%',
@@ -280,7 +281,8 @@ export default injectSheet((theme) => ({
     lineHeight: '1.5rem',
     width: '100%',
     paddingLeft: '3%',
-    paddingRight: '3%'
+    paddingRight: '3%',
+    fontWeight: 'bold'
   },
   link: {
     color: '#607d8b',
