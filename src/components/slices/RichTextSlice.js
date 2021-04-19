@@ -748,6 +748,9 @@ export default injectSheet((theme) => ({
     color: 'black',
     '&.withMargin': {
       marginTop: theme.spacing.md
+    },
+    '&:hover': {
+      color: 'black'
     }
   }
 }))(RichTextSlice)
