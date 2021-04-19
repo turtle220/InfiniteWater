@@ -631,15 +631,15 @@ class RichTextSlice extends PureComponent {
               ? TableGroundWater
               : this.state.selectURL === 'removal-glyphosate'
                 ? GlyphosateRemovalTable1
-                  : this.state.selectURL === 'mining-wash-down-for-safe-discharge'
-                    ? MiningWash
-                    : this.state.selectURL ===
+                : this.state.selectURL === 'mining-wash-down-for-safe-discharge'
+                  ? MiningWash
+                  : this.state.selectURL ===
                 'hydroxon-aop-advanced-oxidation-process--disinfection-innovation-for-water-recycling-and-reuse'
-                      ? HydroxTable
-                      : this.state.selectURL ===
+                    ? HydroxTable
+                    : this.state.selectURL ===
                 'hydroxon-aop-advanced-oxidation-process--disinfection-innovation-for-water-recycling-and-reuse-2'
-                        ? HydroxTable
-                        : null}
+                      ? HydroxTable
+                      : null}
             {slice.link_url && slice.link_text && (
               <CTA
                 className={cn(classes.link, {
