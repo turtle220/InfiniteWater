@@ -19,7 +19,7 @@ class RichTextSlice extends PureComponent {
       // tableIndustrial: [],
       multiplexConstruction: [],
       // peoplesLiberation: [],
-      treatmentGroundwater: [],
+      // treatmentGroundwater: [],
       manufacturingWastewater: [],
       manufacturingIndustry: [],
       miningWash: [],
@@ -65,13 +65,13 @@ class RichTextSlice extends PureComponent {
         this.setState({ multiplexConstruction: data.records })
       })
 
-    fetch(
-      'https://api.airtable.com/v0/appSiM4BMjfa2tOwy/treatment-groundwater?api_key=keySWJROaGROOvXyK&view=Grid%20view'
-    )
-      .then((resp) => resp.json())
-      .then((data) => {
-        this.setState({ treatmentGroundwater: data.records })
-      })
+    // fetch(
+    //   'https://api.airtable.com/v0/appSiM4BMjfa2tOwy/treatment-groundwater?api_key=keySWJROaGROOvXyK&view=Grid%20view'
+    // )
+    //   .then((resp) => resp.json())
+    //   .then((data) => {
+    //     this.setState({ treatmentGroundwater: data.records })
+    //   })
 
     fetch(
       'https://api.airtable.com/v0/appSiM4BMjfa2tOwy/manufacturing-wastewater?api_key=keySWJROaGROOvXyK&view=Grid%20view'
@@ -199,36 +199,36 @@ class RichTextSlice extends PureComponent {
       </div>
     )
 
-    const TreatmentGroundWater = (
-      <table
-        style={{
-          width: '100%',
-          backgroundColor: '#d2b8b833',
-          borderCollapse: 'collapse'
-        }}
-      >
-        <thead>
-          <tr style={{ backgroundColor: '#a3a3ca' }}>
-            <th style={{ textAlign: 'left' }}>Indicators</th>
-            <th>Raw</th>
-            <th>Unit</th>
-            <th>Treated</th>
-          </tr>
-        </thead>
+    // const TreatmentGroundWater = (
+    //   <table
+    //     style={{
+    //       width: '100%',
+    //       backgroundColor: '#d2b8b833',
+    //       borderCollapse: 'collapse'
+    //     }}
+    //   >
+    //     <thead>
+    //       <tr style={{ backgroundColor: '#a3a3ca' }}>
+    //         <th style={{ textAlign: 'left' }}>Indicators</th>
+    //         <th>Raw</th>
+    //         <th>Unit</th>
+    //         <th>Treated</th>
+    //       </tr>
+    //     </thead>
 
-        {this.state.treatmentGroundwater &&
-          this.state.treatmentGroundwater.map((key, article) => {
-            return (
-              <tr>
-                <td style={{ textAlign: 'left' }}>{key.fields.Indicators}</td>
-                <td style={{ textAlign: 'center' }}>{key.fields.Raw}</td>
-                <td style={{ textAlign: 'center' }}>{key.fields.Unit}</td>
-                <td style={{ textAlign: 'center' }}>{key.fields.Treated}</td>
-              </tr>
-            )
-          })}
-      </table>
-    )
+    //     {this.state.treatmentGroundwater &&
+    //       this.state.treatmentGroundwater.map((key, article) => {
+    //         return (
+    //           <tr>
+    //             <td style={{ textAlign: 'left' }}>{key.fields.Indicators}</td>
+    //             <td style={{ textAlign: 'center' }}>{key.fields.Raw}</td>
+    //             <td style={{ textAlign: 'center' }}>{key.fields.Unit}</td>
+    //             <td style={{ textAlign: 'center' }}>{key.fields.Treated}</td>
+    //           </tr>
+    //         )
+    //       })}
+    //   </table>
+    // )
     const ManufacturingWasteWater = (
       <div style={{ display: 'block' }}>
         <div
@@ -631,8 +631,6 @@ class RichTextSlice extends PureComponent {
               ? TableGroundWater
               : this.state.selectURL === 'removal-glyphosate'
                 ? GlyphosateRemovalTable1
-                : this.state.selectURL === 'treatment-groundwater-treatment'
-                  ? TreatmentGroundWater
                   : this.state.selectURL === 'mining-wash-down-for-safe-discharge'
                     ? MiningWash
                     : this.state.selectURL ===
@@ -747,7 +745,7 @@ export default injectSheet((theme) => ({
   },
   link: {
     display: 'block',
-    color: theme.colors.water,
+    color: 'black',
     '&.withMargin': {
       marginTop: theme.spacing.md
     }
