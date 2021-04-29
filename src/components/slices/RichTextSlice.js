@@ -663,7 +663,7 @@ class RichTextSlice extends PureComponent {
                       </span>
                     </div>
                   </div>
-                  : <video style={{width: '10%'}} controls>
+                  : <video style={{width: '100%', paddingTop: '10%'}} controls>
                     <source src={slice.video_url.url} alt='' />
                   </video> }
               </div>
