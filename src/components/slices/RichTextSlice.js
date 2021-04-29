@@ -654,8 +654,8 @@ class RichTextSlice extends PureComponent {
               // slice.video_url.url
               // <iframe style='max-width: 85.5%; padding-left: 14.5%' width='100%' height='315' src='https://www.youtube.com/embed/oI3QI5SRBFY' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture' allowfullscreen />
               <div>
-                <iframe style={{maxWidth: '100%', width: '100%', height: '315px', marginTop: '8%'}} allowfullscreen src='https://www.youtube.com/embed/oI3QI5SRBFY' alt='' />
-                <div style={{textAlign: 'center', color: 'black', fontWeight: 'bold'}}>
+                { this.state.selectURL === 'groundwater-contamination-treatment-solutions' ? <iframe style={{maxWidth: '100%', width: '100%', height: '315px', marginTop: '8%'}} allowfullscreen src='https://www.youtube.com/embed/oI3QI5SRBFY' alt='' />
+                : <iframe style={{maxWidth: '100%', width: '100%', height: '315px', marginTop: '8%'}} allowfullscreen src={slice.video_url.url} alt='' /> }                <div style={{textAlign: 'center', color: 'black', fontWeight: 'bold'}}>
                   <span>
                     Great Artesian Basin Coordinating Committee
                   </span>
