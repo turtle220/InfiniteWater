@@ -603,7 +603,7 @@ class RichTextSlice extends PureComponent {
           typeof window !== 'undefined' && window.location.href.split('/')[4]
       })
     }
-    console.log(slice.image, '------RichTextSlice:')
+    console.log(slice.video_url, '------RichTextSlice:')
 
     return (
       <Section>
@@ -663,7 +663,9 @@ class RichTextSlice extends PureComponent {
                       </span>
                     </div>
                   </div>
-                  : <iframe style={{maxWidth: '100%', width: '100%', height: '315px', marginTop: '8%'}} allowfullscreen src={slice.video_url.url} alt='' /> }
+                  : <video style={{width: '10%'}} controls>
+                    <source src={slice.video_url.url} alt='' />
+                  </video>  }
               </div>
             )}
             { slice.image && slice.image.images && (
