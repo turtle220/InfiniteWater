@@ -13,21 +13,22 @@ class RichTextSlice extends PureComponent {
   constructor (props) {
     super(props)
     this.state = {
-      // municipal: [],
       arsenicGroundwater: [],
       glyphosateRemoval: [],
-      // tableIndustrial: [],
       multiplexConstruction: [],
+      // municipal: [],
+      // tableIndustrial: [],
       // peoplesLiberation: [],
       // treatmentGroundwater: [],
+      // glyphosateRemovaltable2: [],
       manufacturingWastewater: [],
       manufacturingIndustry: [],
       miningWash: [],
       metalloids: [],
-      // glyphosateRemovaltable2: [],
       hydrox: [],
       selectTable: '',
-      selectURL: ''
+      selectURL: '',
+      selectArticle: ''
     }
   }
 
@@ -484,8 +485,8 @@ class RichTextSlice extends PureComponent {
           <span style={{ textAlign: 'center' }}>Treated water</span>
           <span
             style={{
-              fontSize: '30px',
               // marginLeft: "20.3%",
+              fontSize: '30px',
               marginTop: '24px',
               position: 'absolute',
               zIndex: '1',
@@ -499,8 +500,8 @@ class RichTextSlice extends PureComponent {
           </span>
           <span
             style={{
-              fontSize: '16px',
               // marginLeft: "20.3%",
+              fontSize: '16px',
               marginTop: '58px',
               position: 'absolute',
               zIndex: '1',
@@ -594,6 +595,18 @@ class RichTextSlice extends PureComponent {
 
     if (ch === 'zh') {
       this.setState({
+        selectArticle:
+          typeof window !== 'undefined' && window.location.href.split('/')[4]
+      })
+    } else {
+      this.setState({
+        selectArticle:
+          typeof window !== 'undefined' && window.location.href.split('/')[3]
+      })
+    }
+
+    if (ch === 'zh') {
+      this.setState({
         selectURL:
           typeof window !== 'undefined' && window.location.href.split('/')[5]
       })
@@ -603,20 +616,20 @@ class RichTextSlice extends PureComponent {
           typeof window !== 'undefined' && window.location.href.split('/')[4]
       })
     }
-    console.log(slice.video_url, '------RichTextSlice:')
+    console.log(this.state.selectArticle, '------RichTextSlice:')
 
     return (
-      <Section>
-        <div
-          className={cn(
-            splitIntoColumn
-              ? classes.columns
-              : fullWidth
-                ? classes.fullWidth
-                : classes.container,
-            className
-          )}
-        >
+      <Section className={cn(this.state.selectArticle === 'article' ? classes.section : '', '')}>
+        <div className={cn(splitIntoColumn ? classes.columns : (this.state.selectURL === 'treatment-groundwater-treatment' ||
+          this.state.selectURL === 'manufacturing-wastewater-discharge-treatment' ||
+          this.state.selectURL === 'wastewater-treatment-manufacturing-industry' ||
+          this.state.selectURL === 'mining-wash-down-for-safe-discharge' ||
+          this.state.selectURL === 'treatment-for-removal-of-heavy-metals-and-metalloids' ||
+          this.state.selectURL === 'qingyuan-industrial-park1111' ||
+          this.state.selectURL === 'qingyuan-industrial-park111' ||
+          this.state.selectURL === 'qingyuan-industrial-park11' ||
+          this.state.selectURL === 'multiplex-construction' ||
+          this.state.selectURL === 'peoples-liberation-army-of-china') && fullWidth ? classes.fullWidth : fullWidth ? classes.articleFullWidth : classes.container, className)}>
           <div className={cn(hasImages && classes.floatLeft)}>
             {slice.text && (
               <RichTextContainer
@@ -671,7 +684,6 @@ class RichTextSlice extends PureComponent {
             { slice.image && slice.image.images && (
               <ResponsiveImage className={classes.image} images={slice.image.images} blur={slice.image.blur} aspect={1} />
             )}
-
             {/* {this.state.selectURL === 'groundwater-contamination-treatment-solutions' && slice.video_url && <iframe width='100%' height='315' src=' ' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture' allowfullscreen />} */}
           </div>
           {hasImages && (
@@ -693,6 +705,10 @@ class RichTextSlice extends PureComponent {
 }
 
 export default injectSheet((theme) => ({
+  section: {
+    paddingTop: '0px !important',
+    paddingBottom: '0px !important'
+  },
   floatLeft: {
     float: 'left',
     width: '100%',
@@ -718,7 +734,7 @@ export default injectSheet((theme) => ({
   },
   container: {
     '&::after': {
-      content: '""',
+      content: '',
       clear: 'both',
       display: 'table'
     }
@@ -727,7 +743,18 @@ export default injectSheet((theme) => ({
     width: '100%',
     maxWidth: 860,
     marginLeft: 'auto',
-    marginRight: 'auto'
+    marginRight: 'auto',
+    padding: '3%'
+    // backgroundColor: 'white'
+  },
+  articleFullWidth: {
+    width: '100%',
+    maxWidth: 860,
+    marginLeft: 'auto',
+    marginRight: 'auto',
+    padding: '3%',
+    backgroundColor: 'white',
+    display: 'flex'
   },
   columns: {
     columns: '400px 2',

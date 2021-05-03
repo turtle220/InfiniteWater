@@ -32,6 +32,8 @@ router.use('/content', contentRoute)
 router.use('/contact', contactRoute)
 router.use('/subscribe', subscribeRoute)
 
+// /
+
 router.get('*', (req, res, next) => res.status(404).send({ error: 'Not Found' }))
 
 export default router
