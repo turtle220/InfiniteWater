@@ -29,12 +29,16 @@ export default injectSheet(theme => ({
   },
   image: {
     width: '100%',
-    marginBottom: theme.spacing.md,
+    backgroundColor: 'white',
+    // marginBottom: theme.spacing.md,
     [theme.breakpoints.up('sm')]: {
-      marginBottom: theme.spacing.lg
+      // marginBottom: theme.spacing.lg
+      backgroundColor: 'white'
     }
   },
   title: {
-    marginBottom: 0
+    marginBottom: 0,
+    backgroundColor: 'white',
+    padding: '3%'
   }
 }))(ArticleHeroSlice)

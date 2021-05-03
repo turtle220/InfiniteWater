@@ -213,7 +213,8 @@ export default injectSheet((theme) => ({
       '& li:before': {
         backgroundImage: `url(${BluePattern})`,
         backgroundColor: theme.colors.primary
-      }
+      },
+      paddingBottom: '3%'
     },
     '&.light': {
       // backgroundImage: `url(${BluePattern})`,
@@ -222,7 +223,8 @@ export default injectSheet((theme) => ({
       '& li:before': {
         backgroundImage: `url(${BluePattern})`,
         backgroundColor: theme.colors.primary
-      }
+      },
+      paddingBottom: '3%'
     },
     '& section:last-child': {
       marginBottom: 0
