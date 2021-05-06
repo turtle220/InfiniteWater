@@ -620,16 +620,7 @@ class RichTextSlice extends PureComponent {
 
     return (
       <Section className={cn(this.state.selectArticle === 'article' ? classes.section : '', '')}>
-        <div className={cn(splitIntoColumn ? classes.columns : (this.state.selectURL === 'treatment-groundwater-treatment' ||
-          this.state.selectURL === 'manufacturing-wastewater-discharge-treatment' ||
-          this.state.selectURL === 'wastewater-treatment-manufacturing-industry' ||
-          this.state.selectURL === 'mining-wash-down-for-safe-discharge' ||
-          this.state.selectURL === 'treatment-for-removal-of-heavy-metals-and-metalloids' ||
-          this.state.selectURL === 'qingyuan-industrial-park1111' ||
-          this.state.selectURL === 'qingyuan-industrial-park111' ||
-          this.state.selectURL === 'qingyuan-industrial-park11' ||
-          this.state.selectURL === 'multiplex-construction' ||
-          this.state.selectURL === 'peoples-liberation-army-of-china') && fullWidth ? classes.fullWidth : fullWidth ? classes.articleFullWidth : classes.container, className)}>
+        <div className={cn(splitIntoColumn ? classes.columns : fullWidth ? classes.articleFullWidth : classes.container, className)}>
           <div className={cn(hasImages && classes.floatLeft)}>
             {slice.text && (
               <RichTextContainer

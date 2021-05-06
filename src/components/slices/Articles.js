@@ -30,6 +30,7 @@ class Articles extends PureComponent {
   }
   componentWillReceiveProps () {
     this.changePage(1)
+    this.setState({current_page: 1})
   }
   prevPage = () => {
     if (this.state.current_page > 1) {
@@ -75,7 +76,7 @@ class Articles extends PureComponent {
 
         const articleContent = <div className={cn(classes.content, { reverse: i % 2 })} style={{paddingTop: '0px'}}>
           <h5 className={classes.title}>{page.articles[i].title.text}</h5>
-          <p style={{paddingLeft: '3%'}}>{page.articles[i].date.text}</p>
+          {/* <p style={{paddingLeft: '3%'}}>{page.articles[i].date.text}</p> */}
           <RichTextContainer className={classes.textcontainer} content={page.articles[i].summary.html} />
           {this.state.selectURL === 'blogs' ? (
             <CTA
@@ -138,7 +139,6 @@ class Articles extends PureComponent {
       <Section className={classes.section}>
         {this.state.articleArray}
         <div className={classes.pagesection}>
-
           <div onClick={this.prevPage} style={{'visibility': this.state.prevflag}} className={classes.prevpage}>
             <Symbol icon={BackButton} style={{width: '51px', height: '51px', color: 'white'}} />
             <span style={{cursor: 'pointer', marginTop: '2%', color: 'white'}} id='btn_prev'>Prev</span>
@@ -235,6 +235,7 @@ export default injectSheet((theme) => ({
     '@media only screen and (max-width: 420px)': {
       width: '90% !important'
     }
+    // backgroundColor: 'white'
   },
   imageContainer: {
     flex: '1 1 0%',
